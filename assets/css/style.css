@@ -716,3 +716,136 @@ input{font-family:inherit;}
   .community-grid{grid-template-columns:1fr;grid-auto-rows:220px;}
   .community-card--wide{grid-column:span 1;}
 }
+
+
+
+/* =========================================================
+   REAL IMAGES & VIDEO ADDITIONS
+   ========================================================= */
+
+/* Hero background image */
+.hero__bg-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  opacity:.18;
+  filter:grayscale(.3);
+  animation:ken-burns 20s ease-in-out infinite alternate;
+}
+@keyframes ken-burns{
+  0%{transform:scale(1) translateY(0);}
+  100%{transform:scale(1.08) translateY(-2%);}
+}
+
+/* Hero model images */
+.hero__model{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(380px, 60vw);
+  height:auto;
+  border-radius:var(--radius-lg);
+  object-fit:cover;
+  box-shadow:0 40px 80px rgba(10,10,10,.25);
+  animation:model-float 6s ease-in-out infinite;
+}
+@keyframes model-float{
+  0%,100%{transform:translate(-50%,-50%) rotate(-1deg);}
+  50%{transform:translate(-50%,-52%) rotate(1deg);}
+}
+.hero__model-2{
+  position:absolute;bottom:8%;right:6%;
+  width:min(160px, 22vw);
+  height:auto;
+  border-radius:var(--radius-md);
+  object-fit:cover;
+  box-shadow:0 20px 40px rgba(10,10,10,.2);
+  animation:model-float 7s ease-in-out infinite;
+  animation-delay:-2s;
+}
+
+/* Product card images */
+.product-card__img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  transition:transform var(--dur-med) var(--ease-soft);
+}
+.product-card:hover .product-card__img{
+  transform:scale(1.06);
+}
+.product-card__media{
+  position:relative;
+  overflow:hidden;
+}
+
+/* Category tile images */
+.category-tile__img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 1.2s var(--ease-out);
+}
+.category-tile:hover .category-tile__img{
+  transform:scale(1.1);
+}
+/* Override the gradient pseudo-elements for image tiles */
+.category-tile--1::before,
+.category-tile--2::before,
+.category-tile--3::before,
+.category-tile--4::before{
+  display:none;
+}
+
+/* Community card images */
+.community-card__media img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 6s ease-in-out;
+}
+.community-card:hover .community-card__media img{
+  transform:scale(1.08);
+}
+
+/* Campaign film video */
+.film__video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.film__overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(10,10,10,.65), rgba(10,10,10,.4));
+  z-index:1;
+}
+.film__content{
+  z-index:2;
+}
+/* hide old gradient layers when video is present */
+.film__layers{display:none;}
+
+/* Responsive adjustments for images */
+@media (max-width: 1080px){
+  .hero__model{
+    position:relative;top:auto;left:auto;
+    transform:none;
+    margin:0 auto;
+    width:min(320px, 80vw);
+    animation:none;
+  }
+  .hero__model-2{display:none;}
+}
+@media (max-width: 760px){
+  .hero__model{
+    width:min(260px, 70vw);
+    border-radius:var(--radius-md);
+  }
+}
+
+
+
+/* Newsletter background video */
+.newsletter{position:relative;overflow:hidden;}
+.newsletter__bg-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  opacity:.15;
+  filter:grayscale(.4);
+}
+.newsletter__inner{position:relative;z-index:2;}

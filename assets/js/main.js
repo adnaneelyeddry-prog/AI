@@ -419,46 +419,49 @@
   updateLabPreview();
 
   /* ---------------------------------------------------------
-     Campaign "film" — animated ambient loop with play/pause
-     (CSS-driven ambient motion; button toggles a simulated
-     progress timeline so it behaves like a real video player)
+     Campaign "film" — real video play/pause with progress bar
   --------------------------------------------------------- */
   const filmPlay = $('#filmPlay');
-  const filmPanel = $('#filmPanel');
+  const filmVideo = $('#filmVideo');
   const filmProgress = $('#filmProgress');
   const filmPlayLabel = $('#filmPlayLabel');
   let filmPlaying = false;
-  let filmRAF = null;
-  let filmStart = 0;
-  let filmElapsed = 0;
-  const FILM_DURATION = 16000; // ms, matches ambient loop pacing
 
-  function filmTick(now) {
-    if (!filmStart) filmStart = now;
-    const elapsed = filmElapsed + (now - filmStart);
-    const pct = (elapsed % FILM_DURATION) / FILM_DURATION * 100;
-    if (filmProgress) filmProgress.style.width = pct + '%';
-    filmRAF = requestAnimationFrame(filmTick);
-  }
-
-  if (filmPlay) {
+  if (filmPlay && filmVideo) {
     filmPlay.addEventListener('click', () => {
       filmPlaying = !filmPlaying;
       filmPlay.setAttribute('aria-pressed', String(filmPlaying));
       filmPlayLabel.textContent = filmPlaying ? 'Playing…' : 'Play film';
-      filmPanel.style.animationPlayState = filmPlaying ? 'running' : 'paused';
-      $$('.film__layer', filmPanel).forEach((layer) => {
-        layer.style.animationPlayState = filmPlaying ? 'running' : 'paused';
-      });
 
       if (filmPlaying) {
-        filmStart = 0;
-        filmRAF = requestAnimationFrame(filmTick);
+        filmVideo.play();
       } else {
-        filmElapsed += performance.now() - (filmStart || performance.now());
-        cancelAnimationFrame(filmRAF);
+        filmVideo.pause();
       }
     });
+
+    // Update progress bar
+    filmVideo.addEventListener('timeupdate', () => {
+      if (filmProgress && filmVideo.duration) {
+        const pct = (filmVideo.currentTime / filmVideo.duration) * 100;
+        filmProgress.style.width = pct + '%';
+      }
+    });
+
+    // Auto-play on scroll into view
+    if ('IntersectionObserver' in window) {
+      const filmIO = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !filmPlaying) {
+            filmVideo.play();
+            filmPlaying = true;
+            filmPlay.setAttribute('aria-pressed', 'true');
+            filmPlayLabel.textContent = 'Playing…';
+          }
+        });
+      }, { threshold: 0.5 });
+      filmIO.observe(filmVideo);
+    }
   }
 
   /* ---------------------------------------------------------
