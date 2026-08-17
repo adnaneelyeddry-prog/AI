@@ -404,6 +404,18 @@
   });
 
   /* ---------------------------------------------------------
+     SCROLL PROGRESS BAR
+  --------------------------------------------------------- */
+  const scrollProgress = document.getElementById('scrollProgress');
+  if (scrollProgress) {
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      scrollProgress.style.width = scrolled + '%';
+    }, { passive: true });
+  }
+
+  /* ---------------------------------------------------------
      PARALLAX ELEMENTS on scroll (subtle depth)
   --------------------------------------------------------- */
   const parallaxEls = $$('.glow-orb');

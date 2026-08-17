@@ -1299,3 +1299,24 @@ input, textarea { font-family: inherit; }
   html { scroll-behavior: auto; }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
+
+
+/* ---------- Scroll Progress Bar ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan), var(--neon-purple));
+  z-index: 9999;
+  transition: width .05s linear;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* ---------- Button Small ---------- */
+.btn--sm {
+  padding: .65rem 1.3rem;
+  font-size: .82rem;
+}
