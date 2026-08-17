@@ -5,41 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shipping & Returns — VRNT</title>
 <meta name="description" content="Free shipping over $60. Easy 30-day returns. Learn everything about VRNT delivery times and exchange policies." />
+<meta name="theme-color" content="#050505" />
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Styles -->
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/pages.css" />
 </head>
 <body>
 
-<!-- Header -->
-<div class="topbar">
-  <div class="topbar__marquee" aria-hidden="true">
-    <div class="topbar__track">
-      <span>FREE SHIPPING OVER $60</span><span>NEW DROP EVERY FRIDAY</span><span>STUDENT DISCOUNT 15% — CODE VRNT15</span><span>30-DAY EASY RETURNS</span>
-      <span>FREE SHIPPING OVER $60</span><span>NEW DROP EVERY FRIDAY</span><span>STUDENT DISCOUNT 15% — CODE VRNT15</span><span>30-DAY EASY RETURNS</span>
-    </div>
-  </div>
+<!-- ============ NOISE OVERLAY ============ -->
+<div class="noise" aria-hidden="true"></div>
+
+<!-- ============ AMBIENT GLOW ORBS ============ -->
+<div class="glow-orbs" aria-hidden="true">
+  <span class="glow-orb glow-orb--1"></span>
+  <span class="glow-orb glow-orb--2"></span>
+  <span class="glow-orb glow-orb--3"></span>
 </div>
 
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor cursor--dot" id="cursorDot"></div>
+
+<!-- ============ HEADER ============ -->
 <header class="site-header" id="siteHeader">
   <div class="site-header__inner">
-    <a href="index.html" class="logo">
-      <span class="logo__mark" aria-hidden="true"></span>
-      <span class="logo__word">VRNT<span class="logo__dot">.</span></span>
+    <a href="index.html" class="logo" data-hover>
+      <span class="logo__text">VRNT</span><span class="logo__dot">.</span>
     </a>
+
     <nav class="main-nav" aria-label="Primary">
       <ul>
-        <li><a href="index.html#drops">New Drops</a></li>
-        <li><a href="index.html#categories">Shop</a></li>
-        <li><a href="index.html#lab">Variant Lab</a></li>
-        <li><a href="index.html#bestsellers">Bestsellers</a></li>
-        <li><a href="index.html#community">Community</a></li>
+        <li><a href="index.html#drops" data-hover>New Drops</a></li>
+        <li><a href="index.html#categories" data-hover>Shop</a></li>
+        <li><a href="index.html#lookbook" data-hover>Lookbook</a></li>
+        <li><a href="index.html#testimonials" data-hover>Reviews</a></li>
+        <li><a href="index.html#newsletter" data-hover>Join</a></li>
       </ul>
     </nav>
+
     <div class="header-actions">
-      <a href="index.html" class="icon-btn" aria-label="Home">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4h4v4a1 1 0 001 1h3a1 1 0 001-1V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <a href="index.html" class="icon-btn" aria-label="Home" data-hover>
+        <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4h4v4a1 1 0 001 1h3a1 1 0 001-1V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
   </div>
@@ -49,7 +61,7 @@
   <!-- Page Hero -->
   <section class="page-hero">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a> <span>/</span> <span>Shipping & Returns</span>
+      <a href="index.html" data-hover>Home</a> <span>/</span> <span>Shipping & Returns</span>
     </nav>
     <h1>Shipping & Returns</h1>
     <p>We ship fast, keep it simple, and make returns painless. Here's everything you need to know.</p>
@@ -61,28 +73,28 @@
     <div class="info-grid">
       <div class="info-card">
         <div class="info-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M5 18h14M3 6h18v10H3z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
         <h4>Free Standard Shipping</h4>
         <p>On all orders over $60. Arrives in 4–7 business days to most locations worldwide.</p>
       </div>
       <div class="info-card">
         <div class="info-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
         </div>
         <h4>Express Delivery</h4>
         <p>Need it faster? Express ships in 1–3 business days for a flat rate of $12.</p>
       </div>
       <div class="info-card">
         <div class="info-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
         </div>
         <h4>30-Day Returns</h4>
         <p>Changed your mind? Return unworn items within 30 days for a full refund — no questions asked.</p>
       </div>
       <div class="info-card">
         <div class="info-card__icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4l-6 6M17 4h6v6M1 20l6-6M7 20H1v-6"/></svg>
         </div>
         <h4>Free Exchanges</h4>
         <p>Wrong size? Exchange for free. We'll even cover the return shipping label.</p>
@@ -147,33 +159,56 @@
   </div>
 </main>
 
-<!-- Footer -->
+<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
-  <div class="site-footer__top">
-    <div class="site-footer__brand">
-      <a href="index.html" class="logo logo--footer">
-        <span class="logo__mark" aria-hidden="true"></span>
-        <span class="logo__word">VRNT<span class="logo__dot">.</span></span>
-      </a>
-      <p>Streetwear for a generation with more than one side.</p>
+  <div class="site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a href="index.html" class="logo" data-hover><span class="logo__text">VRNT</span><span class="logo__dot">.</span></a>
+        <p>Streetwear for a generation with more than one side. Designed, printed, and shipped in limited variants.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram" data-hover>IG</a>
+          <a href="#" aria-label="TikTok" data-hover>TT</a>
+          <a href="#" aria-label="X" data-hover>X</a>
+          <a href="#" aria-label="YouTube" data-hover>YT</a>
+        </div>
+      </div>
+      <div class="site-footer__col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="index.html#drops" data-hover>New Drops</a></li>
+          <li><a href="index.html#categories" data-hover>Categories</a></li>
+          <li><a href="index.html#lookbook" data-hover>Lookbook</a></li>
+          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h5>Help</h5>
+        <ul>
+          <li><a href="shipping-returns.html" data-hover>Shipping & Returns</a></li>
+          <li><a href="track-order.html" data-hover>Track Order</a></li>
+          <li><a href="contact.html" data-hover>Contact Us</a></li>
+          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html" data-hover>About VRNT</a></li>
+          <li><a href="sustainability.html" data-hover>Sustainability</a></li>
+          <li><a href="careers.html" data-hover>Careers</a></li>
+          <li><a href="index.html#testimonials" data-hover>Community</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="site-footer__col">
-      <h5>Shop</h5>
-      <ul><li><a href="index.html#drops">New Drops</a></li><li><a href="index.html#categories">Categories</a></li><li><a href="index.html#lab">Variant Lab</a></li><li><a href="index.html#bestsellers">Bestsellers</a></li></ul>
-    </div>
-    <div class="site-footer__col">
-      <h5>Help</h5>
-      <ul><li><a href="shipping-returns.html">Shipping & Returns</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="track-order.html">Track Order</a></li><li><a href="contact.html">Contact Us</a></li></ul>
-    </div>
-    <div class="site-footer__col">
-      <h5>Company</h5>
-      <ul><li><a href="about.html">About VRNT</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="careers.html">Careers</a></li><li><a href="index.html#community">Community</a></li></ul>
-    </div>
-  </div>
-  <div class="site-footer__bottom">
-    <p>&copy; 2026 VRNT. All rights reserved.</p>
-    <div class="payment-row" aria-hidden="true">
-      <span>VISA</span><span>MC</span><span>AMEX</span><span>PAY</span>
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 VRNT. All rights reserved. Built for the culture.</p>
+      <div class="payment-row">
+        <span class="payment-pill">VISA</span>
+        <span class="payment-pill">MC</span>
+        <span class="payment-pill">AMEX</span>
+        <span class="payment-pill">APPLE PAY</span>
+      </div>
     </div>
   </div>
 </footer>

@@ -5,40 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Size Guide — VRNT</title>
 <meta name="description" content="Find your perfect fit with the VRNT t-shirt size chart. Detailed measurements for all fits: Regular, Oversized, Boxy, and Relaxed." />
+<meta name="theme-color" content="#050505" />
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Styles -->
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/pages.css" />
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar__marquee" aria-hidden="true">
-    <div class="topbar__track">
-      <span>FREE SHIPPING OVER $60</span><span>NEW DROP EVERY FRIDAY</span><span>STUDENT DISCOUNT 15% — CODE VRNT15</span><span>30-DAY EASY RETURNS</span>
-      <span>FREE SHIPPING OVER $60</span><span>NEW DROP EVERY FRIDAY</span><span>STUDENT DISCOUNT 15% — CODE VRNT15</span><span>30-DAY EASY RETURNS</span>
-    </div>
-  </div>
+<!-- ============ NOISE OVERLAY ============ -->
+<div class="noise" aria-hidden="true"></div>
+
+<!-- ============ AMBIENT GLOW ORBS ============ -->
+<div class="glow-orbs" aria-hidden="true">
+  <span class="glow-orb glow-orb--1"></span>
+  <span class="glow-orb glow-orb--2"></span>
+  <span class="glow-orb glow-orb--3"></span>
 </div>
 
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor cursor--dot" id="cursorDot"></div>
+
+<!-- ============ HEADER ============ -->
 <header class="site-header" id="siteHeader">
   <div class="site-header__inner">
-    <a href="index.html" class="logo">
-      <span class="logo__mark" aria-hidden="true"></span>
-      <span class="logo__word">VRNT<span class="logo__dot">.</span></span>
+    <a href="index.html" class="logo" data-hover>
+      <span class="logo__text">VRNT</span><span class="logo__dot">.</span>
     </a>
+
     <nav class="main-nav" aria-label="Primary">
       <ul>
-        <li><a href="index.html#drops">New Drops</a></li>
-        <li><a href="index.html#categories">Shop</a></li>
-        <li><a href="index.html#lab">Variant Lab</a></li>
-        <li><a href="index.html#bestsellers">Bestsellers</a></li>
-        <li><a href="index.html#community">Community</a></li>
+        <li><a href="index.html#drops" data-hover>New Drops</a></li>
+        <li><a href="index.html#categories" data-hover>Shop</a></li>
+        <li><a href="index.html#lookbook" data-hover>Lookbook</a></li>
+        <li><a href="index.html#testimonials" data-hover>Reviews</a></li>
+        <li><a href="index.html#newsletter" data-hover>Join</a></li>
       </ul>
     </nav>
+
     <div class="header-actions">
-      <a href="index.html" class="icon-btn" aria-label="Home">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4h4v4a1 1 0 001 1h3a1 1 0 001-1V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <a href="index.html" class="icon-btn" aria-label="Home" data-hover>
+        <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4h4v4a1 1 0 001 1h3a1 1 0 001-1V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
   </div>
@@ -47,7 +60,7 @@
 <main>
   <section class="page-hero">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a> <span>/</span> <span>Size Guide</span>
+      <a href="index.html" data-hover>Home</a> <span>/</span> <span>Size Guide</span>
     </nav>
     <h1>Size Guide</h1>
     <p>All measurements in inches. Our tees run true-to-size unless noted as Oversized or Boxy fit.</p>
@@ -57,23 +70,23 @@
 
     <div class="measure-guide">
       <div class="measure-guide__visual">
-        <svg class="tee-visual" style="--tee-color:#d6ff3d; width:60%;" viewBox="0 0 200 220">
-          <path d="M30,60 L70,28 L85,45 Q100,62 115,45 L130,28 L170,60 L150,97 L140,80 L140,210 L60,210 L60,80 L50,97 Z" fill="var(--tee-color)"/>
+        <svg class="tee-visual" viewBox="0 0 200 220">
+          <path d="M30,60 L70,28 L85,45 Q100,62 115,45 L130,28 L170,60 L150,97 L140,80 L140,210 L60,210 L60,80 L50,97 Z" fill="#00ff88" opacity="0.15" stroke="#00ff88" stroke-width="1"/>
           <!-- measurement lines -->
-          <line x1="60" y1="220" x2="140" y2="220" stroke="#ff3d6e" stroke-width="2" stroke-dasharray="4"/>
-          <text x="100" y="235" text-anchor="middle" font-size="10" fill="#ff3d6e" font-weight="700">A — Width</text>
-          <line x1="150" y1="80" x2="150" y2="210" stroke="#3d6bff" stroke-width="2" stroke-dasharray="4"/>
-          <text x="165" y="150" font-size="10" fill="#3d6bff" font-weight="700" transform="rotate(90 165 150)">B — Length</text>
+          <line x1="60" y1="220" x2="140" y2="220" stroke="#00ff88" stroke-width="2" stroke-dasharray="4"/>
+          <text x="100" y="235" text-anchor="middle" font-size="10" fill="#00ff88" font-weight="700">A — Width</text>
+          <line x1="150" y1="80" x2="150" y2="210" stroke="#00ff88" stroke-width="2" stroke-dasharray="4"/>
+          <text x="165" y="150" font-size="10" fill="#00ff88" font-weight="700" transform="rotate(90 165 150)">B — Length</text>
         </svg>
       </div>
       <div>
-        <h3 style="margin-top:0;">How to Measure</h3>
+        <h3>How to Measure</h3>
         <ul class="measure-guide__list">
           <li><strong>A</strong> Width — Lay flat, measure armpit to armpit across the chest.</li>
           <li><strong>B</strong> Length — From the highest point of the shoulder to the bottom hem.</li>
           <li><strong>C</strong> Sleeve — From shoulder seam to the end of the sleeve.</li>
         </ul>
-        <p style="font-size:.85rem;color:var(--grey-500);margin-top:1rem;">
+        <p style="font-size:.85rem;opacity:.6;margin-top:1rem;">
           <strong>Tip:</strong> If you're between sizes, size up for a relaxed fit or stay true for a fitted look.
         </p>
       </div>
@@ -160,31 +173,57 @@
   </div>
 </main>
 
+<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
-  <div class="site-footer__top">
-    <div class="site-footer__brand">
-      <a href="index.html" class="logo logo--footer">
-        <span class="logo__mark" aria-hidden="true"></span>
-        <span class="logo__word">VRNT<span class="logo__dot">.</span></span>
-      </a>
-      <p>Streetwear for a generation with more than one side.</p>
+  <div class="site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a href="index.html" class="logo" data-hover><span class="logo__text">VRNT</span><span class="logo__dot">.</span></a>
+        <p>Streetwear for a generation with more than one side. Designed, printed, and shipped in limited variants.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram" data-hover>IG</a>
+          <a href="#" aria-label="TikTok" data-hover>TT</a>
+          <a href="#" aria-label="X" data-hover>X</a>
+          <a href="#" aria-label="YouTube" data-hover>YT</a>
+        </div>
+      </div>
+      <div class="site-footer__col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="index.html#drops" data-hover>New Drops</a></li>
+          <li><a href="index.html#categories" data-hover>Categories</a></li>
+          <li><a href="index.html#lookbook" data-hover>Lookbook</a></li>
+          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h5>Help</h5>
+        <ul>
+          <li><a href="shipping-returns.html" data-hover>Shipping & Returns</a></li>
+          <li><a href="track-order.html" data-hover>Track Order</a></li>
+          <li><a href="contact.html" data-hover>Contact Us</a></li>
+          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html" data-hover>About VRNT</a></li>
+          <li><a href="sustainability.html" data-hover>Sustainability</a></li>
+          <li><a href="careers.html" data-hover>Careers</a></li>
+          <li><a href="index.html#testimonials" data-hover>Community</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="site-footer__col">
-      <h5>Shop</h5>
-      <ul><li><a href="index.html#drops">New Drops</a></li><li><a href="index.html#categories">Categories</a></li><li><a href="index.html#lab">Variant Lab</a></li><li><a href="index.html#bestsellers">Bestsellers</a></li></ul>
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 VRNT. All rights reserved. Built for the culture.</p>
+      <div class="payment-row">
+        <span class="payment-pill">VISA</span>
+        <span class="payment-pill">MC</span>
+        <span class="payment-pill">AMEX</span>
+        <span class="payment-pill">APPLE PAY</span>
+      </div>
     </div>
-    <div class="site-footer__col">
-      <h5>Help</h5>
-      <ul><li><a href="shipping-returns.html">Shipping & Returns</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="track-order.html">Track Order</a></li><li><a href="contact.html">Contact Us</a></li></ul>
-    </div>
-    <div class="site-footer__col">
-      <h5>Company</h5>
-      <ul><li><a href="about.html">About VRNT</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="careers.html">Careers</a></li><li><a href="index.html#community">Community</a></li></ul>
-    </div>
-  </div>
-  <div class="site-footer__bottom">
-    <p>&copy; 2026 VRNT. All rights reserved.</p>
-    <div class="payment-row" aria-hidden="true"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAY</span></div>
   </div>
 </footer>
 
