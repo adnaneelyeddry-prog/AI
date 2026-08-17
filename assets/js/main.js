@@ -1,157 +1,220 @@
 /* =========================================================
-   VRNT — Modern Streetwear Store
-   Front-end interactivity (vanilla JS, no dependencies)
+   VRNT — Premium Futuristic Store
+   Interactions · Cursor · Parallax · Reveal · Loading
    ========================================================= */
 (function () {
   'use strict';
 
-  /* ---------------------------------------------------------
-     Utilities
-  --------------------------------------------------------- */
-  const $ = (sel, ctx) => (ctx || document).querySelector(sel);
-  const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
-  const fmtMoney = (n) => '$' + n.toFixed(2).replace(/\.00$/, '');
+  const $ = (s, c) => (c || document).querySelector(s);
+  const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
 
   /* ---------------------------------------------------------
-     Footer year
+     LOADING SCREEN
   --------------------------------------------------------- */
-  const yearEl = $('#year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  const loader = $('#loader');
+  const loaderProgress = $('#loaderProgress');
+  let loadProgress = 0;
 
-  /* ---------------------------------------------------------
-     Mobile nav drawer
-  --------------------------------------------------------- */
-  const navToggle = $('#navToggle');
-  const mobileNav = $('#mobileNav');
-  const scrim = $('#scrim');
-
-  function openMobileNav() {
-    mobileNav.classList.add('is-open');
-    scrim.classList.add('is-open');
-    navToggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
+  function advanceLoader() {
+    loadProgress += Math.random() * 15 + 5;
+    if (loadProgress > 95) loadProgress = 95;
+    loaderProgress.style.width = loadProgress + '%';
   }
-  function closeMobileNav() {
-    mobileNav.classList.remove('is-open');
-    scrim.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+
+  const loadInterval = setInterval(advanceLoader, 200);
+
+  window.addEventListener('load', () => {
+    clearInterval(loadInterval);
+    loaderProgress.style.width = '100%';
+    setTimeout(() => {
+      loader.classList.add('is-done');
+      document.body.style.overflow = '';
+    }, 600);
+  });
+
+  // Prevent scroll during loading
+  document.body.style.overflow = 'hidden';
+
+  /* ---------------------------------------------------------
+     CUSTOM CURSOR
+  --------------------------------------------------------- */
+  const cursor = $('#cursor');
+  const cursorDot = $('#cursorDot');
+  let mouseX = 0, mouseY = 0;
+  let cursorX = 0, cursorY = 0;
+  let dotX = 0, dotY = 0;
+
+  if (cursor && cursorDot && window.matchMedia('(hover: hover)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Smooth follow with lerp
+    function animateCursor() {
+      cursorX += (mouseX - cursorX) * 0.12;
+      cursorY += (mouseY - cursorY) * 0.12;
+      dotX += (mouseX - dotX) * 0.25;
+      dotY += (mouseY - dotY) * 0.25;
+
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      cursorDot.style.left = dotX + 'px';
+      cursorDot.style.top = dotY + 'px';
+
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover effect on interactive elements
+    $$('[data-hover], a, button, .product-card, .category-tile, .lookbook__card').forEach((el) => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
+    });
+
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+      cursor.classList.add('is-hidden');
+      cursorDot.classList.add('is-hidden');
+    });
+    document.addEventListener('mouseenter', () => {
+      cursor.classList.remove('is-hidden');
+      cursorDot.classList.remove('is-hidden');
+    });
+  } else {
+    // Remove cursor elements on touch devices
+    if (cursor) cursor.remove();
+    if (cursorDot) cursorDot.remove();
   }
-  if (navToggle) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.contains('is-open');
-      isOpen ? closeMobileNav() : openMobileNav();
+
+  /* ---------------------------------------------------------
+     MAGNETIC BUTTONS
+  --------------------------------------------------------- */
+  $$('.magnetic').forEach((btn) => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  /* ---------------------------------------------------------
+     PARALLAX ON MOUSE MOVE (Hero section)
+  --------------------------------------------------------- */
+  const heroVisual = $('.hero__visual');
+  const hero = $('.hero');
+
+  if (heroVisual && hero && window.matchMedia('(hover: hover)').matches) {
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      const mainImg = $('.hero__img-main');
+      const float1 = $('.hero__img-float--1');
+      const float2 = $('.hero__img-float--2');
+
+      if (mainImg) mainImg.style.transform = `rotateY(${x * -8}deg) rotateX(${y * 5}deg) translateY(${y * -10}px)`;
+      if (float1) float1.style.transform = `translate(${x * 20}px, ${y * 15}px) rotate(${x * 3}deg)`;
+      if (float2) float2.style.transform = `translate(${x * -15}px, ${y * -20}px) rotate(${x * -2}deg)`;
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      const mainImg = $('.hero__img-main');
+      const float1 = $('.hero__img-float--1');
+      const float2 = $('.hero__img-float--2');
+      if (mainImg) mainImg.style.transform = '';
+      if (float1) float1.style.transform = '';
+      if (float2) float2.style.transform = '';
     });
   }
-  if (scrim) scrim.addEventListener('click', closeMobileNav);
-  $$('.mobile-nav a').forEach((a) => a.addEventListener('click', closeMobileNav));
 
   /* ---------------------------------------------------------
-     Search panel
-  --------------------------------------------------------- */
-  const searchToggle = $('#searchToggle');
-  const searchPanel = $('#searchPanel');
-  const searchClose = $('#searchClose');
-
-  if (searchToggle && searchPanel) {
-    searchToggle.addEventListener('click', () => {
-      searchPanel.classList.toggle('is-open');
-      if (searchPanel.classList.contains('is-open')) {
-        const input = $('input', searchPanel);
-        if (input) setTimeout(() => input.focus(), 150);
-      }
-    });
-  }
-  if (searchClose) {
-    searchClose.addEventListener('click', () => searchPanel.classList.remove('is-open'));
-  }
-
-  /* ---------------------------------------------------------
-     Sticky header: condense + hide on scroll down, show on scroll up
+     HEADER: Hide on scroll down, show on scroll up
   --------------------------------------------------------- */
   const header = $('#siteHeader');
-  let lastScrollY = window.scrollY;
-  let ticking = false;
+  let lastScrollY = 0;
+  let headerTicking = false;
 
-  function handleHeaderScroll() {
+  function handleScroll() {
     const y = window.scrollY;
-    header.classList.toggle('is-scrolled', y > 10);
-    header.classList.toggle('is-condensed', y > 120);
-
-    if (y > lastScrollY && y > 200) {
+    if (y > lastScrollY && y > 150) {
       header.classList.add('is-hidden');
     } else {
       header.classList.remove('is-hidden');
     }
     lastScrollY = y;
-    ticking = false;
+    headerTicking = false;
   }
 
   window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(handleHeaderScroll);
-      ticking = true;
+    if (!headerTicking) {
+      requestAnimationFrame(handleScroll);
+      headerTicking = true;
     }
   }, { passive: true });
 
   /* ---------------------------------------------------------
-     Back to top button
+     BACK TO TOP
   --------------------------------------------------------- */
   const backToTop = $('#backToTop');
-  window.addEventListener('scroll', () => {
-    if (!backToTop) return;
-    backToTop.classList.toggle('is-visible', window.scrollY > 600);
-  }, { passive: true });
   if (backToTop) {
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 800);
+    }, { passive: true });
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
   /* ---------------------------------------------------------
-     Scroll reveal via IntersectionObserver
+     SCROLL REVEAL (IntersectionObserver)
   --------------------------------------------------------- */
-  const revealEls = $$('[data-reveal]');
-  if ('IntersectionObserver' in window && revealEls.length) {
-    const io = new IntersectionObserver((entries) => {
+  const revealElements = $$('[data-reveal], [data-stagger]');
+
+  if ('IntersectionObserver' in window && revealElements.length) {
+    const revealIO = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
+          revealIO.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-    revealEls.forEach((el) => io.observe(el));
+    revealElements.forEach((el) => revealIO.observe(el));
   } else {
-    revealEls.forEach((el) => el.classList.add('is-visible'));
+    revealElements.forEach((el) => el.classList.add('is-visible'));
   }
 
   /* ---------------------------------------------------------
-     Animated stat counters
+     ANIMATED COUNTERS
   --------------------------------------------------------- */
   const counters = $$('[data-count]');
+
   function animateCounter(el) {
     const target = parseFloat(el.dataset.count);
     const decimals = parseInt(el.dataset.decimal || '0', 10);
     const divisor = decimals ? Math.pow(10, decimals) : 1;
     const displayTarget = target / divisor;
-    const duration = 1600;
+    const duration = 2000;
     const start = performance.now();
 
     function tick(now) {
       const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out-cubic
+      const eased = 1 - Math.pow(1 - progress, 4); // ease-out-quart
       const current = displayTarget * eased;
-      el.textContent = decimals
-        ? current.toFixed(decimals)
-        : Math.floor(current).toLocaleString();
-      if (progress < 1) requestAnimationFrame(tick);
-      else {
-        el.textContent = decimals
-          ? displayTarget.toFixed(decimals)
-          : displayTarget.toLocaleString();
+      if (decimals) {
+        el.textContent = current.toFixed(decimals);
+      } else {
+        el.textContent = Math.floor(current).toLocaleString();
       }
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = decimals ? displayTarget.toFixed(decimals) : displayTarget.toLocaleString();
     }
     requestAnimationFrame(tick);
   }
@@ -164,262 +227,12 @@
           counterIO.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.5 });
     counters.forEach((el) => counterIO.observe(el));
   }
 
   /* ---------------------------------------------------------
-     Drop countdown timer
-  --------------------------------------------------------- */
-  const countdownEl = $('#countdown');
-  if (countdownEl) {
-    // Target: next Friday 00:00 local time (weekly drop cadence)
-    function getNextFriday() {
-      const now = new Date();
-      const target = new Date(now);
-      const day = now.getDay(); // 0 = Sun ... 5 = Fri
-      let diff = (5 - day + 7) % 7;
-      if (diff === 0 && now.getHours() >= 0 && now >= new Date(now.setHours(0,0,0,0))) {
-        // if it's already Friday, target next Friday instead of today
-      }
-      target.setDate(now.getDate() + (diff === 0 ? 7 : diff));
-      target.setHours(0, 0, 0, 0);
-      return target;
-    }
-
-    const dropDate = getNextFriday();
-    const cdD = $('#cd-d'), cdH = $('#cd-h'), cdM = $('#cd-m'), cdS = $('#cd-s');
-
-    function pad(n) { return String(n).padStart(2, '0'); }
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = dropDate.getTime() - now;
-      if (diff <= 0) {
-        cdD.textContent = cdH.textContent = cdM.textContent = cdS.textContent = '00';
-        return;
-      }
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const m = Math.floor((diff / (1000 * 60)) % 60);
-      const s = Math.floor((diff / 1000) % 60);
-      cdD.textContent = pad(d);
-      cdH.textContent = pad(h);
-      cdM.textContent = pad(m);
-      cdS.textContent = pad(s);
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  }
-
-  /* ---------------------------------------------------------
-     Product card swatches — swap tee color live
-  --------------------------------------------------------- */
-  $$('.product-card').forEach((card) => {
-    const swatches = $$('.swatch', card);
-    const teeVisual = $('.tee-visual', card);
-    swatches.forEach((sw) => {
-      sw.addEventListener('click', () => {
-        swatches.forEach((s) => s.classList.remove('active'));
-        sw.classList.add('active');
-        if (teeVisual) teeVisual.style.setProperty('--tee-color', sw.dataset.color);
-      });
-    });
-  });
-
-  /* ---------------------------------------------------------
-     Toast helper
-  --------------------------------------------------------- */
-  const toast = $('#toast');
-  let toastTimer = null;
-  function showToast(msg) {
-    if (!toast) return;
-    toast.textContent = msg;
-    toast.classList.add('is-visible');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2200);
-  }
-
-  /* ---------------------------------------------------------
-     Cart state
-  --------------------------------------------------------- */
-  const cart = [];
-  const cartDrawer = $('#cartDrawer');
-  const cartScrim = $('#cartScrim');
-  const cartToggle = $('#cartToggle');
-  const cartClose = $('#cartClose');
-  const cartItemsEl = $('#cartItems');
-  const cartEmptyEl = $('#cartEmpty');
-  const cartSubtotalEl = $('#cartSubtotal');
-  const cartCountEl = $('#cartCount');
-
-  function openCart() {
-    cartDrawer.classList.add('is-open');
-    cartScrim.classList.add('is-open');
-    cartDrawer.setAttribute('aria-hidden', 'false');
-  }
-  function closeCart() {
-    cartDrawer.classList.remove('is-open');
-    cartScrim.classList.remove('is-open');
-    cartDrawer.setAttribute('aria-hidden', 'true');
-  }
-  if (cartToggle) cartToggle.addEventListener('click', openCart);
-  if (cartClose) cartClose.addEventListener('click', closeCart);
-  if (cartScrim) cartScrim.addEventListener('click', closeCart);
-
-  function addToCart(item) {
-    // merge identical variant (name + color + size)
-    const existing = cart.find(
-      (c) => c.name === item.name && c.color === item.color && c.size === item.size
-    );
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      cart.push(Object.assign({ qty: 1 }, item));
-    }
-    renderCart();
-    bumpCartCount();
-    showToast(`${item.name} added to cart`);
-  }
-
-  function removeFromCart(index) {
-    cart.splice(index, 1);
-    renderCart();
-  }
-
-  function bumpCartCount() {
-    if (!cartCountEl) return;
-    cartCountEl.classList.remove('bump');
-    // restart animation
-    void cartCountEl.offsetWidth;
-    cartCountEl.classList.add('bump');
-  }
-
-  function renderCart() {
-    const totalQty = cart.reduce((sum, c) => sum + c.qty, 0);
-    if (cartCountEl) cartCountEl.textContent = totalQty;
-
-    if (!cart.length) {
-      cartItemsEl.innerHTML = '';
-      cartItemsEl.appendChild(cartEmptyEl);
-      cartSubtotalEl.textContent = fmtMoney(0);
-      return;
-    }
-
-    cartItemsEl.innerHTML = '';
-    let subtotal = 0;
-
-    cart.forEach((item, index) => {
-      subtotal += item.price * item.qty;
-
-      const row = document.createElement('div');
-      row.className = 'cart-item';
-      row.innerHTML = `
-        <div class="cart-item__thumb">
-          <div class="tee-visual" style="--tee-color:${item.color}">
-            <svg class="tee-shape"><use href="#icon-tee"/></svg>
-          </div>
-        </div>
-        <div class="cart-item__info">
-          <h5>${item.name}</h5>
-          <span>Size ${item.size} · Qty ${item.qty}</span>
-        </div>
-        <div class="cart-item__price">${fmtMoney(item.price * item.qty)}</div>
-        <button class="icon-btn cart-item__remove" aria-label="Remove ${item.name}">
-          <svg class="icon"><use href="#icon-trash"/></svg>
-        </button>
-      `;
-      $('.cart-item__remove', row).addEventListener('click', () => removeFromCart(index));
-      cartItemsEl.appendChild(row);
-    });
-
-    cartSubtotalEl.textContent = fmtMoney(subtotal);
-  }
-
-  // Wire "Add" buttons on product grid
-  $$('.product-card').forEach((card) => {
-    const addBtn = $('[data-add]', card);
-    if (!addBtn) return;
-    addBtn.addEventListener('click', () => {
-      const activeSwatch = $('.swatch.active', card);
-      addToCart({
-        name: card.dataset.name,
-        price: parseFloat(card.dataset.price),
-        color: activeSwatch ? activeSwatch.dataset.color : '#0a0a0a',
-        size: 'M'
-      });
-    });
-  });
-
-  renderCart(); // initial empty state
-
-  /* ---------------------------------------------------------
-     Variant Lab
-  --------------------------------------------------------- */
-  const labPreview = $('#labPreview');
-  const labColors = $('#labColors');
-  const labGraphics = $('#labGraphics');
-  const labSizes = $('#labSizes');
-  const labAdd = $('#labAdd');
-
-  let labState = { color: '#d6ff3d', graphic: 'stripes', size: 'M' };
-
-  function updateLabPreview() {
-    if (!labPreview) return;
-    labPreview.style.setProperty('--tee-color', labState.color);
-    $$('.tee-graphic', labPreview).forEach((g) => {
-      g.hidden = g.dataset.graphic !== labState.graphic;
-    });
-  }
-
-  if (labColors) {
-    $$('.swatch', labColors).forEach((sw) => {
-      sw.addEventListener('click', () => {
-        $$('.swatch', labColors).forEach((s) => s.classList.remove('active'));
-        sw.classList.add('active');
-        labState.color = sw.dataset.color;
-        updateLabPreview();
-      });
-    });
-  }
-
-  if (labGraphics) {
-    $$('.chip', labGraphics).forEach((chip) => {
-      chip.addEventListener('click', () => {
-        $$('.chip', labGraphics).forEach((c) => c.classList.remove('active'));
-        chip.classList.add('active');
-        labState.graphic = chip.dataset.graphic;
-        updateLabPreview();
-      });
-    });
-  }
-
-  if (labSizes) {
-    $$('.chip', labSizes).forEach((chip) => {
-      chip.addEventListener('click', () => {
-        $$('.chip', labSizes).forEach((c) => c.classList.remove('active'));
-        chip.classList.add('active');
-        labState.size = chip.dataset.size;
-      });
-    });
-  }
-
-  if (labAdd) {
-    labAdd.addEventListener('click', () => {
-      const graphicNames = { stripes: 'Prism', dots: 'Static', bolt: 'Bolt', none: 'Blank' };
-      addToCart({
-        name: `Custom ${graphicNames[labState.graphic] || ''} Variant`.trim(),
-        price: 42,
-        color: labState.color,
-        size: labState.size
-      });
-    });
-  }
-
-  updateLabPreview();
-
-  /* ---------------------------------------------------------
-     Campaign "film" — real video play/pause with progress bar
+     CAMPAIGN FILM — Video play/pause
   --------------------------------------------------------- */
   const filmPlay = $('#filmPlay');
   const filmVideo = $('#filmVideo');
@@ -430,8 +243,7 @@
   if (filmPlay && filmVideo) {
     filmPlay.addEventListener('click', () => {
       filmPlaying = !filmPlaying;
-      filmPlay.setAttribute('aria-pressed', String(filmPlaying));
-      filmPlayLabel.textContent = filmPlaying ? 'Playing…' : 'Play film';
+      filmPlayLabel.textContent = filmPlaying ? 'Pause' : 'Play Film';
 
       if (filmPlaying) {
         filmVideo.play();
@@ -440,7 +252,6 @@
       }
     });
 
-    // Update progress bar
     filmVideo.addEventListener('timeupdate', () => {
       if (filmProgress && filmVideo.duration) {
         const pct = (filmVideo.currentTime / filmVideo.duration) * 100;
@@ -455,33 +266,110 @@
           if (entry.isIntersecting && !filmPlaying) {
             filmVideo.play();
             filmPlaying = true;
-            filmPlay.setAttribute('aria-pressed', 'true');
-            filmPlayLabel.textContent = 'Playing…';
+            filmPlayLabel.textContent = 'Pause';
+          } else if (!entry.isIntersecting && filmPlaying) {
+            filmVideo.pause();
+            filmPlaying = false;
+            filmPlayLabel.textContent = 'Play Film';
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.4 });
       filmIO.observe(filmVideo);
     }
   }
 
   /* ---------------------------------------------------------
-     Bestsellers carousel — prev/next scroll controls
+     LOOKBOOK — Drag to scroll
   --------------------------------------------------------- */
-  const carousel = $('#carousel');
-  const carPrev = $('#carPrev');
-  const carNext = $('#carNext');
+  const lookbookTrack = $('#lookbookTrack');
+  if (lookbookTrack) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-  function scrollCarousel(dir) {
-    if (!carousel) return;
-    const card = $('.carousel__card', carousel);
-    const step = card ? card.getBoundingClientRect().width + 22 : 260;
-    carousel.scrollBy({ left: dir * step, behavior: 'smooth' });
+    lookbookTrack.addEventListener('mousedown', (e) => {
+      isDown = true;
+      lookbookTrack.style.cursor = 'grabbing';
+      startX = e.pageX - lookbookTrack.offsetLeft;
+      scrollLeft = lookbookTrack.scrollLeft;
+    });
+    lookbookTrack.addEventListener('mouseleave', () => {
+      isDown = false;
+      lookbookTrack.style.cursor = 'grab';
+    });
+    lookbookTrack.addEventListener('mouseup', () => {
+      isDown = false;
+      lookbookTrack.style.cursor = 'grab';
+    });
+    lookbookTrack.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - lookbookTrack.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      lookbookTrack.scrollLeft = scrollLeft - walk;
+    });
   }
-  if (carPrev) carPrev.addEventListener('click', () => scrollCarousel(-1));
-  if (carNext) carNext.addEventListener('click', () => scrollCarousel(1));
 
   /* ---------------------------------------------------------
-     Newsletter form
+     PRODUCT CARDS — 3D tilt on hover
+  --------------------------------------------------------- */
+  $$('.product-card').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `translateY(-12px) scale(1.01) rotateY(${x * 6}deg) rotateX(${y * -4}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* ---------------------------------------------------------
+     CART (Simple state)
+  --------------------------------------------------------- */
+  const cart = [];
+  const cartCountEl = $('#cartCount');
+  const toast = $('#toast');
+  let toastTimer = null;
+
+  function showToast(msg) {
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2500);
+  }
+
+  function updateCartCount() {
+    const total = cart.reduce((s, i) => s + i.qty, 0);
+    if (cartCountEl) cartCountEl.textContent = total;
+  }
+
+  function addToCart(name, price) {
+    const existing = cart.find((i) => i.name === name);
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({ name, price: parseFloat(price), qty: 1 });
+    }
+    updateCartCount();
+    showToast(`${name} added to cart ✓`);
+  }
+
+  // Wire up add buttons
+  $$('[data-add]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = btn.closest('.product-card');
+      if (card) {
+        addToCart(card.dataset.name, card.dataset.price);
+      }
+    });
+  });
+
+  /* ---------------------------------------------------------
+     NEWSLETTER
   --------------------------------------------------------- */
   const newsletterForm = $('#newsletterForm');
   const newsletterMsg = $('#newsletterMsg');
@@ -491,26 +379,78 @@
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = newsletterEmail.value.trim();
-      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!isValid) {
-        newsletterMsg.textContent = 'Enter a valid email to join the crew.';
-        newsletterMsg.style.color = '#ff3d6e';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        newsletterMsg.textContent = 'Please enter a valid email.';
+        newsletterMsg.style.color = '#ec4899';
         return;
       }
       newsletterMsg.style.color = '';
-      newsletterMsg.textContent = `You're in! Check ${email} for your 15% code.`;
+      newsletterMsg.textContent = `Welcome to the crew! Check ${email} for 15% off. ✓`;
       newsletterForm.reset();
     });
   }
 
   /* ---------------------------------------------------------
-     Close any open overlay with Escape key
+     SMOOTH SCROLL for anchor links
   --------------------------------------------------------- */
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    if (mobileNav && mobileNav.classList.contains('is-open')) closeMobileNav();
-    if (cartDrawer && cartDrawer.classList.contains('is-open')) closeCart();
-    if (searchPanel && searchPanel.classList.contains('is-open')) searchPanel.classList.remove('is-open');
+  $$('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
+
+  /* ---------------------------------------------------------
+     PARALLAX ELEMENTS on scroll (subtle depth)
+  --------------------------------------------------------- */
+  const parallaxEls = $$('.glow-orb');
+  let scrollTicking = false;
+
+  function handleParallax() {
+    const scrollY = window.scrollY;
+    parallaxEls.forEach((el, i) => {
+      const speed = (i + 1) * 0.03;
+      el.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+    scrollTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(handleParallax);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  /* ---------------------------------------------------------
+     MOBILE NAV TOGGLE (simple)
+  --------------------------------------------------------- */
+  const navToggle = $('#navToggle');
+  const mainNav = $('.main-nav');
+
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.style.display === 'block';
+      mainNav.style.display = isOpen ? '' : 'block';
+      mainNav.style.position = isOpen ? '' : 'fixed';
+      mainNav.style.top = isOpen ? '' : 'var(--header-h)';
+      mainNav.style.left = isOpen ? '' : '0';
+      mainNav.style.right = isOpen ? '' : '0';
+      mainNav.style.background = isOpen ? '' : 'rgba(5,5,5,.95)';
+      mainNav.style.backdropFilter = isOpen ? '' : 'blur(20px)';
+      mainNav.style.padding = isOpen ? '' : '2rem';
+      mainNav.style.zIndex = isOpen ? '' : '99';
+      if (!isOpen) {
+        const ul = $('ul', mainNav);
+        if (ul) { ul.style.flexDirection = 'column'; ul.style.gap = '1.5rem'; }
+      } else {
+        const ul = $('ul', mainNav);
+        if (ul) { ul.style.flexDirection = ''; ul.style.gap = ''; }
+      }
+    });
+  }
 
 })();

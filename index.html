@@ -3,609 +3,523 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VRNT — Wear Your Variant | Streetwear T-Shirts</title>
-<meta name="description" content="VRNT is a modern streetwear label making variant-driven graphic tees for the next generation. New drops weekly, build your own variant, limited runs." />
+<title>VRNT — Wear Your Variant | Premium Streetwear</title>
+<meta name="description" content="VRNT is a futuristic streetwear label crafting variant-driven graphic tees for the next generation. Limited drops, infinite possibilities." />
+<meta name="theme-color" content="#050505" />
 
-<!-- Display + body fonts. Falls back gracefully to system stack if offline. -->
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+<!-- Styles -->
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-<!-- ============ SVG ICON SPRITE (hidden) ============ -->
-<svg class="sprite" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
-  <defs>
-    <symbol id="icon-tee" viewBox="0 0 200 220">
-      <path d="M30,60 L70,28 L85,45 Q100,62 115,45 L130,28 L170,60 L150,97 L140,80 L140,210 L60,210 L60,80 L50,97 Z"/>
-    </symbol>
-    <symbol id="icon-search" viewBox="0 0 24 24"><path d="M10.5 3a7.5 7.5 0 1 0 4.65 13.4l4.72 4.73 1.42-1.42-4.73-4.72A7.5 7.5 0 0 0 10.5 3zm0 2a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z"/></symbol>
-    <symbol id="icon-cart" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l3-8H5.4M7 13L5.4 5M7 13l-1.6 4H18M9 20a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-user" viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5z"/></symbol>
-    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
-    <symbol id="icon-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></symbol>
-    <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></symbol>
-    <symbol id="icon-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></symbol>
-    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-minus" viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  </defs>
-</svg>
-
-<!-- ============ SKIP LINK ============ -->
-<a class="skip-link" href="#main">Skip to content</a>
-
-<!-- ============ TOP MARQUEE / UTILITY BAR ============ -->
-<div class="topbar">
-  <div class="topbar__marquee" aria-hidden="true">
-    <div class="topbar__track">
-      <span>FREE SHIPPING OVER $60</span>
-      <span>NEW DROP EVERY FRIDAY</span>
-      <span>STUDENT DISCOUNT 15% — CODE VRNT15</span>
-      <span>1,200+ VARIANTS SOLD THIS WEEK</span>
-      <span>FREE SHIPPING OVER $60</span>
-      <span>NEW DROP EVERY FRIDAY</span>
-      <span>STUDENT DISCOUNT 15% — CODE VRNT15</span>
-      <span>1,200+ VARIANTS SOLD THIS WEEK</span>
-    </div>
-  </div>
+<!-- ============ LOADING SCREEN ============ -->
+<div class="loader" id="loader">
+  <div class="loader__logo">VRNT.</div>
+  <div class="loader__bar"><div class="loader__progress" id="loaderProgress"></div></div>
+  <p class="loader__text">Loading experience</p>
 </div>
 
-<!-- ============ HEADER / NAV ============ -->
+<!-- ============ NOISE OVERLAY ============ -->
+<div class="noise" aria-hidden="true"></div>
+
+<!-- ============ AMBIENT GLOW ORBS ============ -->
+<div class="glow-orbs" aria-hidden="true">
+  <span class="glow-orb glow-orb--1"></span>
+  <span class="glow-orb glow-orb--2"></span>
+  <span class="glow-orb glow-orb--3"></span>
+</div>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor cursor--dot" id="cursorDot"></div>
+
+<!-- ============ HEADER ============ -->
 <header class="site-header" id="siteHeader">
   <div class="site-header__inner">
-    <button class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-      <svg class="icon icon-open"><use href="#icon-menu"/></svg>
-      <svg class="icon icon-close"><use href="#icon-close"/></svg>
-    </button>
-
-    <a href="#home" class="logo">
-      <span class="logo__mark" aria-hidden="true"></span>
-      <span class="logo__word">VRNT<span class="logo__dot">.</span></span>
+    <a href="#" class="logo">
+      <span class="logo__text">VRNT</span><span class="logo__dot">.</span>
     </a>
 
     <nav class="main-nav" aria-label="Primary">
       <ul>
-        <li><a href="#drops">New Drops</a></li>
-        <li><a href="#categories">Shop</a></li>
-        <li><a href="#lab">Variant Lab</a></li>
-        <li><a href="#bestsellers">Bestsellers</a></li>
-        <li><a href="#community">Community</a></li>
+        <li><a href="#drops" data-hover>New Drops</a></li>
+        <li><a href="#lookbook" data-hover>Lookbook</a></li>
+        <li><a href="#categories" data-hover>Shop</a></li>
+        <li><a href="#testimonials" data-hover>Reviews</a></li>
+        <li><a href="#newsletter" data-hover>Join</a></li>
       </ul>
     </nav>
 
     <div class="header-actions">
-      <button class="icon-btn" id="searchToggle" aria-label="Search">
-        <svg class="icon"><use href="#icon-search"/></svg>
+      <button class="icon-btn" aria-label="Search" data-hover>
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
       </button>
-      <button class="icon-btn hide-mobile" aria-label="Account">
-        <svg class="icon"><use href="#icon-user"/></svg>
-      </button>
-      <button class="icon-btn cart-btn" id="cartToggle" aria-label="Open cart">
-        <svg class="icon"><use href="#icon-cart"/></svg>
+      <button class="icon-btn cart-btn" id="cartToggle" aria-label="Cart" data-hover>
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
         <span class="cart-count" id="cartCount">0</span>
       </button>
-    </div>
-  </div>
-
-  <!-- inline search panel -->
-  <div class="search-panel" id="searchPanel">
-    <div class="search-panel__inner">
-      <svg class="icon"><use href="#icon-search"/></svg>
-      <input type="search" placeholder="Search variants, drops, colors…" aria-label="Search products" />
-      <button class="icon-btn" id="searchClose" aria-label="Close search"><svg class="icon"><use href="#icon-close"/></svg></button>
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" data-hover>
+        <svg viewBox="0 0 24 24"><path d="M3 8h18M3 16h18"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<!-- ============ MOBILE NAV DRAWER ============ -->
-<div class="mobile-nav" id="mobileNav">
-  <nav aria-label="Mobile Primary">
-    <ul>
-      <li><a href="#drops">New Drops</a></li>
-      <li><a href="#categories">Shop</a></li>
-      <li><a href="#lab">Variant Lab</a></li>
-      <li><a href="#bestsellers">Bestsellers</a></li>
-      <li><a href="#community">Community</a></li>
-      <li><a href="#newsletter">Join the Crew</a></li>
-    </ul>
-  </nav>
-  <div class="mobile-nav__footer">
-    <p>Free shipping over $60 · New drop every Friday</p>
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero__video-wrap">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&q=80&auto=format">
+      <source src="https://videos.pexels.com/video-files/3769021/3769021-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
   </div>
-</div>
-<div class="scrim" id="scrim"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
 
-<main id="main">
+  <div class="hero__content">
+    <div class="hero__text">
+      <div class="hero__badge" data-reveal>
+        <span>SS26 Collection — Drop 004</span>
+      </div>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="home">
-    <div class="hero__bg" aria-hidden="true">
-      <img class="hero__bg-img" src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1600&q=80&auto=format" alt="" loading="eager" />
-      <span class="blob blob--1"></span>
-      <span class="blob blob--2"></span>
-      <span class="blob blob--3"></span>
-      <div class="grain"></div>
-      <div class="hero__grid-lines"></div>
-    </div>
-
-    <div class="hero__inner">
-      <p class="eyebrow" data-reveal>SS26 COLLECTION — DROP 004</p>
-      <h1 class="hero__title" data-reveal>
-        <span class="line">WEAR YOUR</span>
-        <span class="line hero__title--accent">VARIANT.</span>
+      <h1 class="hero__title">
+        <span class="line"><span>WEAR YOUR</span></span>
+        <span class="line"><span class="hero__title-accent">VARIANT.</span></span>
       </h1>
+
       <p class="hero__sub" data-reveal>
-        Every tee is a version of you. Bold graphics, remixable colorways, and limited
-        runs made for a generation that never picks just one.
+        Every tee is a version of you. Bold graphics, remixable colorways,
+        and limited runs crafted for a generation that refuses to be defined.
       </p>
+
       <div class="hero__cta" data-reveal>
-        <a href="#drops" class="btn btn--primary">
-          Shop New Drop <svg class="icon"><use href="#icon-arrow"/></svg>
-        </a>
-        <a href="#lab" class="btn btn--ghost">Build Your Variant</a>
+        <a href="#drops" class="magnetic"><span class="btn btn--primary">
+          Shop New Drop
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span></a>
+        <a href="#lookbook" class="magnetic"><span class="btn btn--glass">
+          View Lookbook
+        </span></a>
       </div>
 
       <div class="hero__stats" data-reveal>
-        <div><strong data-count="120000">0</strong><span>Variants shipped</span></div>
-        <div><strong data-count="49" data-decimal="1">0</strong><span>Avg. rating /5</span></div>
-        <div><strong data-count="48">0</strong><span>Hr dispatch</span></div>
+        <div class="hero__stat">
+          <span class="hero__stat-num" data-count="120000">0</span>
+          <span class="hero__stat-label">Variants Shipped</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-num" data-count="49" data-decimal="1">0</span>
+          <span class="hero__stat-label">Avg Rating / 5</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-num" data-count="48">0</span>
+          <span class="hero__stat-label">Hr Dispatch</span>
+        </div>
       </div>
     </div>
 
-    <div class="hero__showcase" aria-hidden="true">
-      <img class="hero__model" src="https://images.unsplash.com/photo-1503341504253-dff4f94032fc?w=800&q=80&auto=format" alt="Model wearing graphic tee" loading="eager" />
-      <img class="hero__model-2" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80&auto=format" alt="Streetwear look" loading="lazy" />
-    </div>
-
-    <a class="scroll-cue" href="#drops" aria-label="Scroll to drops">
-      <span></span> Scroll
-    </a>
-  </section>
-
-  <!-- ============ MARQUEE STRIP ============ -->
-  <div class="marquee-strip">
-    <div class="marquee-strip__track" aria-hidden="true">
-      <span>STREET</span><span>·</span><span>BOLD</span><span>·</span><span>LIMITED</span><span>·</span>
-      <span>VARIANT</span><span>·</span><span>REPEAT</span><span>·</span>
-      <span>STREET</span><span>·</span><span>BOLD</span><span>·</span><span>LIMITED</span><span>·</span>
-      <span>VARIANT</span><span>·</span><span>REPEAT</span><span>·</span>
+    <div class="hero__visual" data-reveal="right">
+      <img class="hero__img-main" src="https://images.unsplash.com/photo-1503341504253-dff4f94032fc?w=800&q=80&auto=format" alt="Model in streetwear" loading="eager" />
+      <img class="hero__img-float hero__img-float--1" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&q=80&auto=format" alt="Graphic tee detail" loading="eager" />
+      <img class="hero__img-float hero__img-float--2" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=400&q=80&auto=format" alt="Street style" loading="lazy" />
     </div>
   </div>
+</section>
 
-  <!-- ============ FEATURED DROP ============ -->
-  <section class="section drops" id="drops">
-    <div class="section__head">
-      <div>
-        <p class="eyebrow" data-reveal>NEW ARRIVALS</p>
-        <h2 class="section__title" data-reveal>This week's variants</h2>
-      </div>
-      <div class="countdown" data-reveal aria-label="Drop ends in">
-        <span class="countdown__label">Drop ends in</span>
-        <div class="countdown__timer" id="countdown">
-          <div><strong id="cd-d">00</strong><small>d</small></div>
-          <div><strong id="cd-h">00</strong><small>h</small></div>
-          <div><strong id="cd-m">00</strong><small>m</small></div>
-          <div><strong id="cd-s">00</strong><small>s</small></div>
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>STREET</span><span>·</span><span>BOLD</span><span>·</span><span>LIMITED</span><span>·</span>
+    <span>VARIANT</span><span>·</span><span>FUTURISTIC</span><span>·</span><span>PREMIUM</span><span>·</span>
+    <span>STREET</span><span>·</span><span>BOLD</span><span>·</span><span>LIMITED</span><span>·</span>
+    <span>VARIANT</span><span>·</span><span>FUTURISTIC</span><span>·</span><span>PREMIUM</span><span>·</span>
+  </div>
+</div>
+
+<!-- ============ PRODUCT DROPS ============ -->
+<section class="section" id="drops">
+  <div class="section__header" data-reveal>
+    <p class="section__eyebrow">New Arrivals</p>
+    <h2 class="section__title"><span class="section__title-gradient">This week's drops</span></h2>
+    <p class="section__subtitle">Limited variants. Once they're gone, they're gone forever.</p>
+  </div>
+
+  <div class="product-grid" data-stagger>
+    <!-- Product 1 -->
+    <article class="product-card" data-name="Prism Drift Tee" data-price="38">
+      <div class="product-card__media">
+        <span class="product-card__badge product-card__badge--new">New</span>
+        <img class="product-card__img" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80&auto=format" alt="Prism Drift Tee" loading="lazy" />
+        <div class="product-card__quick">
+          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
         </div>
       </div>
-    </div>
-
-    <div class="product-grid" id="productGrid" data-reveal>
-
-      <!-- Product 1 -->
-      <article class="product-card" data-name="Prism Drift Tee" data-price="38">
-        <div class="product-card__media">
-          <span class="badge badge--new">New</span>
-          <img class="product-card__img" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&q=80&auto=format" alt="Prism Drift Tee" loading="lazy" />
-        </div>
-        <div class="product-card__body">
-          <div class="swatches" role="group" aria-label="Color options">
-            <button class="swatch active" style="--c:#d6ff3d" data-color="#d6ff3d" aria-label="Volt"></button>
-            <button class="swatch" style="--c:#0a0a0a" data-color="#0a0a0a" aria-label="Ink"></button>
-            <button class="swatch" style="--c:#f5f4f0" data-color="#f5f4f0" aria-label="Bone"></button>
-            <button class="swatch" style="--c:#ff3d6e" data-color="#ff3d6e" aria-label="Signal"></button>
-          </div>
-          <h3>Prism Drift Tee</h3>
-          <p class="product-card__tag">Oversized · Graphic Print</p>
-          <div class="product-card__foot">
-            <span class="price">$38</span>
-            <button class="btn btn--add" data-add>Add <svg class="icon"><use href="#icon-plus"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Product 2 -->
-      <article class="product-card" data-name="Neon Static Tee" data-price="36">
-        <div class="product-card__media">
-          <span class="badge badge--hot">Hot</span>
-          <img class="product-card__img" src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&q=80&auto=format" alt="Neon Static Tee" loading="lazy" />
-        </div>
-        <div class="product-card__body">
-          <div class="swatches" role="group" aria-label="Color options">
-            <button class="swatch active" style="--c:#0a0a0a" data-color="#0a0a0a" aria-label="Ink"></button>
-            <button class="swatch" style="--c:#d6ff3d" data-color="#d6ff3d" aria-label="Volt"></button>
-            <button class="swatch" style="--c:#3d6bff" data-color="#3d6bff" aria-label="Cobalt"></button>
-          </div>
-          <h3>Neon Static Tee</h3>
-          <p class="product-card__tag">Regular Fit · Speckle Print</p>
-          <div class="product-card__foot">
-            <span class="price">$36</span>
-            <button class="btn btn--add" data-add>Add <svg class="icon"><use href="#icon-plus"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Product 3 -->
-      <article class="product-card" data-name="Mono Fracture Tee" data-price="40">
-        <div class="product-card__media">
-          <img class="product-card__img" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80&auto=format" alt="Mono Fracture Tee" loading="lazy" />
-        </div>
-        <div class="product-card__body">
-          <div class="swatches" role="group" aria-label="Color options">
-            <button class="swatch active" style="--c:#f5f4f0" data-color="#f5f4f0" aria-label="Bone"></button>
-            <button class="swatch" style="--c:#0a0a0a" data-color="#0a0a0a" aria-label="Ink"></button>
-          </div>
-          <h3>Mono Fracture Tee</h3>
-          <p class="product-card__tag">Boxy Fit · Geometric Print</p>
-          <div class="product-card__foot">
-            <span class="price">$40</span>
-            <button class="btn btn--add" data-add>Add <svg class="icon"><use href="#icon-plus"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Product 4 -->
-      <article class="product-card" data-name="Glitch Bloom Tee" data-price="39">
-        <div class="product-card__media">
-          <span class="badge badge--new">New</span>
-          <img class="product-card__img" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&q=80&auto=format" alt="Glitch Bloom Tee" loading="lazy" />
-        </div>
-        <div class="product-card__body">
-          <div class="swatches" role="group" aria-label="Color options">
-            <button class="swatch active" style="--c:#ff3d6e" data-color="#ff3d6e" aria-label="Signal"></button>
-            <button class="swatch" style="--c:#0a0a0a" data-color="#0a0a0a" aria-label="Ink"></button>
-            <button class="swatch" style="--c:#f5f4f0" data-color="#f5f4f0" aria-label="Bone"></button>
-          </div>
-          <h3>Glitch Bloom Tee</h3>
-          <p class="product-card__tag">Relaxed Fit · RGB Split Print</p>
-          <div class="product-card__foot">
-            <span class="price">$39</span>
-            <button class="btn btn--add" data-add>Add <svg class="icon"><use href="#icon-plus"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Product 5 -->
-      <article class="product-card" data-name="Volt Circuit Tee" data-price="37">
-        <div class="product-card__media">
-          <img class="product-card__img" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80&auto=format" alt="Volt Circuit Tee" loading="lazy" />
-        </div>
-        <div class="product-card__body">
-          <div class="swatches" role="group" aria-label="Color options">
-            <button class="swatch active" style="--c:#0a0a0a" data-color="#0a0a0a" aria-label="Ink"></button>
-            <button class="swatch" style="--c:#3d6bff" data-color="#3d6bff" aria-label="Cobalt"></button>
-          </div>
-          <h3>Volt Circuit Tee</h3>
-          <p class="product-card__tag">Regular Fit · Line Print</p>
-          <div class="product-card__foot">
-            <span class="price">$37</span>
-            <button class="btn btn--add" data-add>Add <svg class="icon"><use href="#icon-plus"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Product 6 -->
-      <article class="product-card" data-name="Ash Wave Tee" data-price="38">
-        <div class="product-card__media">
-          <span class="badge badge--hot">Hot</span>
-          <img class="product-card__img" src="https://images.unsplash.com/photo-1622445275576-721325763afe?w=500&q=80&auto=format" alt="Ash Wave Tee" loading="lazy" />
-        </div>
-        <div class="product-card__body">
-          <div class="swatches" role="group" aria-label="Color options">
-            <button class="swatch active" style="--c:#f5f4f0" data-color="#f5f4f0" aria-label="Bone"></button>
-            <button class="swatch" style="--c:#d6ff3d" data-color="#d6ff3d" aria-label="Volt"></button>
-          </div>
-          <h3>Ash Wave Tee</h3>
-          <p class="product-card__tag">Oversized · Wave Print</p>
-          <div class="product-card__foot">
-            <span class="price">$38</span>
-            <button class="btn btn--add" data-add>Add <svg class="icon"><use href="#icon-plus"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="section__cta" data-reveal>
-      <a href="#lab" class="btn btn--outline">View All Variants <svg class="icon"><use href="#icon-arrow"/></svg></a>
-    </div>
-  </section>
-
-  <!-- ============ CAMPAIGN FILM ============ -->
-  <section class="film">
-    <div class="film__panel" id="filmPanel">
-      <video class="film__video" id="filmVideo" muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1400&q=80&auto=format">
-        <source src="https://videos.pexels.com/video-files/3769021/3769021-uhd_2560_1440_25fps.mp4" type="video/mp4">
-      </video>
-      <div class="film__overlay"></div>
-      <div class="film__content">
-        <p class="eyebrow eyebrow--light">CAMPAIGN FILM</p>
-        <h2>"One tee.<br>Infinite variants."</h2>
-        <button class="film__play" id="filmPlay" aria-pressed="false">
-          <svg class="icon icon-play"><use href="#icon-play"/></svg>
-          <svg class="icon icon-pause"><use href="#icon-pause"/></svg>
-          <span id="filmPlayLabel">Play film</span>
-        </button>
-      </div>
-      <div class="film__timeline" aria-hidden="true"><span id="filmProgress"></span></div>
-    </div>
-    <p class="film__caption">Shot on the streets. Worn by the crew. Video: Pexels (royalty-free).</p>
-  </section>
-
-  <!-- ============ CATEGORIES ============ -->
-  <section class="section categories" id="categories">
-    <div class="section__head">
-      <p class="eyebrow" data-reveal>SHOP BY STYLE</p>
-      <h2 class="section__title" data-reveal>Find your fit</h2>
-    </div>
-    <div class="category-grid" data-reveal>
-      <a href="#drops" class="category-tile category-tile--1">
-        <img class="category-tile__img" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80&auto=format" alt="Oversized tees" loading="lazy" />
-        <span class="category-tile__label">Oversized</span>
-        <span class="category-tile__count">24 styles</span>
-      </a>
-      <a href="#drops" class="category-tile category-tile--2">
-        <img class="category-tile__img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=80&auto=format" alt="Graphic print tees" loading="lazy" />
-        <span class="category-tile__label">Graphic Print</span>
-        <span class="category-tile__count">38 styles</span>
-      </a>
-      <a href="#drops" class="category-tile category-tile--3">
-        <img class="category-tile__img" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80&auto=format" alt="Tie dye tees" loading="lazy" />
-        <span class="category-tile__label">Tie &amp; Dye</span>
-        <span class="category-tile__count">15 styles</span>
-      </a>
-      <a href="#drops" class="category-tile category-tile--4">
-        <img class="category-tile__img" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format" alt="Minimal tees" loading="lazy" />
-        <span class="category-tile__label">Minimal Core</span>
-        <span class="category-tile__count">21 styles</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ============ VARIANT LAB ============ -->
-  <section class="section lab" id="lab">
-    <div class="lab__inner">
-      <div class="lab__preview">
-        <div class="lab__preview-bg" aria-hidden="true"></div>
-        <div class="tee-visual tee-visual--lab" id="labPreview" style="--tee-color:#d6ff3d;">
-          <svg class="tee-shape"><use href="#icon-tee"/></svg>
-          <svg class="tee-graphic" data-graphic="stripes" viewBox="0 0 60 60">
-            <g stroke="#0a0a0a" stroke-width="2" fill="none">
-              <line x1="8" y1="14" x2="52" y2="46"/><line x1="8" y1="26" x2="52" y2="58"/><line x1="8" y1="2" x2="40" y2="26"/>
-            </g>
-          </svg>
-          <svg class="tee-graphic" data-graphic="dots" viewBox="0 0 60 60" hidden>
-            <g fill="#0a0a0a">
-              <circle cx="10" cy="10" r="1.6"/><circle cx="20" cy="6" r="1.2"/><circle cx="30" cy="14" r="1.8"/>
-              <circle cx="14" cy="22" r="1.3"/><circle cx="24" cy="26" r="1.6"/><circle cx="36" cy="8" r="1.4"/>
-              <circle cx="44" cy="20" r="1.7"/><circle cx="8" cy="34" r="1.3"/><circle cx="32" cy="36" r="1.5"/>
-            </g>
-          </svg>
-          <svg class="tee-graphic" data-graphic="bolt" viewBox="0 0 60 60" hidden>
-            <use href="#icon-bolt" x="18" y="14" width="24" height="24" fill="#0a0a0a"/>
-          </svg>
-          <svg class="tee-graphic" data-graphic="none" viewBox="0 0 60 60" hidden></svg>
+      <div class="product-card__body">
+        <h3 class="product-card__name">Prism Drift Tee</h3>
+        <p class="product-card__tag">Oversized · Graphic Print</p>
+        <div class="product-card__foot">
+          <span class="product-card__price">$38</span>
+          <button class="product-card__add" data-add aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
         </div>
       </div>
+    </article>
 
-      <div class="lab__controls">
-        <p class="eyebrow" data-reveal>VARIANT LAB</p>
-        <h2 class="section__title" data-reveal>Build your own variant</h2>
-        <p class="lab__intro" data-reveal>Pick a base colorway, a graphic, and a size. Every combination is a limited variant — yours until you remix it again.</p>
-
-        <div class="lab__group" data-reveal>
-          <span class="lab__label">01 — Colorway</span>
-          <div class="swatches swatches--lg" id="labColors" role="group" aria-label="Choose colorway">
-            <button class="swatch active" style="--c:#d6ff3d" data-color="#d6ff3d" aria-label="Volt"></button>
-            <button class="swatch" style="--c:#0a0a0a" data-color="#0a0a0a" aria-label="Ink"></button>
-            <button class="swatch" style="--c:#f5f4f0" data-color="#f5f4f0" aria-label="Bone"></button>
-            <button class="swatch" style="--c:#ff3d6e" data-color="#ff3d6e" aria-label="Signal"></button>
-            <button class="swatch" style="--c:#3d6bff" data-color="#3d6bff" aria-label="Cobalt"></button>
-          </div>
-        </div>
-
-        <div class="lab__group" data-reveal>
-          <span class="lab__label">02 — Graphic</span>
-          <div class="chip-group" id="labGraphics" role="group" aria-label="Choose graphic">
-            <button class="chip active" data-graphic="stripes">Prism</button>
-            <button class="chip" data-graphic="dots">Static</button>
-            <button class="chip" data-graphic="bolt">Bolt</button>
-            <button class="chip" data-graphic="none">Blank</button>
-          </div>
-        </div>
-
-        <div class="lab__group" data-reveal>
-          <span class="lab__label">03 — Size</span>
-          <div class="chip-group" id="labSizes" role="group" aria-label="Choose size">
-            <button class="chip" data-size="S">S</button>
-            <button class="chip active" data-size="M">M</button>
-            <button class="chip" data-size="L">L</button>
-            <button class="chip" data-size="XL">XL</button>
-            <button class="chip" data-size="XXL">XXL</button>
-          </div>
-        </div>
-
-        <div class="lab__foot" data-reveal>
-          <span class="price price--lg">$42</span>
-          <button class="btn btn--primary" id="labAdd">Add This Variant <svg class="icon"><use href="#icon-plus"/></svg></button>
+    <!-- Product 2 -->
+    <article class="product-card" data-name="Neon Static Tee" data-price="36">
+      <div class="product-card__media">
+        <span class="product-card__badge product-card__badge--hot">Hot</span>
+        <img class="product-card__img" src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80&auto=format" alt="Neon Static Tee" loading="lazy" />
+        <div class="product-card__quick">
+          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ BESTSELLERS CAROUSEL ============ -->
-  <section class="section bestsellers" id="bestsellers">
-    <div class="section__head">
-      <div>
-        <p class="eyebrow" data-reveal>CROWD FAVORITES</p>
-        <h2 class="section__title" data-reveal>Bestselling variants</h2>
+      <div class="product-card__body">
+        <h3 class="product-card__name">Neon Static Tee</h3>
+        <p class="product-card__tag">Regular Fit · Speckle Print</p>
+        <div class="product-card__foot">
+          <span class="product-card__price">$36</span>
+          <button class="product-card__add" data-add aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="carousel-nav" data-reveal>
-        <button class="icon-btn" id="carPrev" aria-label="Previous"><svg class="icon icon-flip"><use href="#icon-arrow"/></svg></button>
-        <button class="icon-btn" id="carNext" aria-label="Next"><svg class="icon"><use href="#icon-arrow"/></svg></button>
+    </article>
+
+    <!-- Product 3 -->
+    <article class="product-card" data-name="Mono Fracture Tee" data-price="40">
+      <div class="product-card__media">
+        <img class="product-card__img" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80&auto=format" alt="Mono Fracture Tee" loading="lazy" />
+        <div class="product-card__quick">
+          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
+        </div>
       </div>
-    </div>
+      <div class="product-card__body">
+        <h3 class="product-card__name">Mono Fracture Tee</h3>
+        <p class="product-card__tag">Boxy Fit · Geometric Print</p>
+        <div class="product-card__foot">
+          <span class="product-card__price">$40</span>
+          <button class="product-card__add" data-add aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
 
-    <div class="carousel" id="carousel" data-reveal>
-      <article class="carousel__card" style="--c:#0a0a0a">
-        <div class="tee-visual" style="--tee-color:#0a0a0a"><svg class="tee-shape"><use href="#icon-tee"/></svg></div>
-        <div class="carousel__stars"><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg></div>
-        <h4>Mono Fracture Tee</h4><span>$40</span>
-      </article>
-      <article class="carousel__card" style="--c:#d6ff3d">
-        <div class="tee-visual" style="--tee-color:#d6ff3d"><svg class="tee-shape"><use href="#icon-tee"/></svg></div>
-        <div class="carousel__stars"><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg></div>
-        <h4>Prism Drift Tee</h4><span>$38</span>
-      </article>
-      <article class="carousel__card" style="--c:#ff3d6e">
-        <div class="tee-visual" style="--tee-color:#ff3d6e"><svg class="tee-shape"><use href="#icon-tee"/></svg></div>
-        <div class="carousel__stars"><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg></div>
-        <h4>Glitch Bloom Tee</h4><span>$39</span>
-      </article>
-      <article class="carousel__card" style="--c:#3d6bff">
-        <div class="tee-visual" style="--tee-color:#3d6bff"><svg class="tee-shape"><use href="#icon-tee"/></svg></div>
-        <div class="carousel__stars"><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg></div>
-        <h4>Volt Circuit Tee</h4><span>$37</span>
-      </article>
-      <article class="carousel__card" style="--c:#f5f4f0">
-        <div class="tee-visual" style="--tee-color:#f5f4f0"><svg class="tee-shape"><use href="#icon-tee"/></svg></div>
-        <div class="carousel__stars"><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg></div>
-        <h4>Ash Wave Tee</h4><span>$38</span>
-      </article>
-      <article class="carousel__card" style="--c:#0a0a0a">
-        <div class="tee-visual" style="--tee-color:#0a0a0a"><svg class="tee-shape"><use href="#icon-tee"/></svg></div>
-        <div class="carousel__stars"><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg><svg class="icon"><use href="#icon-star"/></svg></div>
-        <h4>Neon Static Tee</h4><span>$36</span>
-      </article>
-    </div>
-  </section>
+    <!-- Product 4 -->
+    <article class="product-card" data-name="Glitch Bloom Tee" data-price="39">
+      <div class="product-card__media">
+        <span class="product-card__badge product-card__badge--new">New</span>
+        <img class="product-card__img" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80&auto=format" alt="Glitch Bloom Tee" loading="lazy" />
+        <div class="product-card__quick">
+          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
+        </div>
+      </div>
+      <div class="product-card__body">
+        <h3 class="product-card__name">Glitch Bloom Tee</h3>
+        <p class="product-card__tag">Relaxed Fit · RGB Split Print</p>
+        <div class="product-card__foot">
+          <span class="product-card__price">$39</span>
+          <button class="product-card__add" data-add aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
 
-  <!-- ============ COMMUNITY ============ -->
-  <section class="section community" id="community">
-    <div class="section__head">
-      <p class="eyebrow" data-reveal>#WEARYOURVARIANT</p>
-      <h2 class="section__title" data-reveal>Styled by the crew</h2>
-    </div>
-    <div class="community-grid" data-reveal>
-      <figure class="community-card community-card--tall">
-        <div class="community-card__media"><img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&q=80&auto=format" alt="Street style look" loading="lazy" /></div>
-        <figcaption>"Fit hits different. Got 3 colorways already." <span>@juno.wave</span></figcaption>
-      </figure>
-      <figure class="community-card">
-        <div class="community-card__media"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80&auto=format" alt="Fashion model" loading="lazy" /></div>
-        <figcaption>"The lab let me build my own graphic. Insane." <span>@kdott</span></figcaption>
-      </figure>
-      <figure class="community-card">
-        <div class="community-card__media"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80&auto=format" alt="Urban streetwear" loading="lazy" /></div>
-        <figcaption>"Quality is unreal for the price." <span>@ren_ny</span></figcaption>
-      </figure>
-      <figure class="community-card community-card--wide">
-        <div class="community-card__media"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&q=80&auto=format" alt="Youth streetwear crew" loading="lazy" /></div>
-        <figcaption>"Sold out in an hour, glad I grabbed mine." <span>@ari.codes</span></figcaption>
-      </figure>
-    </div>
-  </section>
+    <!-- Product 5 -->
+    <article class="product-card" data-name="Volt Circuit Tee" data-price="37">
+      <div class="product-card__media">
+        <img class="product-card__img" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format" alt="Volt Circuit Tee" loading="lazy" />
+        <div class="product-card__quick">
+          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
+        </div>
+      </div>
+      <div class="product-card__body">
+        <h3 class="product-card__name">Volt Circuit Tee</h3>
+        <p class="product-card__tag">Regular Fit · Line Print</p>
+        <div class="product-card__foot">
+          <span class="product-card__price">$37</span>
+          <button class="product-card__add" data-add aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
 
-  <!-- ============ STATS BAR ============ -->
-  <section class="stats-bar">
-    <div class="stats-bar__item"><strong data-count="120000">0</strong><span>Variants shipped</span></div>
-    <div class="stats-bar__item"><strong data-count="49" data-decimal="1">0</strong><span>Avg. rating / 5</span></div>
-    <div class="stats-bar__item"><strong data-count="48">0</strong><span>Hr dispatch</span></div>
-    <div class="stats-bar__item"><strong data-count="30">0</strong><span>Day exchange</span></div>
-  </section>
+    <!-- Product 6 -->
+    <article class="product-card" data-name="Ash Wave Tee" data-price="38">
+      <div class="product-card__media">
+        <span class="product-card__badge product-card__badge--hot">Hot</span>
+        <img class="product-card__img" src="https://images.unsplash.com/photo-1622445275576-721325763afe?w=600&q=80&auto=format" alt="Ash Wave Tee" loading="lazy" />
+        <div class="product-card__quick">
+          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
+        </div>
+      </div>
+      <div class="product-card__body">
+        <h3 class="product-card__name">Ash Wave Tee</h3>
+        <p class="product-card__tag">Oversized · Wave Print</p>
+        <div class="product-card__foot">
+          <span class="product-card__price">$38</span>
+          <button class="product-card__add" data-add aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
 
-  <!-- ============ NEWSLETTER ============ -->
-  <section class="newsletter" id="newsletter">
-    <video class="newsletter__bg-video" autoplay muted loop playsinline>
+<!-- ============ CAMPAIGN FILM ============ -->
+<section class="film">
+  <div class="film__panel" id="filmPanel" data-reveal="scale">
+    <video class="film__video" id="filmVideo" muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1400&q=80&auto=format">
       <source src="https://videos.pexels.com/video-files/3015510/3015510-hd_1920_1080_24fps.mp4" type="video/mp4">
     </video>
-    <div class="newsletter__inner">
-      <p class="eyebrow eyebrow--light" data-reveal>JOIN THE CREW</p>
-      <h2 data-reveal>Get first access to every drop.</h2>
-      <p data-reveal>15% off your first variant. No spam, just heat.</p>
-      <form id="newsletterForm" class="newsletter__form" data-reveal novalidate>
-        <input type="email" id="newsletterEmail" placeholder="you@email.com" aria-label="Email address" required />
-        <button type="submit" class="btn btn--primary">Subscribe</button>
-      </form>
-      <p class="newsletter__msg" id="newsletterMsg" role="status" aria-live="polite"></p>
+    <div class="film__overlay"></div>
+    <div class="film__content">
+      <p class="section__eyebrow" style="color:var(--neon-green);">Campaign Film</p>
+      <h2 class="film__quote">"One tee.<br>Infinite variants."</h2>
+      <button class="film__play" id="filmPlay" data-hover>
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        <span id="filmPlayLabel">Play Film</span>
+      </button>
     </div>
-  </section>
+    <div class="film__progress" id="filmProgress"></div>
+  </div>
+</section>
 
-</main>
+<!-- ============ CATEGORIES ============ -->
+<section class="section" id="categories">
+  <div class="section__header" data-reveal>
+    <p class="section__eyebrow">Shop by Style</p>
+    <h2 class="section__title"><span class="section__title-gradient">Find your fit</span></h2>
+  </div>
+
+  <div class="category-grid" data-stagger>
+    <a href="#drops" class="category-tile" data-hover>
+      <img class="category-tile__img" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80&auto=format" alt="Oversized" loading="lazy" />
+      <span class="category-tile__label">Oversized</span>
+      <span class="category-tile__count">24 styles</span>
+    </a>
+    <a href="#drops" class="category-tile" data-hover>
+      <img class="category-tile__img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=80&auto=format" alt="Graphic Print" loading="lazy" />
+      <span class="category-tile__label">Graphic Print</span>
+      <span class="category-tile__count">38 styles</span>
+    </a>
+    <a href="#drops" class="category-tile" data-hover>
+      <img class="category-tile__img" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80&auto=format" alt="Tie & Dye" loading="lazy" />
+      <span class="category-tile__label">Tie & Dye</span>
+      <span class="category-tile__count">15 styles</span>
+    </a>
+    <a href="#drops" class="category-tile" data-hover>
+      <img class="category-tile__img" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format" alt="Minimal Core" loading="lazy" />
+      <span class="category-tile__label">Minimal Core</span>
+      <span class="category-tile__count">21 styles</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ LOOKBOOK (Horizontal Scroll) ============ -->
+<section class="lookbook" id="lookbook">
+  <div class="lookbook__header" data-reveal>
+    <p class="section__eyebrow">Lookbook</p>
+    <h2 class="section__title"><span class="section__title-gradient">Styled by the crew</span></h2>
+  </div>
+
+  <div class="lookbook__track" id="lookbookTrack">
+    <figure class="lookbook__card">
+      <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=800&q=80&auto=format" alt="Street look 1" loading="lazy" />
+      <figcaption>@juno.wave · Los Angeles</figcaption>
+    </figure>
+    <figure class="lookbook__card">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80&auto=format" alt="Street look 2" loading="lazy" />
+      <figcaption>@kdott · Tokyo</figcaption>
+    </figure>
+    <figure class="lookbook__card">
+      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80&auto=format" alt="Street look 3" loading="lazy" />
+      <figcaption>@ren_ny · London</figcaption>
+    </figure>
+    <figure class="lookbook__card">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80&auto=format" alt="Street look 4" loading="lazy" />
+      <figcaption>@ari.codes · NYC</figcaption>
+    </figure>
+    <figure class="lookbook__card">
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80&auto=format" alt="Street look 5" loading="lazy" />
+      <figcaption>@vibe.check · Berlin</figcaption>
+    </figure>
+    <figure class="lookbook__card">
+      <img src="https://images.unsplash.com/photo-1503341504253-dff4f94032fc?w=800&q=80&auto=format" alt="Street look 6" loading="lazy" />
+      <figcaption>@nocturn.al · Paris</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section" id="testimonials">
+  <div class="section__header" data-reveal>
+    <p class="section__eyebrow">Reviews</p>
+    <h2 class="section__title"><span class="section__title-gradient">What the crew says</span></h2>
+  </div>
+
+  <div class="testimonials-grid" data-stagger>
+    <div class="testimonial-card">
+      <div class="testimonial-card__stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+      </div>
+      <p class="testimonial-card__text">"The quality is absolutely unreal for this price. Heavyweight cotton, perfect oversized fit, and the graphic hasn't faded after 20+ washes."</p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__avatar">JW</div>
+        <div>
+          <div class="testimonial-card__name">Juno Wave</div>
+          <div class="testimonial-card__handle">@juno.wave</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-card__stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+      </div>
+      <p class="testimonial-card__text">"Ordered on Monday, arrived Wednesday. The packaging alone feels premium — seed paper cards, compostable mailer. This brand gets it."</p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__avatar">KD</div>
+        <div>
+          <div class="testimonial-card__name">Kai Delgado</div>
+          <div class="testimonial-card__handle">@kdott</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-card__stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
+      </div>
+      <p class="testimonial-card__text">"I've bought from every streetwear brand out there. VRNT is the only one where every single piece feels like it was made specifically for me."</p>
+      <div class="testimonial-card__author">
+        <div class="testimonial-card__avatar">RN</div>
+        <div>
+          <div class="testimonial-card__name">Ren Nguyen</div>
+          <div class="testimonial-card__handle">@ren_ny</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="section">
+  <div class="stats-bar" data-reveal="scale">
+    <div class="stats-bar__item">
+      <span class="stats-bar__num" data-count="120000">0</span>
+      <span class="stats-bar__label">Variants Shipped</span>
+    </div>
+    <div class="stats-bar__item">
+      <span class="stats-bar__num" data-count="49" data-decimal="1">0</span>
+      <span class="stats-bar__label">Avg Rating / 5</span>
+    </div>
+    <div class="stats-bar__item">
+      <span class="stats-bar__num" data-count="48">0</span>
+      <span class="stats-bar__label">Hr Dispatch</span>
+    </div>
+    <div class="stats-bar__item">
+      <span class="stats-bar__num" data-count="40">0</span>
+      <span class="stats-bar__label">Countries</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter" id="newsletter">
+  <div class="newsletter__inner" data-reveal>
+    <p class="section__eyebrow" style="justify-content:center;">Join the Crew</p>
+    <h2 class="newsletter__title"><span class="section__title-gradient">Get first access to every drop.</span></h2>
+    <p class="newsletter__sub">15% off your first variant. No spam, just heat.</p>
+    <form class="newsletter__form" id="newsletterForm" novalidate>
+      <input type="email" class="newsletter__input" id="newsletterEmail" placeholder="you@email.com" aria-label="Email" required />
+      <button type="submit" class="btn btn--primary">Subscribe</button>
+    </form>
+    <p class="newsletter__msg" id="newsletterMsg" role="status" aria-live="polite"></p>
+  </div>
+</section>
 
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
-  <div class="site-footer__top">
-    <div class="site-footer__brand">
-      <a href="#home" class="logo logo--footer">
-        <span class="logo__mark" aria-hidden="true"></span>
-        <span class="logo__word">VRNT<span class="logo__dot">.</span></span>
-      </a>
-      <p>Streetwear for a generation with more than one side. Designed, printed, and shipped in small limited variants.</p>
-      <div class="social-row">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="TikTok">TT</a>
-        <a href="#" aria-label="X">X</a>
+  <div class="site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a href="#" class="logo"><span class="logo__text">VRNT</span><span class="logo__dot">.</span></a>
+        <p>Streetwear for a generation with more than one side. Designed, printed, and shipped in limited variants.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram" data-hover>IG</a>
+          <a href="#" aria-label="TikTok" data-hover>TT</a>
+          <a href="#" aria-label="X" data-hover>X</a>
+          <a href="#" aria-label="YouTube" data-hover>YT</a>
+        </div>
+      </div>
+      <div class="site-footer__col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="#drops" data-hover>New Drops</a></li>
+          <li><a href="#categories" data-hover>Categories</a></li>
+          <li><a href="#lookbook" data-hover>Lookbook</a></li>
+          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h5>Help</h5>
+        <ul>
+          <li><a href="shipping-returns.html" data-hover>Shipping & Returns</a></li>
+          <li><a href="track-order.html" data-hover>Track Order</a></li>
+          <li><a href="contact.html" data-hover>Contact Us</a></li>
+          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html" data-hover>About VRNT</a></li>
+          <li><a href="sustainability.html" data-hover>Sustainability</a></li>
+          <li><a href="careers.html" data-hover>Careers</a></li>
+          <li><a href="#testimonials" data-hover>Community</a></li>
+        </ul>
       </div>
     </div>
-    <div class="site-footer__col">
-      <h5>Shop</h5>
-      <ul><li><a href="#drops">New Drops</a></li><li><a href="#categories">Categories</a></li><li><a href="#lab">Variant Lab</a></li><li><a href="#bestsellers">Bestsellers</a></li></ul>
-    </div>
-    <div class="site-footer__col">
-      <h5>Help</h5>
-      <ul><li><a href="shipping-returns.html">Shipping &amp; Returns</a></li><li><a href="size-guide.html">Size Guide</a></li><li><a href="track-order.html">Track Order</a></li><li><a href="contact.html">Contact Us</a></li></ul>
-    </div>
-    <div class="site-footer__col">
-      <h5>Company</h5>
-      <ul><li><a href="about.html">About VRNT</a></li><li><a href="sustainability.html">Sustainability</a></li><li><a href="careers.html">Careers</a></li><li><a href="#community">Community</a></li></ul>
-    </div>
-  </div>
-  <div class="site-footer__bottom">
-    <p>&copy; <span id="year"></span> VRNT. All rights reserved. Built for the culture.</p>
-    <div class="payment-row" aria-hidden="true">
-      <span>VISA</span><span>MC</span><span>AMEX</span><span>PAY</span>
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 VRNT. All rights reserved. Built for the culture.</p>
+      <div class="payment-row">
+        <span class="payment-pill">VISA</span>
+        <span class="payment-pill">MC</span>
+        <span class="payment-pill">AMEX</span>
+        <span class="payment-pill">APPLE PAY</span>
+      </div>
     </div>
   </div>
 </footer>
 
+<!-- ============ BACK TO TOP ============ -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
-  <svg class="icon icon-flip-y"><use href="#icon-arrow"/></svg>
+  <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 </button>
 
-<!-- ============ CART DRAWER ============ -->
-<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
-  <div class="cart-drawer__head">
-    <h3>Your Cart</h3>
-    <button class="icon-btn" id="cartClose" aria-label="Close cart"><svg class="icon"><use href="#icon-close"/></svg></button>
-  </div>
-  <div class="cart-drawer__body" id="cartItems">
-    <p class="cart-empty" id="cartEmpty">Your cart is empty. Go build a variant.</p>
-  </div>
-  <div class="cart-drawer__foot">
-    <div class="cart-subtotal"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div>
-    <button class="btn btn--primary btn--block">Checkout</button>
-  </div>
-</aside>
-<div class="scrim" id="cartScrim"></div>
-
-<!-- Toast -->
+<!-- ============ TOAST ============ -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="assets/js/main.js"></script>
