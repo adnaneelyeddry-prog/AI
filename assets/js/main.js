@@ -13,27 +13,30 @@
   --------------------------------------------------------- */
   const loader = $('#loader');
   const loaderProgress = $('#loaderProgress');
-  let loadProgress = 0;
 
-  function advanceLoader() {
-    loadProgress += Math.random() * 15 + 5;
-    if (loadProgress > 95) loadProgress = 95;
-    loaderProgress.style.width = loadProgress + '%';
+  if (loader && loaderProgress) {
+    let loadProgress = 0;
+
+    function advanceLoader() {
+      loadProgress += Math.random() * 15 + 5;
+      if (loadProgress > 95) loadProgress = 95;
+      loaderProgress.style.width = loadProgress + '%';
+    }
+
+    const loadInterval = setInterval(advanceLoader, 200);
+
+    // Prevent scroll during loading
+    document.body.style.overflow = 'hidden';
+
+    window.addEventListener('load', () => {
+      clearInterval(loadInterval);
+      loaderProgress.style.width = '100%';
+      setTimeout(() => {
+        loader.classList.add('is-done');
+        document.body.style.overflow = '';
+      }, 600);
+    });
   }
-
-  const loadInterval = setInterval(advanceLoader, 200);
-
-  window.addEventListener('load', () => {
-    clearInterval(loadInterval);
-    loaderProgress.style.width = '100%';
-    setTimeout(() => {
-      loader.classList.add('is-done');
-      document.body.style.overflow = '';
-    }, 600);
-  });
-
-  // Prevent scroll during loading
-  document.body.style.overflow = 'hidden';
 
   /* ---------------------------------------------------------
      CUSTOM CURSOR
