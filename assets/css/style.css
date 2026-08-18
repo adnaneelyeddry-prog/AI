@@ -1892,3 +1892,80 @@ main {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+
+
+/* =========================================================
+   IMAGE FALLBACK FIXES
+   ========================================================= */
+
+/* Hide alt text — show nothing if image fails */
+img {
+  color: transparent;
+  font-size: 0;
+}
+
+/* Hero images proper sizing */
+.hero__img-main {
+  width: min(380px, 55vw);
+  height: auto;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 40px 100px rgba(0,0,0,.5), 0 0 60px rgba(0,255,136,.06);
+  border: 1px solid var(--border-glass);
+}
+
+.hero__img-float {
+  position: absolute;
+  width: 130px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+  border: 1px solid var(--border-glass);
+  animation: float-card 7s ease-in-out infinite;
+}
+.hero__img-float--1 {
+  top: -8%;
+  right: -15%;
+  animation-delay: -2s;
+}
+.hero__img-float--2 {
+  bottom: 5%;
+  left: -12%;
+  width: 120px;
+  height: 150px;
+  animation-delay: -4s;
+}
+
+/* If image fails to load, hide the broken icon */
+img[src]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: var(--bg-card);
+  border-radius: inherit;
+}
+
+/* Hero visual container fix */
+.hero__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 450px;
+}
+
+@media (max-width: 1100px) {
+  .hero__visual { min-height: 350px; }
+  .hero__img-main { width: min(300px, 70vw); }
+  .hero__img-float--1 { right: -5%; top: -5%; width: 100px; height: 130px; }
+  .hero__img-float--2 { left: -5%; width: 90px; height: 120px; }
+}
+@media (max-width: 768px) {
+  .hero__img-float { display: none; }
+  .hero__img-main { width: min(260px, 65vw); }
+  .hero__visual { min-height: 300px; }
+}

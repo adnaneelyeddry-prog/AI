@@ -692,3 +692,20 @@
     const header = document.getElementById('siteHeader');
     if (header) header.style.top = '0';
   }
+
+
+
+  /* ---------------------------------------------------------
+     IMAGE ERROR HANDLING — hide broken images gracefully
+  --------------------------------------------------------- */
+  $$('img').forEach((img) => {
+    img.addEventListener('error', () => {
+      img.style.opacity = '0';
+      img.style.visibility = 'hidden';
+    });
+    // Check if already failed (cached error)
+    if (img.complete && img.naturalWidth === 0 && img.src) {
+      img.style.opacity = '0';
+      img.style.visibility = 'hidden';
+    }
+  });
