@@ -1899,22 +1899,44 @@ button {
 
 .hero-bg-animated {
     position: absolute;
-    inset: -50%;
-    width: 200%;
-    height: 200%;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     z-index: 0;
-    background: 
-        radial-gradient(circle at 20% 40%, rgba(0,255,136,.12) 0%, transparent 40%),
-        radial-gradient(circle at 80% 60%, rgba(106,17,203,.1) 0%, transparent 40%),
-        radial-gradient(circle at 50% 80%, rgba(6,182,212,.08) 0%, transparent 35%);
-    animation: hero-bg-drift 15s ease-in-out infinite alternate;
+    overflow: hidden;
 }
 
-@keyframes hero-bg-drift {
-    0% { transform: translate(0%, 0%) rotate(0deg); }
-    33% { transform: translate(5%, -3%) rotate(1deg); }
-    66% { transform: translate(-3%, 5%) rotate(-1deg); }
-    100% { transform: translate(2%, -2%) rotate(0.5deg); }
+.hero-bg-animated::before,
+.hero-bg-animated::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: float-orb 12s ease-in-out infinite alternate;
+}
+
+.hero-bg-animated::before {
+    width: 500px;
+    height: 500px;
+    background: rgba(0,255,136,.08);
+    top: -100px;
+    left: -100px;
+}
+
+.hero-bg-animated::after {
+    width: 400px;
+    height: 400px;
+    background: rgba(106,17,203,.08);
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -6s;
+    animation-duration: 16s;
+}
+
+@keyframes float-orb {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -20px) scale(1.1); }
+    100% { transform: translate(-20px, 30px) scale(.95); }
 }
 
 .hero-bg-video {
