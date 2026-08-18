@@ -198,7 +198,7 @@ input, textarea { font-family: inherit; }
 /* ---------- Header ---------- */
 .site-header {
   position: fixed;
-  top: 0;
+  top: 44px;
   left: 0;
   right: 0;
   z-index: 100;
@@ -206,10 +206,10 @@ input, textarea { font-family: inherit; }
   display: flex;
   align-items: center;
   padding: 0 var(--gutter);
-  background: rgba(5,5,5,.6);
+  background: rgba(5,5,5,.7);
   backdrop-filter: blur(20px) saturate(1.8);
   border-bottom: 1px solid var(--border-glass);
-  transition: transform .5s var(--ease-out), background .3s;
+  transition: transform .5s var(--ease-out), background .3s, top .4s var(--ease-out);
 }
 .site-header.is-hidden { transform: translateY(-100%); }
 .site-header__inner {
@@ -407,7 +407,7 @@ input, textarea { font-family: inherit; }
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: calc(var(--header-h) + 4rem) var(--gutter) 4rem;
+  padding: calc(var(--header-h) + 44px + 5rem) var(--gutter) 5rem;
   overflow: hidden;
   isolation: isolate;
 }
@@ -1720,17 +1720,175 @@ input, textarea { font-family: inherit; }
   box-shadow: 0 0 10px rgba(0,255,136,.2);
 }
 
-/* Adjust header position when banner is present */
-.site-header {
-  top: 44px;
-}
+/* Adjust header position when banner is dismissed */
 .top-banner.is-hidden ~ .site-header {
   top: 0;
 }
-.hero {
-  padding-top: calc(var(--header-h) + 44px + 4rem);
+
+
+
+/* =========================================================
+   FINAL POLISH & FIXES
+   ========================================================= */
+
+/* Better product card spacing and glass depth */
+.product-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
 }
-.top-banner.is-hidden ~ * .hero,
-.top-banner.is-hidden ~ .hero {
-  padding-top: calc(var(--header-h) + 4rem);
+.product-card__body {
+  border-top: 1px solid var(--border-glass);
+}
+
+/* Product image zoom smooth */
+.product-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(5,5,5,.4));
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .4s;
+}
+.product-card:hover .product-card__media::after { opacity: 1; }
+
+/* Better lookbook draggable indicator */
+.lookbook__track::after {
+  content: "← Drag to explore →";
+  position: sticky;
+  right: 0;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 1rem;
+  align-self: flex-end;
+  opacity: .5;
+}
+
+/* Film panel rounded and better shadow */
+.film__panel {
+  box-shadow: 0 40px 100px rgba(0,0,0,.5), 0 0 40px rgba(0,255,136,.04);
+}
+
+/* Section spacing consistency */
+.section + .section { margin-top: -2rem; }
+
+/* Testimonial better readability */
+.testimonial-card__text {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Newsletter input better contrast */
+.newsletter__input {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+/* Category tile text shadow for readability */
+.category-tile__label {
+  text-shadow: 0 2px 8px rgba(0,0,0,.6);
+}
+
+/* Hero stats divider lines */
+.hero__stat {
+  position: relative;
+  padding-right: 2.5rem;
+}
+.hero__stat:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.15), transparent);
+}
+
+/* Better hover feedback everywhere */
+a, button { transition: color .2s, opacity .2s; }
+
+/* Loading screen logo size fix */
+.loader__logo {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* Scroll progress on top of everything */
+.scroll-progress { z-index: 10001; }
+
+/* Hero visual better positioning */
+.hero__visual {
+  position: relative;
+  perspective: 1200px;
+}
+
+/* Fix hero image not getting clipped */
+.hero__img-main {
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+/* Better mobile experience */
+@media (max-width: 768px) {
+  .top-banner { height: 38px; }
+  .top-banner__text { font-size: .62rem; letter-spacing: .08em; }
+  .top-banner__close { right: 8px; width: 20px; height: 20px; }
+  .site-header { top: 38px; height: 64px; }
+  .hero { padding-top: calc(64px + 38px + 3rem); min-height: auto; padding-bottom: 3rem; }
+  .hero__content { gap: 2rem; }
+  .hero__badge-3d { display: none; }
+  .hero__blob { display: none; }
+  .scroll-text__content { font-size: 2.5rem; }
+  .film__panel { aspect-ratio: 16/12; }
+  .hero__stat { padding-right: 0; }
+  .hero__stat::after { display: none; }
+  .marquee__track span { font-size: 1.2rem; }
+}
+
+/* Fix inner pages header positioning (no top banner) */
+body:not(:has(.top-banner)) .site-header {
+  top: 0;
+}
+
+/* Smooth all page transitions */
+main {
+  animation: page-enter .8s var(--ease-out);
+}
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Better focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Tooltip on product quick-add */
+.product-card__add {
+  position: relative;
+}
+.product-card__add::after {
+  content: "Add to cart";
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  padding: .4rem .7rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-glass);
+  border-radius: 6px;
+  font-size: .68rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .2s var(--ease-out);
+}
+.product-card__add:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }

@@ -687,4 +687,8 @@
       const header = document.getElementById('siteHeader');
       if (header) header.style.top = '0';
     });
+  } else {
+    // No top banner (inner pages) — set header to top:0
+    const header = document.getElementById('siteHeader');
+    if (header) header.style.top = '0';
   }

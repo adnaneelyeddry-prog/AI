@@ -5,7 +5,7 @@
 /* Page Hero */
 .page-hero {
   position: relative;
-  padding: calc(var(--header-h) + 5rem) var(--gutter) 4rem;
+  padding: calc(var(--header-h) + 4rem) var(--gutter) 4rem;
   text-align: center;
   overflow: hidden;
 }
