@@ -1962,3 +1962,16 @@ button {
     position: relative;
     z-index: 2;
 }
+
+
+
+/* --- Logo Icon --- */
+.header-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.logo-icon {
+    flex-shrink: 0;
+}
