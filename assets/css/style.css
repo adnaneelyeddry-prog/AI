@@ -1416,18 +1416,13 @@ input, textarea { font-family: inherit; }
   position: absolute;
   inset: -1px;
   border-radius: var(--radius-lg);
-  background: conic-gradient(from 0deg, transparent, var(--neon-green), transparent, var(--neon-purple), transparent);
+  background: linear-gradient(135deg, rgba(0,255,136,.15), transparent 50%, rgba(168,85,247,.15));
   opacity: 0;
   z-index: -1;
-  transition: opacity .6s var(--ease-out);
-  filter: blur(2px);
-  animation: border-rotate 4s linear infinite;
+  transition: opacity .5s var(--ease-out);
 }
 .product-card:hover::after {
-  opacity: .4;
-}
-@keyframes border-rotate {
-  to { transform: rotate(360deg); }
+  opacity: 1;
 }
 
 /* ---------- Image Hover Reveal Effect ---------- */
@@ -1986,13 +1981,21 @@ img[src]::before {
 }
 .amazon-banner__badge {
   flex-shrink: 0;
-  width: 90px;
-  max-width: 90px;
 }
-.amazon-logo {
-  width: 90px;
-  max-width: 90px;
-  height: auto;
+.amazon-badge-text {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: #fff;
+}
+.amazon-badge-arrow {
+  display: block;
+  width: 40px;
+  height: 8px;
+  margin-top: 2px;
+  background: #FF9900;
+  border-radius: 0 0 20px 0;
+  clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
 }
 .amazon-banner__text h3 {
   font-size: 1.4rem;
