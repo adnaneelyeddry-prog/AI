@@ -1220,3 +1220,184 @@ button {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+/* =========================================
+   ADDITIONAL PREMIUM IMPROVEMENTS
+   ========================================= */
+
+/* --- Trust Bar --- */
+.trust-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.2rem 0;
+}
+
+.trust-bar-inner {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    font-size: .78rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* --- Features Section --- */
+.features {
+    padding: clamp(5rem, 10vw, 8rem) 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
+    border-color: rgba(0, 255, 136, .15);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.feature-title {
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.feature-desc {
+    font-size: .85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* --- Product Card Enhancements --- */
+.product-card {
+    position: relative;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(0,255,136,.1), transparent 50%);
+    opacity: 0;
+    transition: opacity var(--transition);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+/* --- Hero Image Enhancement --- */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: calc(var(--radius) + 10px);
+    background: radial-gradient(circle at 30% 70%, rgba(0,255,136,.08), transparent 60%);
+    z-index: -1;
+}
+
+/* --- Better Announcement Bar --- */
+.announcement-bar {
+    position: relative;
+}
+
+.announcement-bar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,255,136,.2), transparent);
+}
+
+/* --- Video Section Enhancement --- */
+.video-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    margin: 0 calc(clamp(1.5rem, 4vw, 3rem) - 1px);
+    border-radius: calc(var(--radius) + 1px);
+    background: linear-gradient(135deg, rgba(0,255,136,.1), transparent 30%, transparent 70%, rgba(255,107,53,.1));
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- Category Tiles Enhancement --- */
+.category-tile {
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.category-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+
+/* --- Newsletter Enhancement --- */
+.newsletter-inner::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,136,.04), transparent 70%);
+    pointer-events: none;
+}
+
+.newsletter-inner {
+    position: relative;
+}
+
+/* --- Responsive for new sections --- */
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .trust-bar-inner {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .trust-item {
+        font-size: .7rem;
+    }
+}
