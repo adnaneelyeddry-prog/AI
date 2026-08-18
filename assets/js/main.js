@@ -158,8 +158,15 @@
                 videoBg.pause();
                 videoPlayBtn.querySelector('span').textContent = 'Watch Film';
             } else {
-                videoBg.play();
-                videoPlayBtn.querySelector('span').textContent = 'Pause';
+                videoBg.play().then(function() {
+                    videoPlayBtn.querySelector('span').textContent = 'Pause';
+                }).catch(function() {
+                    // If play fails, try with user gesture
+                    videoBg.muted = true;
+                    videoBg.play().then(function() {
+                        videoPlayBtn.querySelector('span').textContent = 'Pause';
+                    });
+                });
             }
             videoPlaying = !videoPlaying;
         });
@@ -169,11 +176,16 @@
             var videoObserver = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting && !videoPlaying) {
-                        videoBg.play().catch(function () {
-                            // Autoplay blocked, do nothing
+                        videoBg.play().then(function() {
+                            videoPlaying = true;
+                            videoPlayBtn.querySelector('span').textContent = 'Pause';
+                        }).catch(function () {
+                            // Autoplay blocked, user needs to click
                         });
-                    } else if (!entry.isIntersecting) {
+                    } else if (!entry.isIntersecting && videoPlaying) {
                         videoBg.pause();
+                        videoPlaying = false;
+                        videoPlayBtn.querySelector('span').textContent = 'Watch Film';
                     }
                 });
             }, { threshold: 0.3 });
