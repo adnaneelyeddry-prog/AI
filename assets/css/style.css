@@ -1858,3 +1858,33 @@ button {
         transform: translateX(-50%) translateY(0);
     }
 }
+
+
+
+/* --- Payment Icons in Footer --- */
+.footer-payments {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.payment-icon {
+    display: inline-flex;
+    align-items: center;
+    opacity: .7;
+    transition: opacity .3s;
+}
+
+.payment-icon:hover {
+    opacity: 1;
+}
+
+.payment-icon svg {
+    border-radius: 4px;
+}
+
+/* --- Amazon Logo SVG in section --- */
+.amazon-logo-svg {
+    display: block;
+    margin: 0 auto 1rem;
+}
