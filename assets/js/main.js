@@ -296,3 +296,50 @@
     }
 
 })();
+
+
+
+    // --- Drop Countdown Timer ---
+    var countDays = document.getElementById('countDays');
+    var countHours = document.getElementById('countHours');
+    var countMins = document.getElementById('countMins');
+    var countSecs = document.getElementById('countSecs');
+
+    if (countDays && countHours && countMins && countSecs) {
+        // Next Friday at midnight
+        function getNextFriday() {
+            var now = new Date();
+            var day = now.getDay();
+            var diff = (5 - day + 7) % 7;
+            if (diff === 0) diff = 7;
+            var target = new Date(now);
+            target.setDate(now.getDate() + diff);
+            target.setHours(0, 0, 0, 0);
+            return target;
+        }
+
+        var dropDate = getNextFriday();
+
+        function updateCountdown() {
+            var now = new Date().getTime();
+            var diff = dropDate.getTime() - now;
+            if (diff <= 0) {
+                countDays.textContent = '00';
+                countHours.textContent = '00';
+                countMins.textContent = '00';
+                countSecs.textContent = '00';
+                return;
+            }
+            var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            var m = Math.floor((diff / (1000 * 60)) % 60);
+            var s = Math.floor((diff / 1000) % 60);
+            countDays.textContent = String(d).padStart(2, '0');
+            countHours.textContent = String(h).padStart(2, '0');
+            countMins.textContent = String(m).padStart(2, '0');
+            countSecs.textContent = String(s).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
