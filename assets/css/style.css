@@ -1986,9 +1986,12 @@ img[src]::before {
 }
 .amazon-banner__badge {
   flex-shrink: 0;
+  width: 90px;
+  max-width: 90px;
 }
 .amazon-logo {
-  width: 120px;
+  width: 90px;
+  max-width: 90px;
   height: auto;
 }
 .amazon-banner__text h3 {
