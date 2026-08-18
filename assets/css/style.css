@@ -1975,3 +1975,11 @@ button {
 .logo-icon {
     flex-shrink: 0;
 }
+
+
+
+/* --- Stat Icons --- */
+.stat-icon {
+    color: #00ff88;
+    margin-bottom: .75rem;
+}
