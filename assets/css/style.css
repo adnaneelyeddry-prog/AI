@@ -1398,14 +1398,7 @@ input, textarea { font-family: inherit; }
   will-change: transform;
 }
 
-/* ---------- Clip Reveal Animation ---------- */
-[data-clip-reveal] {
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 1.2s var(--ease-out);
-}
-[data-clip-reveal].is-revealed {
-  clip-path: inset(0 0 0 0);
-}
+/* ---------- Clip Reveal Animation (disabled — was hiding cards) ---------- */
 
 /* ---------- Text Scramble ---------- */
 [data-scramble] .scramble-char {
