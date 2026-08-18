@@ -1,5 +1,5 @@
 /* =========================================================
-   VRNT — Premium Futuristic Store
+   VARAILLY — Premium Futuristic Store
    Interactions · Cursor · Parallax · Reveal · Loading
    ========================================================= */
 (function () {
