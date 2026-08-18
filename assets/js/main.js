@@ -672,3 +672,19 @@
       }, 25);
     });
   });
+
+
+
+  /* ---------------------------------------------------------
+     TOP BANNER CLOSE
+  --------------------------------------------------------- */
+  const topBanner = document.getElementById('topBanner');
+  const topBannerClose = document.getElementById('topBannerClose');
+  if (topBanner && topBannerClose) {
+    topBannerClose.addEventListener('click', () => {
+      topBanner.classList.add('is-hidden');
+      // Adjust header position
+      const header = document.getElementById('siteHeader');
+      if (header) header.style.top = '0';
+    });
+  }
