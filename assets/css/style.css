@@ -183,17 +183,11 @@ input, textarea { font-family: inherit; }
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: .12;
-  animation: orb-float 20s ease-in-out infinite;
+  opacity: .07;
 }
 .glow-orb--1 { width: 600px; height: 600px; background: var(--neon-green); top: -200px; left: -100px; }
-.glow-orb--2 { width: 500px; height: 500px; background: var(--neon-purple); top: 40%; right: -150px; animation-delay: -7s; animation-duration: 25s; }
-.glow-orb--3 { width: 400px; height: 400px; background: var(--neon-blue); bottom: -100px; left: 30%; animation-delay: -12s; animation-duration: 22s; }
-@keyframes orb-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(40px, -60px) scale(1.1); }
-  66% { transform: translate(-30px, 40px) scale(.9); }
-}
+.glow-orb--2 { width: 500px; height: 500px; background: var(--neon-purple); top: 40%; right: -150px; }
+.glow-orb--3 { width: 400px; height: 400px; background: var(--neon-blue); bottom: -100px; left: 30%; }
 
 /* ---------- Header ---------- */
 .site-header {

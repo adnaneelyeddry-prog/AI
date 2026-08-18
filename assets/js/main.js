@@ -419,26 +419,8 @@
   }
 
   /* ---------------------------------------------------------
-     PARALLAX ELEMENTS on scroll (subtle depth)
+     PARALLAX ELEMENTS on scroll (disabled - static orbs)
   --------------------------------------------------------- */
-  const parallaxEls = $$('.glow-orb');
-  let scrollTicking = false;
-
-  function handleParallax() {
-    const scrollY = window.scrollY;
-    parallaxEls.forEach((el, i) => {
-      const speed = (i + 1) * 0.03;
-      el.style.transform = `translateY(${scrollY * speed}px)`;
-    });
-    scrollTicking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!scrollTicking) {
-      requestAnimationFrame(handleParallax);
-      scrollTicking = true;
-    }
-  }, { passive: true });
 
   /* ---------------------------------------------------------
      MOBILE NAV TOGGLE (simple)
