@@ -1,587 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VARAILLY — Wear Your Variant | Premium Streetwear</title>
-<meta name="description" content="VARAILLY is a futuristic streetwear label crafting variant-driven graphic tees for the next generation. Limited drops, infinite possibilities." />
-<meta name="theme-color" content="#050505" />
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!-- Styles -->
-<link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VARAILLY. — Wear Your Variant</title>
+    <meta name="description" content="VARAILLY. is a premium youth streetwear brand. Bold designs, sustainable materials, available on Amazon.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<!-- ============ LOADING SCREEN ============ -->
-<div class="loader" id="loader">
-  <div class="loader__logo">VARAILLY.</div>
-  <div class="loader__bar"><div class="loader__progress" id="loaderProgress"></div></div>
-  <p class="loader__text">Loading experience</p>
-</div>
-
-<!-- ============ NOISE OVERLAY ============ -->
-<div class="scroll-progress" id="scrollProgress"></div>
-<div class="noise" aria-hidden="true"></div>
-
-<!-- ============ AMBIENT GLOW ORBS ============ -->
-<div class="glow-orbs" aria-hidden="true">
-  <span class="glow-orb glow-orb--1"></span>
-  <span class="glow-orb glow-orb--2"></span>
-  <span class="glow-orb glow-orb--3"></span>
-</div>
-
-<!-- ============ CUSTOM CURSOR ============ -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor cursor--dot" id="cursorDot"></div>
-
-<!-- ============ HEADER ============ -->
-
-<!-- Premium Animated Top Banner -->
-<div class="top-banner" id="topBanner">
-  <div class="top-banner__glow"></div>
-  <div class="top-banner__track">
-    <div class="top-banner__slide">
-      <span class="top-banner__icon">⚡</span>
-      <span class="top-banner__text" data-text="OFFICIAL AMAZON PARTNER — PRIME SHIPPING">OFFICIAL AMAZON PARTNER — PRIME SHIPPING</span>
-      <span class="top-banner__divider"></span>
-      <span class="top-banner__text" data-text="NEW DROP FRIDAY — 48HRS ONLY">NEW DROP FRIDAY — 48HRS ONLY</span>
-      <span class="top-banner__divider"></span>
-      <span class="top-banner__text" data-text="FREE SHIPPING OVER $60">FREE SHIPPING OVER $60</span>
-      <span class="top-banner__divider"></span>
-      <span class="top-banner__text" data-text="STUDENT 15% OFF — CODE: VARAILLY15">STUDENT 15% OFF — CODE: VARAILLY15</span>
-      <span class="top-banner__divider"></span>
-      <span class="top-banner__text" data-text="120K+ VARIANTS SHIPPED WORLDWIDE">120K+ VARIANTS SHIPPED WORLDWIDE</span>
-      <span class="top-banner__divider"></span>
-      <span class="top-banner__text" data-text="NEW DROP FRIDAY — 48HRS ONLY">NEW DROP FRIDAY — 48HRS ONLY</span>
-      <span class="top-banner__divider"></span>
-      <span class="top-banner__text" data-text="FREE SHIPPING OVER $60">FREE SHIPPING OVER $60</span>
-      <span class="top-banner__divider"></span>
-      <span class="top-banner__text" data-text="STUDENT 15% OFF — CODE: VARAILLY15">STUDENT 15% OFF — CODE: VARAILLY15</span>
-      <span class="top-banner__divider"></span>
-      <span class="top-banner__text" data-text="120K+ VARIANTS SHIPPED WORLDWIDE">120K+ VARIANTS SHIPPED WORLDWIDE</span>
-    </div>
-  </div>
-  <button class="top-banner__close" id="topBannerClose" aria-label="Close banner">✕</button>
-</div>
-
-<header class="site-header" id="siteHeader">
-  <div class="site-header__inner">
-    <a href="#" class="logo">
-      <span class="logo__text">VARAILLY</span><span class="logo__dot">.</span>
-    </a>
-
-    <nav class="main-nav" aria-label="Primary">
-      <ul>
-        <li><a href="#drops" data-hover>New Drops</a></li>
-        <li><a href="#lookbook" data-hover>Lookbook</a></li>
-        <li><a href="#categories" data-hover>Shop</a></li>
-        <li><a href="#testimonials" data-hover>Reviews</a></li>
-        <li><a href="#newsletter" data-hover>Join</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <button class="icon-btn" aria-label="Search" data-hover>
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-      </button>
-      <button class="icon-btn cart-btn" id="cartToggle" aria-label="Cart" data-hover>
-        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
-      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" data-hover>
-        <svg viewBox="0 0 24 24"><path d="M3 8h18M3 16h18"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- ============ HERO ============ -->
-<section class="hero" id="home">
-  <!-- Particle Canvas -->
-  <canvas class="hero__particles" id="particleCanvas"></canvas>
-
-  <div class="hero__video-wrap">
-    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&q=80&auto=format">
-      <source src="https://videos.pexels.com/video-files/3769021/3769021-uhd_2560_1440_25fps.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="hero__overlay"></div>
-  <div class="hero__grid" aria-hidden="true"></div>
-
-  <div class="hero__content">
-    <div class="hero__text">
-      <div class="hero__badge" data-reveal>
-        <span>SS26 Collection — Drop 004</span>
-      </div>
-
-      <h1 class="hero__title" data-scramble>
-        <span class="line"><span>WEAR YOUR</span></span>
-        <span class="line"><span class="hero__title-accent">VARIANT.</span></span>
-      </h1>
-
-      <p class="hero__sub" data-reveal>
-        Every tee is a version of you. Bold graphics, remixable colorways,
-        and limited runs crafted for a generation that refuses to be defined.
-      </p>
-
-      <div class="hero__cta" data-reveal>
-        <a href="#drops" class="magnetic"><span class="btn btn--primary">
-          Shop New Drop
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span></a>
-        <a href="#lookbook" class="magnetic"><span class="btn btn--glass">
-          View Lookbook
-        </span></a>
-      </div>
-
-      <div class="hero__stats" data-reveal>
-        <div class="hero__stat">
-          <span class="hero__stat-num" data-count="120000">0</span>
-          <span class="hero__stat-label">Variants Shipped</span>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">VARAILLY.</div>
+            <div class="loading-bar">
+                <div class="loading-bar-fill" id="loadingBarFill"></div>
+            </div>
         </div>
-        <div class="hero__stat">
-          <span class="hero__stat-num" data-count="49" data-decimal="1">0</span>
-          <span class="hero__stat-label">Avg Rating / 5</span>
-        </div>
-        <div class="hero__stat">
-          <span class="hero__stat-num" data-count="48">0</span>
-          <span class="hero__stat-label">Hr Dispatch</span>
-        </div>
-      </div>
     </div>
 
-    <div class="hero__visual" data-reveal="right" data-tilt>
-      <img class="hero__img-main" src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=800&q=80&auto=format&fit=crop" alt="" loading="eager" />
-      <img class="hero__img-float hero__img-float--1" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80&auto=format&fit=crop" alt="" loading="eager" />
-      <img class="hero__img-float hero__img-float--2" src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&q=80&auto=format&fit=crop" alt="" loading="lazy" />
-    </div>
-  </div>
-</section>
-
-<!-- ============ MARQUEE ============ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span>STREET</span><span>·</span><span>BOLD</span><span>·</span><span>LIMITED</span><span>·</span>
-    <span>VARIANT</span><span>·</span><span>FUTURISTIC</span><span>·</span><span>PREMIUM</span><span>·</span>
-    <span>STREET</span><span>·</span><span>BOLD</span><span>·</span><span>LIMITED</span><span>·</span>
-    <span>VARIANT</span><span>·</span><span>FUTURISTIC</span><span>·</span><span>PREMIUM</span><span>·</span>
-  </div>
-</div>
-
-<!-- ============ PRODUCT DROPS ============ -->
-<section class="section" id="drops">
-  <div class="section__header" data-reveal>
-    <p class="section__eyebrow">New Arrivals</p>
-    <h2 class="section__title"><span class="section__title-gradient">This week's drops</span></h2>
-    <p class="section__subtitle">Limited variants. Once they're gone, they're gone forever.</p>
-  </div>
-
-  <div class="product-grid" data-stagger>
-    <!-- Product 1 -->
-    <article class="product-card" data-name="Prism Drift Tee" data-price="38">
-      <div class="product-card__media">
-        <span class="product-card__badge product-card__badge--new">New</span>
-        <img class="product-card__img" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format&fit=crop" alt="Prism Drift Tee" loading="lazy" />
-        <div class="product-card__quick">
-          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-track">
+            <span class="announcement-text">FREE SHIPPING ON ORDERS OVER $50 &nbsp;&bull;&nbsp; NEW DROPS EVERY FRIDAY &nbsp;&bull;&nbsp; OFFICIAL AMAZON PARTNER &nbsp;&bull;&nbsp; FREE SHIPPING ON ORDERS OVER $50 &nbsp;&bull;&nbsp; NEW DROPS EVERY FRIDAY &nbsp;&bull;&nbsp; OFFICIAL AMAZON PARTNER &nbsp;&bull;&nbsp;</span>
+            <span class="announcement-text">FREE SHIPPING ON ORDERS OVER $50 &nbsp;&bull;&nbsp; NEW DROPS EVERY FRIDAY &nbsp;&bull;&nbsp; OFFICIAL AMAZON PARTNER &nbsp;&bull;&nbsp; FREE SHIPPING ON ORDERS OVER $50 &nbsp;&bull;&nbsp; NEW DROPS EVERY FRIDAY &nbsp;&bull;&nbsp; OFFICIAL AMAZON PARTNER &nbsp;&bull;&nbsp;</span>
         </div>
-      </div>
-      <div class="product-card__body">
-        <h3 class="product-card__name">Prism Drift Tee</h3>
-        <p class="product-card__tag">Oversized · Graphic Print</p>
-        <div class="product-card__foot">
-          <span class="product-card__price">$38</span>
-          <button class="product-card__add" data-add aria-label="Add to cart">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Product 2 -->
-    <article class="product-card" data-name="Neon Static Tee" data-price="36">
-      <div class="product-card__media">
-        <span class="product-card__badge product-card__badge--hot">Hot</span>
-        <img class="product-card__img" src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80&auto=format" alt="Neon Static Tee" loading="lazy" />
-        <div class="product-card__quick">
-          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
-        </div>
-      </div>
-      <div class="product-card__body">
-        <h3 class="product-card__name">Neon Static Tee</h3>
-        <p class="product-card__tag">Regular Fit · Speckle Print</p>
-        <div class="product-card__foot">
-          <span class="product-card__price">$36</span>
-          <button class="product-card__add" data-add aria-label="Add to cart">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Product 3 -->
-    <article class="product-card" data-name="Mono Fracture Tee" data-price="40">
-      <div class="product-card__media">
-        <img class="product-card__img" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80&auto=format" alt="Mono Fracture Tee" loading="lazy" />
-        <div class="product-card__quick">
-          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
-        </div>
-      </div>
-      <div class="product-card__body">
-        <h3 class="product-card__name">Mono Fracture Tee</h3>
-        <p class="product-card__tag">Boxy Fit · Geometric Print</p>
-        <div class="product-card__foot">
-          <span class="product-card__price">$40</span>
-          <button class="product-card__add" data-add aria-label="Add to cart">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Product 4 -->
-    <article class="product-card" data-name="Glitch Bloom Tee" data-price="39">
-      <div class="product-card__media">
-        <span class="product-card__badge product-card__badge--new">New</span>
-        <img class="product-card__img" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80&auto=format" alt="Glitch Bloom Tee" loading="lazy" />
-        <div class="product-card__quick">
-          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
-        </div>
-      </div>
-      <div class="product-card__body">
-        <h3 class="product-card__name">Glitch Bloom Tee</h3>
-        <p class="product-card__tag">Relaxed Fit · RGB Split Print</p>
-        <div class="product-card__foot">
-          <span class="product-card__price">$39</span>
-          <button class="product-card__add" data-add aria-label="Add to cart">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Product 5 -->
-    <article class="product-card" data-name="Volt Circuit Tee" data-price="37">
-      <div class="product-card__media">
-        <img class="product-card__img" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format" alt="Volt Circuit Tee" loading="lazy" />
-        <div class="product-card__quick">
-          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
-        </div>
-      </div>
-      <div class="product-card__body">
-        <h3 class="product-card__name">Volt Circuit Tee</h3>
-        <p class="product-card__tag">Regular Fit · Line Print</p>
-        <div class="product-card__foot">
-          <span class="product-card__price">$37</span>
-          <button class="product-card__add" data-add aria-label="Add to cart">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Product 6 -->
-    <article class="product-card" data-name="Ash Wave Tee" data-price="38">
-      <div class="product-card__media">
-        <span class="product-card__badge product-card__badge--hot">Hot</span>
-        <img class="product-card__img" src="https://images.unsplash.com/photo-1622445275576-721325763afe?w=600&q=80&auto=format" alt="Ash Wave Tee" loading="lazy" />
-        <div class="product-card__quick">
-          <button class="btn btn--primary btn--sm" data-add>Quick Add</button>
-        </div>
-      </div>
-      <div class="product-card__body">
-        <h3 class="product-card__name">Ash Wave Tee</h3>
-        <p class="product-card__tag">Oversized · Wave Print</p>
-        <div class="product-card__foot">
-          <span class="product-card__price">$38</span>
-          <button class="product-card__add" data-add aria-label="Add to cart">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ CAMPAIGN FILM ============ -->
-<section class="film">
-  <div class="film__panel" id="filmPanel" data-reveal="scale">
-    <video class="film__video" id="filmVideo" muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1400&q=80&auto=format">
-      <source src="https://videos.pexels.com/video-files/3015510/3015510-hd_1920_1080_24fps.mp4" type="video/mp4">
-    </video>
-    <div class="film__overlay"></div>
-    <div class="film__content">
-      <p class="section__eyebrow" style="color:var(--neon-green);">Campaign Film</p>
-      <h2 class="film__quote">"One tee.<br>Infinite variants."</h2>
-      <button class="film__play" id="filmPlay" data-hover>
-        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-        <span id="filmPlayLabel">Play Film</span>
-      </button>
-    </div>
-    <div class="film__progress" id="filmProgress"></div>
-  </div>
-</section>
-
-<!-- ============ CATEGORIES ============ -->
-<section class="section" id="categories">
-  <div class="section__header" data-reveal>
-    <p class="section__eyebrow">Shop by Style</p>
-    <h2 class="section__title"><span class="section__title-gradient">Find your fit</span></h2>
-  </div>
-
-  <div class="category-grid" data-stagger>
-    <a href="#drops" class="category-tile" data-hover>
-      <img class="category-tile__img" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80&auto=format" alt="Oversized" loading="lazy" />
-      <span class="category-tile__label">Oversized</span>
-      <span class="category-tile__count">24 styles</span>
-    </a>
-    <a href="#drops" class="category-tile" data-hover>
-      <img class="category-tile__img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=80&auto=format" alt="Graphic Print" loading="lazy" />
-      <span class="category-tile__label">Graphic Print</span>
-      <span class="category-tile__count">38 styles</span>
-    </a>
-    <a href="#drops" class="category-tile" data-hover>
-      <img class="category-tile__img" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80&auto=format" alt="Tie & Dye" loading="lazy" />
-      <span class="category-tile__label">Tie & Dye</span>
-      <span class="category-tile__count">15 styles</span>
-    </a>
-    <a href="#drops" class="category-tile" data-hover>
-      <img class="category-tile__img" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format" alt="Minimal Core" loading="lazy" />
-      <span class="category-tile__label">Minimal Core</span>
-      <span class="category-tile__count">21 styles</span>
-    </a>
-  </div>
-</section>
-
-<!-- ============ LOOKBOOK (Horizontal Scroll) ============ -->
-<section class="lookbook" id="lookbook">
-  <div class="lookbook__header" data-reveal>
-    <p class="section__eyebrow">Lookbook</p>
-    <h2 class="section__title"><span class="section__title-gradient">Styled by the crew</span></h2>
-  </div>
-
-  <div class="lookbook__track" id="lookbookTrack">
-    <figure class="lookbook__card">
-      <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=800&q=80&auto=format" alt="Street look 1" loading="lazy" />
-      <figcaption>@juno.wave · Los Angeles</figcaption>
-    </figure>
-    <figure class="lookbook__card">
-      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80&auto=format" alt="Street look 2" loading="lazy" />
-      <figcaption>@kdott · Tokyo</figcaption>
-    </figure>
-    <figure class="lookbook__card">
-      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80&auto=format" alt="Street look 3" loading="lazy" />
-      <figcaption>@ren_ny · London</figcaption>
-    </figure>
-    <figure class="lookbook__card">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80&auto=format" alt="Street look 4" loading="lazy" />
-      <figcaption>@ari.codes · NYC</figcaption>
-    </figure>
-    <figure class="lookbook__card">
-      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80&auto=format" alt="Street look 5" loading="lazy" />
-      <figcaption>@vibe.check · Berlin</figcaption>
-    </figure>
-    <figure class="lookbook__card">
-      <img src="https://images.unsplash.com/photo-1503341504253-dff4f94032fc?w=800&q=80&auto=format" alt="Street look 6" loading="lazy" />
-      <figcaption>@nocturn.al · Paris</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ TESTIMONIALS ============ -->
-<section class="section" id="testimonials">
-  <div class="section__header" data-reveal>
-    <p class="section__eyebrow">Reviews</p>
-    <h2 class="section__title"><span class="section__title-gradient">What the crew says</span></h2>
-  </div>
-
-  <div class="testimonials-grid" data-stagger>
-    <div class="testimonial-card">
-      <div class="testimonial-card__stars">
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-      </div>
-      <p class="testimonial-card__text">"The quality is absolutely unreal for this price. Heavyweight cotton, perfect oversized fit, and the graphic hasn't faded after 20+ washes."</p>
-      <div class="testimonial-card__author">
-        <div class="testimonial-card__avatar">JW</div>
-        <div>
-          <div class="testimonial-card__name">Juno Wave</div>
-          <div class="testimonial-card__handle">@juno.wave</div>
-        </div>
-      </div>
     </div>
 
-    <div class="testimonial-card">
-      <div class="testimonial-card__stars">
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-      </div>
-      <p class="testimonial-card__text">"Ordered on Monday, arrived Wednesday. The packaging alone feels premium — seed paper cards, compostable mailer. This brand gets it."</p>
-      <div class="testimonial-card__author">
-        <div class="testimonial-card__avatar">KD</div>
-        <div>
-          <div class="testimonial-card__name">Kai Delgado</div>
-          <div class="testimonial-card__handle">@kdott</div>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="/" class="header-logo" data-hover="logo">VARAILLY.</a>
+            <nav class="header-nav" id="headerNav">
+                <a href="#products" class="nav-link" data-hover="link">Shop</a>
+                <a href="#categories" class="nav-link" data-hover="link">Categories</a>
+                <a href="#lookbook" class="nav-link" data-hover="link">Lookbook</a>
+                <a href="about.html" class="nav-link" data-hover="link">About</a>
+                <a href="contact.html" class="nav-link" data-hover="link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" data-hover="button" id="cartBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 01-8 0"></path>
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
+    </header>
 
-    <div class="testimonial-card">
-      <div class="testimonial-card__stars">
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17l-6.3 3.9 1.7-7L2 9.2l7.1-.6z"/></svg>
-      </div>
-      <p class="testimonial-card__text">"I've bought from every streetwear brand out there. VARAILLY is the only one where every single piece feels like it was made specifically for me."</p>
-      <div class="testimonial-card__author">
-        <div class="testimonial-card__avatar">RN</div>
-        <div>
-          <div class="testimonial-card__name">Ren Nguyen</div>
-          <div class="testimonial-card__handle">@ren_ny</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <span class="hero-label reveal">NEW COLLECTION 2024</span>
+                <h1 class="hero-title reveal">WEAR YOUR<br>VARIANT.</h1>
+                <p class="hero-subtitle reveal">Premium youth streetwear that stands out. Bold designs crafted for the next generation of trendsetters.</p>
+                <div class="hero-buttons reveal">
+                    <a href="#products" class="btn btn-primary" data-hover="button">Shop Now</a>
+                    <a href="#lookbook" class="btn btn-outline" data-hover="button">Lookbook</a>
+                </div>
+                <div class="hero-stats reveal">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">25K+</span>
+                        <span class="hero-stat-label">Happy Customers</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">4.9</span>
+                        <span class="hero-stat-label">Amazon Rating</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">200+</span>
+                        <span class="hero-stat-label">Designs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image reveal">
+                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=900&q=80&auto=format&fit=crop" alt="" loading="eager">
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ============ STATS ============ -->
-<section class="section">
-  <div class="stats-bar" data-reveal="scale">
-    <div class="stats-bar__item">
-      <span class="stats-bar__num" data-count="120000">0</span>
-      <span class="stats-bar__label">Variants Shipped</span>
-    </div>
-    <div class="stats-bar__item">
-      <span class="stats-bar__num" data-count="49" data-decimal="1">0</span>
-      <span class="stats-bar__label">Avg Rating / 5</span>
-    </div>
-    <div class="stats-bar__item">
-      <span class="stats-bar__num" data-count="48">0</span>
-      <span class="stats-bar__label">Hr Dispatch</span>
-    </div>
-    <div class="stats-bar__item">
-      <span class="stats-bar__num" data-count="40">0</span>
-      <span class="stats-bar__label">Countries</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ AMAZON PARTNER BADGE ============ -->
-<section class="section amazon-section">
-  <div class="amazon-banner" data-reveal>
-    <div class="amazon-banner__content">
-      <div class="amazon-banner__badge">
-        <span class="amazon-badge-text">amazon</span>
-        <span class="amazon-badge-arrow"></span>
-      </div>
-      <div class="amazon-banner__text">
-        <h3>Official Amazon Partner</h3>
-        <p>All VARAILLY tees are available on Amazon with Prime shipping. Trusted by 120,000+ customers worldwide.</p>
-      </div>
-    </div>
-    <div class="amazon-banner__cta">
-      <a href="https://www.amazon.com" target="_blank" rel="noopener" class="btn btn--primary" data-hover>
-        Shop on Amazon
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <div class="amazon-banner__trust">
-        <span>✓ Prime Eligible</span>
-        <span>✓ Free Returns</span>
-        <span>✓ Fulfilled by Amazon</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ NEWSLETTER ============ -->
-<section class="newsletter" id="newsletter">
-  <div class="newsletter__inner" data-reveal>
-    <p class="section__eyebrow" style="justify-content:center;">Join the Crew</p>
-    <h2 class="newsletter__title"><span class="section__title-gradient">Get first access to every drop.</span></h2>
-    <p class="newsletter__sub">15% off your first variant. No spam, just heat.</p>
-    <form class="newsletter__form" id="newsletterForm" novalidate>
-      <input type="email" class="newsletter__input" id="newsletterEmail" placeholder="you@email.com" aria-label="Email" required />
-      <button type="submit" class="btn btn--primary">Subscribe</button>
-    </form>
-    <p class="newsletter__msg" id="newsletterMsg" role="status" aria-live="polite"></p>
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <div class="site-footer__top">
-      <div class="site-footer__brand">
-        <a href="#" class="logo"><span class="logo__text">VARAILLY</span><span class="logo__dot">.</span></a>
-        <p>Streetwear for a generation with more than one side. Designed, printed, and shipped in limited variants.</p>
-        <div class="social-row">
-          <a href="#" aria-label="Instagram" data-hover>IG</a>
-          <a href="#" aria-label="TikTok" data-hover>TT</a>
-          <a href="#" aria-label="X" data-hover>X</a>
-          <a href="#" aria-label="YouTube" data-hover>YT</a>
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-track">
+            <span class="marquee-item">STREETWEAR</span>
+            <span class="marquee-separator">&bull;</span>
+            <span class="marquee-item">PREMIUM QUALITY</span>
+            <span class="marquee-separator">&bull;</span>
+            <span class="marquee-item">BOLD DESIGNS</span>
+            <span class="marquee-separator">&bull;</span>
+            <span class="marquee-item">SUSTAINABLE</span>
+            <span class="marquee-separator">&bull;</span>
+            <span class="marquee-item">YOUTH CULTURE</span>
+            <span class="marquee-separator">&bull;</span>
+            <span class="marquee-item">STREETWEAR</span>
+            <span class="marquee-separator">&bull;</span>
+            <span class="marquee-item">PREMIUM QUALITY</span>
+            <span class="marquee-separator">&bull;</span>
+            <span class="marquee-item">BOLD DESIGNS</span>
+            <span class="marquee-separator">&bull;</span>
+            <span class="marquee-item">SUSTAINABLE</span>
+            <span class="marquee-separator">&bull;</span>
+            <span class="marquee-item">YOUTH CULTURE</span>
+            <span class="marquee-separator">&bull;</span>
         </div>
-      </div>
-      <div class="site-footer__col">
-        <h5>Shop</h5>
-        <ul>
-          <li><a href="#drops" data-hover>New Drops</a></li>
-          <li><a href="#categories" data-hover>Categories</a></li>
-          <li><a href="#lookbook" data-hover>Lookbook</a></li>
-          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
-        </ul>
-      </div>
-      <div class="site-footer__col">
-        <h5>Help</h5>
-        <ul>
-          <li><a href="shipping-returns.html" data-hover>Shipping & Returns</a></li>
-          <li><a href="track-order.html" data-hover>Track Order</a></li>
-          <li><a href="contact.html" data-hover>Contact Us</a></li>
-          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
-        </ul>
-      </div>
-      <div class="site-footer__col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="about.html" data-hover>About VARAILLY</a></li>
-          <li><a href="sustainability.html" data-hover>Sustainability</a></li>
-          <li><a href="careers.html" data-hover>Careers</a></li>
-          <li><a href="#testimonials" data-hover>Community</a></li>
-        </ul>
-      </div>
     </div>
-    <div class="site-footer__bottom">
-      <p>&copy; 2026 VARAILLY. All rights reserved. Built for the culture.</p>
-      <div class="payment-row">
-        <span class="payment-pill">VISA</span>
-        <span class="payment-pill">MC</span>
-        <span class="payment-pill">AMEX</span>
-        <span class="payment-pill">APPLE PAY</span>
-      </div>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">OUR COLLECTION</span>
+                <h2 class="section-title">Best Sellers</h2>
+                <p class="section-subtitle">Curated pieces designed for those who refuse to blend in.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format&fit=crop" alt="">
+                        <button class="product-quick-add" data-product="Minimal Logo Tee" data-price="34.99">Quick Add</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Minimal Logo Tee</h3>
+                        <span class="product-price">$34.99</span>
+                    </div>
+                </div>
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80&auto=format&fit=crop" alt="">
+                        <button class="product-quick-add" data-product="Graphic Oversized" data-price="44.99">Quick Add</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Graphic Oversized</h3>
+                        <span class="product-price">$44.99</span>
+                    </div>
+                </div>
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80&auto=format&fit=crop" alt="">
+                        <button class="product-quick-add" data-product="Vintage Wash Crew" data-price="39.99">Quick Add</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Vintage Wash Crew</h3>
+                        <span class="product-price">$39.99</span>
+                    </div>
+                </div>
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80&auto=format&fit=crop" alt="">
+                        <button class="product-quick-add" data-product="Color Block Essential" data-price="37.99">Quick Add</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Color Block Essential</h3>
+                        <span class="product-price">$37.99</span>
+                    </div>
+                </div>
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1622445275576-721325763afe?w=600&q=80&auto=format&fit=crop" alt="">
+                        <button class="product-quick-add" data-product="Statement Print" data-price="42.99">Quick Add</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Statement Print</h3>
+                        <span class="product-price">$42.99</span>
+                    </div>
+                </div>
+                <div class="product-card reveal">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80&auto=format&fit=crop" alt="">
+                        <button class="product-quick-add" data-product="Earth Tone Classic" data-price="36.99">Quick Add</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Earth Tone Classic</h3>
+                        <span class="product-price">$36.99</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video-section">
+        <div class="video-wrapper">
+            <video class="video-bg" id="videoBg" muted loop playsinline>
+                <source src="https://videos.pexels.com/video-files/3769021/3769021-uhd_2560_1440_25fps.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+                <div class="video-content reveal">
+                    <span class="section-label">BEHIND THE BRAND</span>
+                    <h2 class="video-title">Every Piece<br>Tells a Story</h2>
+                    <button class="video-play-btn" id="videoPlayBtn" data-hover="button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        <span>Watch Film</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">EXPLORE</span>
+                <h2 class="section-title">Shop by Category</h2>
+            </div>
+            <div class="categories-grid">
+                <a href="#" class="category-tile reveal" data-hover="link">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=600&q=80&auto=format&fit=crop" alt="">
+                    </div>
+                    <div class="category-label">Graphic Tees</div>
+                </a>
+                <a href="#" class="category-tile reveal" data-hover="link">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1503341504253-dff4f94032fc?w=600&q=80&auto=format&fit=crop" alt="">
+                    </div>
+                    <div class="category-label">Essentials</div>
+                </a>
+                <a href="#" class="category-tile reveal" data-hover="link">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80&auto=format&fit=crop" alt="">
+                    </div>
+                    <div class="category-label">Oversized</div>
+                </a>
+                <a href="#" class="category-tile reveal" data-hover="link">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80&auto=format&fit=crop" alt="">
+                    </div>
+                    <div class="category-label">Limited Drops</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook -->
+    <section class="lookbook" id="lookbook">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">LOOKBOOK</span>
+                <h2 class="section-title">SS24 Collection</h2>
+            </div>
+        </div>
+        <div class="lookbook-scroll" id="lookbookScroll">
+            <div class="lookbook-track">
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=700&q=80&auto=format&fit=crop" alt="">
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=700&q=80&auto=format&fit=crop" alt="">
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700&q=80&auto=format&fit=crop" alt="">
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=700&q=80&auto=format&fit=crop" alt="">
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=700&q=80&auto=format&fit=crop" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">REVIEWS</span>
+                <h2 class="section-title">What People Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Best quality streetwear I've found on Amazon. The fabric is premium and the designs are actually unique. Already ordered 4 more."</p>
+                    <div class="testimonial-author">
+                        <span class="testimonial-name">Marcus T.</span>
+                        <span class="testimonial-verified">Verified Buyer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Finally a brand that gets youth culture without being cringe. The oversized fit is perfect and it holds up wash after wash."</p>
+                    <div class="testimonial-author">
+                        <span class="testimonial-name">Sophia R.</span>
+                        <span class="testimonial-verified">Verified Buyer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Shipping was insanely fast with Prime. The tee feels like it should cost 3x the price. VARAILLY is my new go-to brand."</p>
+                    <div class="testimonial-author">
+                        <span class="testimonial-name">Jake M.</span>
+                        <span class="testimonial-verified">Verified Buyer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amazon Partner -->
+    <section class="amazon-section">
+        <div class="container">
+            <div class="amazon-card reveal">
+                <div class="amazon-content">
+                    <div class="amazon-badge">
+                        <span class="amazon-logo">amazon</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff6b35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="amazon-title">Official Amazon Partner</h3>
+                    <p class="amazon-text">Shop VARAILLY. with confidence. Free Prime shipping, easy returns, and the trusted Amazon guarantee on every order.</p>
+                    <div class="amazon-trust">
+                        <span class="trust-badge">✓ Prime Eligible</span>
+                        <span class="trust-badge">✓ Free Returns</span>
+                        <span class="trust-badge">✓ Authentic Guarantee</span>
+                    </div>
+                    <a href="#" class="btn btn-amazon" data-hover="button">Shop on Amazon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid reveal">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="25000">0</span>
+                    <span class="stat-label">Orders Delivered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="4.9" data-decimals="1">0</span>
+                    <span class="stat-label">Average Rating</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="98" data-suffix="%">0</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="12">0</span>
+                    <span class="stat-label">Countries Shipped</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-inner reveal">
+                <span class="section-label">STAY IN THE LOOP</span>
+                <h2 class="section-title">Get Early Access</h2>
+                <p class="newsletter-text">Be the first to know about new drops, exclusive deals, and limited releases.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="newsletter-input-wrap">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary newsletter-btn" data-hover="button">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="footer-logo">VARAILLY.</a>
+                    <p class="footer-desc">Premium youth streetwear for the bold and expressive. Wear your variant.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" data-hover="link" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="social-link" data-hover="link" aria-label="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-link" data-hover="link" aria-label="TikTok">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.88 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.28 0 .55.04.81.1v-3.5a6.37 6.37 0 00-.81-.05A6.34 6.34 0 003.15 15.7a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.44a8.16 8.16 0 003.76.92V6.91a4.85 4.85 0 01-.01-.22z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Shop</h4>
+                    <a href="#products" class="footer-link" data-hover="link">All Products</a>
+                    <a href="#categories" class="footer-link" data-hover="link">Categories</a>
+                    <a href="#lookbook" class="footer-link" data-hover="link">Lookbook</a>
+                    <a href="size-guide.html" class="footer-link" data-hover="link">Size Guide</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Help</h4>
+                    <a href="shipping-returns.html" class="footer-link" data-hover="link">Shipping & Returns</a>
+                    <a href="track-order.html" class="footer-link" data-hover="link">Track Order</a>
+                    <a href="contact.html" class="footer-link" data-hover="link">Contact Us</a>
+                    <a href="size-guide.html" class="footer-link" data-hover="link">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <a href="about.html" class="footer-link" data-hover="link">About Us</a>
+                    <a href="sustainability.html" class="footer-link" data-hover="link">Sustainability</a>
+                    <a href="careers.html" class="footer-link" data-hover="link">Careers</a>
+                    <a href="contact.html" class="footer-link" data-hover="link">Press</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2024 VARAILLY. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#" data-hover="link">Privacy Policy</a>
+                    <a href="#" data-hover="link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" data-hover="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-text" id="toastText">Added to cart!</span>
     </div>
-  </div>
-</footer>
 
-<!-- ============ BACK TO TOP ============ -->
-<button class="back-to-top" id="backToTop" aria-label="Back to top">
-  <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-</button>
-
-<!-- ============ TOAST ============ -->
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
