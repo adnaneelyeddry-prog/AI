@@ -469,3 +469,206 @@
   }
 
 })();
+
+
+
+  /* =========================================================
+     ULTIMATE PREMIUM ADDITIONS
+     ========================================================= */
+
+  /* ---------------------------------------------------------
+     PARTICLE CANVAS (Hero)
+  --------------------------------------------------------- */
+  const particleCanvas = document.getElementById('particleCanvas');
+  if (particleCanvas) {
+    const ctx = particleCanvas.getContext('2d');
+    let particles = [];
+    let pMouseX = 0, pMouseY = 0;
+    const PARTICLE_COUNT = 80;
+
+    function resizeCanvas() {
+      const hero = particleCanvas.parentElement;
+      particleCanvas.width = hero.offsetWidth;
+      particleCanvas.height = hero.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * particleCanvas.width;
+        this.y = Math.random() * particleCanvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.5 + 0.1;
+      }
+      update() {
+        // Mouse interaction
+        const dx = pMouseX - this.x;
+        const dy = pMouseY - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          const force = (120 - dist) / 120;
+          this.speedX -= (dx / dist) * force * 0.2;
+          this.speedY -= (dy / dist) * force * 0.2;
+        }
+
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.speedX *= 0.99;
+        this.speedY *= 0.99;
+
+        if (this.x < 0 || this.x > particleCanvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > particleCanvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0,255,136,${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push(new Particle());
+    }
+
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0,255,136,${0.08 * (1 - dist / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawLines();
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    document.addEventListener('mousemove', (e) => {
+      const rect = particleCanvas.getBoundingClientRect();
+      pMouseX = e.clientX - rect.left;
+      pMouseY = e.clientY - rect.top;
+    });
+  }
+
+  /* ---------------------------------------------------------
+     TEXT SCRAMBLE EFFECT
+  --------------------------------------------------------- */
+  const scrambleChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+  function scrambleText(element) {
+    const originalText = element.textContent;
+    const chars = originalText.split('');
+    let iterations = 0;
+    const maxIterations = originalText.length;
+
+    const interval = setInterval(() => {
+      element.textContent = chars.map((char, i) => {
+        if (i < iterations) return originalText[i];
+        if (char === ' ') return ' ';
+        return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+      }).join('');
+
+      iterations += 1;
+      if (iterations > maxIterations) {
+        clearInterval(interval);
+        element.textContent = originalText;
+      }
+    }, 30);
+  }
+
+  // Trigger scramble on title spans when visible
+  const scrambleEls = $$('[data-scramble] .line span');
+  if (scrambleEls.length && 'IntersectionObserver' in window) {
+    const scrambleIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => scrambleText(entry.target), 800);
+          scrambleIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    scrambleEls.forEach(el => scrambleIO.observe(el));
+  }
+
+  /* ---------------------------------------------------------
+     CLIP REVEAL on scroll
+  --------------------------------------------------------- */
+  const clipRevealEls = $$('[data-clip-reveal]');
+  if (clipRevealEls.length && 'IntersectionObserver' in window) {
+    const clipIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          clipIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    clipRevealEls.forEach(el => clipIO.observe(el));
+  }
+
+  /* ---------------------------------------------------------
+     HORIZONTAL SCROLL TEXT (moves with page scroll)
+  --------------------------------------------------------- */
+  const scrollTextEl = document.getElementById('scrollText');
+  if (scrollTextEl) {
+    window.addEventListener('scroll', () => {
+      const speed = window.scrollY * -0.3;
+      scrollTextEl.style.transform = `translateX(${speed}px)`;
+    }, { passive: true });
+  }
+
+  /* ---------------------------------------------------------
+     ENHANCED 3D TILT for elements with data-tilt
+  --------------------------------------------------------- */
+  $$('[data-tilt]').forEach((el) => {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      el.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${y * -8}deg) scale3d(1.02,1.02,1.02)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale3d(1,1,1)';
+      el.style.transition = 'transform .6s var(--ease-out)';
+      setTimeout(() => el.style.transition = '', 600);
+    });
+  });
+
+  /* ---------------------------------------------------------
+     NAV LINK SCRAMBLE ON HOVER
+  --------------------------------------------------------- */
+  $$('.main-nav a').forEach((link) => {
+    const original = link.textContent;
+    link.addEventListener('mouseenter', () => {
+      let iteration = 0;
+      const scrambleInterval = setInterval(() => {
+        link.textContent = original.split('').map((char, i) => {
+          if (i < iteration) return original[i];
+          return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        }).join('');
+        iteration += 1/2;
+        if (iteration >= original.length) {
+          clearInterval(scrambleInterval);
+          link.textContent = original;
+        }
+      }, 25);
+    });
+  });
