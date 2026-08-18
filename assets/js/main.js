@@ -343,3 +343,34 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
     }
+
+
+
+    // --- FAQ Accordion ---
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function (item) {
+        var question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', function () {
+                var isActive = item.classList.contains('active');
+                // Close all
+                faqItems.forEach(function (i) { i.classList.remove('active'); });
+                // Open clicked (if wasn't already open)
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+
+    // --- Floating Amazon Button (show after scroll) ---
+    var floatingAmazon = document.getElementById('floatingAmazon');
+    if (floatingAmazon) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 800) {
+                floatingAmazon.classList.add('visible');
+            } else {
+                floatingAmazon.classList.remove('visible');
+            }
+        });
+    }
