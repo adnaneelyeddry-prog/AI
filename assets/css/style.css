@@ -10,19 +10,21 @@
 }
 
 :root {
-    --color-black: #0a0a0a;
+    --color-black: #0d0d0d;
     --color-white: #ffffff;
-    --color-light: #f0f0f0;
-    --color-cream: #fff8f0;
-    --color-green: #00e87b;
-    --color-purple: #7c3aed;
-    --color-navy: #0f172a;
-    --color-orange: #ff5722;
-    --color-orange-light: #ff9100;
-    --color-pink: #f43f8e;
-    --color-cyan: #00d4ff;
-    --color-grey: #888;
-    --color-border: rgba(255,255,255,.1);
+    --color-light: #f5f0eb;
+    --color-cream: #fef7ed;
+    --color-green: #10b981;
+    --color-purple: #8b5cf6;
+    --color-navy: #1e1b4b;
+    --color-orange: #f97316;
+    --color-orange-light: #fb923c;
+    --color-pink: #e11d48;
+    --color-cyan: #06b6d4;
+    --color-indigo: #4f46e5;
+    --color-emerald: #059669;
+    --color-grey: #6b7280;
+    --color-border: rgba(255,255,255,.08);
     --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --radius-sm: 8px;
     --radius-md: 16px;
@@ -56,7 +58,7 @@ body {
     background: var(--color-black);
 }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--color-green), var(--color-cyan));
+    background: linear-gradient(180deg, #8b5cf6, #4f46e5);
     border-radius: 4px;
 }
 
@@ -131,14 +133,14 @@ button {
 .loading-bar-fill {
     height: 100%;
     width: 0%;
-    background: var(--color-green);
+    background: #4f46e5;
     border-radius: 3px;
     transition: width .3s ease;
 }
 
 /* ---------- ANNOUNCEMENT BAR ---------- */
 .announcement-bar {
-    background: linear-gradient(90deg, var(--color-pink), var(--color-purple), var(--color-cyan));
+    background: linear-gradient(90deg, #1e1b4b, #4f46e5, #8b5cf6);
     color: var(--color-white);
     padding: 10px 0;
     overflow: hidden;
@@ -207,7 +209,7 @@ button {
     transition: color var(--transition);
 }
 .nav-link:hover {
-    color: var(--color-green);
+    color: #8b5cf6;
 }
 .header-actions {
     display: flex;
@@ -223,7 +225,7 @@ button {
     position: absolute;
     top: 0;
     right: 0;
-    background: var(--color-green);
+    background: #4f46e5;
     color: var(--color-black);
     font-size: .65rem;
     font-weight: 800;
@@ -307,7 +309,7 @@ button {
     font-size: .75rem;
     font-weight: 700;
     letter-spacing: 2px;
-    color: var(--color-green);
+    color: #8b5cf6;
     text-transform: uppercase;
 }
 .hero-title {
@@ -407,7 +409,7 @@ button {
     top: 20px;
     right: 20px;
     z-index: 4;
-    background: var(--color-green);
+    background: #4f46e5;
     color: var(--color-black);
     font-size: .7rem;
     font-weight: 800;
@@ -431,20 +433,20 @@ button {
     letter-spacing: .5px;
 }
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-green), #00d4aa);
-    color: var(--color-black);
+    background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+    color: var(--color-white);
 }
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0,232,123,.35);
+    box-shadow: 0 12px 35px rgba(79,70,229,.4);
 }
 .btn-outline {
     border: 2px solid rgba(255,255,255,.3);
     color: var(--color-white);
 }
 .btn-outline:hover {
-    border-color: var(--color-green);
-    color: var(--color-green);
+    border-color: #8b5cf6;
+    color: #8b5cf6;
     transform: translateY(-2px);
 }
 .btn-amazon {
@@ -536,7 +538,7 @@ button {
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: .75rem;
-    color: var(--color-green);
+    color: #8b5cf6;
 }
 .section-title {
     font-size: clamp(2.2rem, 5vw, 3.5rem);
@@ -599,7 +601,7 @@ button {
     display: block;
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--color-green);
+    color: #8b5cf6;
 }
 .countdown-unit small {
     font-size: .6rem;
@@ -662,7 +664,7 @@ button {
     transform: translateX(-50%) translateY(0);
 }
 .product-quick-add:hover {
-    background: var(--color-green);
+    background: #4f46e5;
     color: var(--color-black);
 }
 .product-info {
@@ -678,7 +680,7 @@ button {
 .product-price {
     font-size: .95rem;
     font-weight: 800;
-    color: var(--color-pink);
+    color: var(--color-indigo);
 }
 
 /* ---------- FEATURES (WHY VARAILLY) ---------- */
@@ -765,7 +767,7 @@ button {
 
 /* ---------- HOW IT WORKS ---------- */
 .how-it-works {
-    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    background: linear-gradient(135deg, #4f46e5, #7c3aed, #a78bfa);
     min-height: 100vh;
     padding: 8rem 0;
     display: flex;
@@ -868,14 +870,14 @@ button {
     transition: all var(--transition);
 }
 .video-play-btn:hover {
-    background: var(--color-green);
+    background: #4f46e5;
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0,255,136,.3);
 }
 
 /* ---------- CATEGORIES ---------- */
 .categories {
-    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
     min-height: 100vh;
     padding: 8rem 0;
     display: flex;
@@ -975,7 +977,7 @@ button {
 
 /* ---------- TESTIMONIALS ---------- */
 .testimonials {
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
     min-height: 100vh;
     padding: 8rem 0;
     display: flex;
@@ -983,7 +985,7 @@ button {
     color: var(--color-white);
 }
 .testimonials .section-label {
-    color: var(--color-green);
+    color: #8b5cf6;
 }
 .testimonials .section-title {
     color: var(--color-white);
@@ -1026,13 +1028,13 @@ button {
 }
 .testimonial-verified {
     font-size: .75rem;
-    color: var(--color-green);
+    color: #8b5cf6;
     font-weight: 600;
 }
 
 /* ---------- AMAZON SECTION ---------- */
 .amazon-section {
-    background: linear-gradient(135deg, #ff5722, #ff9100, #ffab00);
+    background: linear-gradient(135deg, #f97316, #fb923c, #fbbf24);
     min-height: 80vh;
     padding: 8rem 0;
     display: flex;
@@ -1103,7 +1105,7 @@ button {
     gap: .75rem;
 }
 .stat-icon {
-    color: var(--color-green);
+    color: #8b5cf6;
 }
 .stat-number {
     font-size: 3rem;
@@ -1251,7 +1253,7 @@ button {
 
 /* ---------- NEWSLETTER ---------- */
 .newsletter {
-    background: linear-gradient(135deg, #00e87b, #00d4ff);
+    background: linear-gradient(135deg, #10b981, #06b6d4, #8b5cf6);
     padding: 8rem 0;
     min-height: 60vh;
     display: flex;
@@ -1339,7 +1341,7 @@ button {
     transition: all var(--transition);
 }
 .social-link:hover {
-    background: var(--color-green);
+    background: #4f46e5;
     color: var(--color-black);
 }
 .footer-heading {
@@ -1358,7 +1360,7 @@ button {
     transition: color var(--transition);
 }
 .footer-link:hover {
-    color: var(--color-green);
+    color: #8b5cf6;
 }
 .footer-bottom {
     display: flex;
@@ -1394,7 +1396,7 @@ button {
     z-index: 8000;
     width: 48px;
     height: 48px;
-    background: var(--color-green);
+    background: #4f46e5;
     color: var(--color-black);
     border-radius: 50%;
     display: flex;
