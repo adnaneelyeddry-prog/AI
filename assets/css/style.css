@@ -1737,3 +1737,216 @@ button {
         height: 320px;
     }
 }
+
+
+
+/* =========================================
+   SCROLL-DOWN 3D ANIMATION
+   ========================================= */
+
+/* Products fly in from sides with rotation */
+.product-card {
+    opacity: 0;
+    transform: translateY(80px) rotateX(15deg) scale(.9);
+    transition: all .8s cubic-bezier(.4,0,.2,1);
+}
+.product-card.revealed {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) scale(1);
+}
+.product-card:nth-child(1) { transition-delay: 0s; }
+.product-card:nth-child(2) { transition-delay: .15s; }
+.product-card:nth-child(3) { transition-delay: .3s; }
+.product-card:nth-child(4) { transition-delay: .45s; }
+.product-card:nth-child(5) { transition-delay: .6s; }
+.product-card:nth-child(6) { transition-delay: .75s; }
+
+/* Section headers zoom in */
+.section-header {
+    opacity: 0;
+    transform: translateY(60px) scale(.85);
+    transition: all 1s cubic-bezier(.4,0,.2,1);
+}
+.section-header.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Feature cards flip in */
+.feature-card {
+    opacity: 0;
+    transform: perspective(800px) rotateY(25deg) translateX(-40px);
+    transition: all .8s cubic-bezier(.4,0,.2,1);
+}
+.feature-card.revealed {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg) translateX(0);
+}
+.feature-card:nth-child(1) { transition-delay: 0s; }
+.feature-card:nth-child(2) { transition-delay: .15s; }
+.feature-card:nth-child(3) { transition-delay: .2s; }
+.feature-card:nth-child(4) { transition-delay: .3s; }
+
+/* Step cards slide up with 3D tilt */
+.step-card {
+    opacity: 0;
+    transform: translateY(100px) rotateX(20deg);
+    transition: all .9s cubic-bezier(.4,0,.2,1);
+}
+.step-card.revealed {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+}
+.step-card:nth-child(1) { transition-delay: 0s; }
+.step-card:nth-child(2) { transition-delay: .2s; }
+.step-card:nth-child(3) { transition-delay: .4s; }
+
+/* Category tiles scale in with rotation */
+.category-tile {
+    opacity: 0;
+    transform: scale(.7) rotateZ(-3deg);
+    transition: all .7s cubic-bezier(.4,0,.2,1);
+}
+.category-tile.revealed {
+    opacity: 1;
+    transform: scale(1) rotateZ(0deg);
+}
+.category-tile:nth-child(1) { transition-delay: 0s; }
+.category-tile:nth-child(2) { transition-delay: .1s; }
+.category-tile:nth-child(3) { transition-delay: .2s; }
+.category-tile:nth-child(4) { transition-delay: .3s; }
+
+/* Testimonial cards slide in from alternating sides */
+.testimonial-card {
+    opacity: 0;
+    transform: translateX(-60px) rotateY(10deg);
+    transition: all .8s cubic-bezier(.4,0,.2,1);
+}
+.testimonial-card:nth-child(even) {
+    transform: translateX(60px) rotateY(-10deg);
+}
+.testimonial-card.revealed {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+}
+.testimonial-card:nth-child(1) { transition-delay: 0s; }
+.testimonial-card:nth-child(2) { transition-delay: .15s; }
+.testimonial-card:nth-child(3) { transition-delay: .3s; }
+
+/* Lookbook items pop in with scale */
+.lookbook-item {
+    opacity: 0;
+    transform: scale(.8) translateY(30px);
+    transition: all .6s cubic-bezier(.4,0,.2,1);
+}
+.lookbook-item.revealed {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Stats zoom in */
+.stat-item {
+    opacity: 0;
+    transform: scale(.5) translateY(30px);
+    transition: all .7s cubic-bezier(.4,0,.2,1);
+}
+.stat-item.revealed {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+.stat-item:nth-child(1) { transition-delay: 0s; }
+.stat-item:nth-child(2) { transition-delay: .1s; }
+.stat-item:nth-child(3) { transition-delay: .15s; }
+.stat-item:nth-child(4) { transition-delay: .2s; }
+
+/* Instagram grid items pop in one by one */
+.insta-item {
+    opacity: 0;
+    transform: scale(.6) rotateZ(5deg);
+    transition: all .5s cubic-bezier(.4,0,.2,1);
+}
+.insta-item.revealed {
+    opacity: 1;
+    transform: scale(1) rotateZ(0deg);
+}
+.insta-item:nth-child(1) { transition-delay: 0s; }
+.insta-item:nth-child(2) { transition-delay: .08s; }
+.insta-item:nth-child(3) { transition-delay: .16s; }
+.insta-item:nth-child(4) { transition-delay: .24s; }
+.insta-item:nth-child(5) { transition-delay: .32s; }
+.insta-item:nth-child(6) { transition-delay: .4s; }
+
+/* Hero content slides in from left */
+.hero-content {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: all 1.2s cubic-bezier(.4,0,.2,1) .3s;
+}
+.hero-content.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Hero image slides in from right with 3D */
+.hero-image {
+    opacity: 0;
+    transform: translateX(80px) perspective(1000px) rotateY(-10deg);
+    transition: all 1.2s cubic-bezier(.4,0,.2,1) .5s;
+}
+.hero-image.revealed {
+    opacity: 1;
+    transform: translateX(0) perspective(1000px) rotateY(0deg);
+}
+
+/* Manifesto split animation */
+.manifesto-inner {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s cubic-bezier(.4,0,.2,1);
+}
+.manifesto-inner.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Video section zooms in */
+.video-wrapper {
+    opacity: 0;
+    transform: scale(.9);
+    transition: all 1s cubic-bezier(.4,0,.2,1);
+}
+.video-wrapper.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* FAQ slides up */
+.faq-list {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .8s cubic-bezier(.4,0,.2,1);
+}
+.faq-list.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CTA banner text pops */
+.cta-banner-inner {
+    opacity: 0;
+    transform: scale(.9) translateY(40px);
+    transition: all .9s cubic-bezier(.4,0,.2,1);
+}
+.cta-banner-inner.revealed {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Smooth perspective for grids */
+.products-grid,
+.features-grid,
+.steps-grid,
+.categories-grid,
+.testimonials-grid {
+    perspective: 1200px;
+}

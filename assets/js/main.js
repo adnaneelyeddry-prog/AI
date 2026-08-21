@@ -87,7 +87,7 @@
 
     // ---------- SCROLL REVEAL (IntersectionObserver) ----------
     function initScrollReveal() {
-        var revealElements = document.querySelectorAll('.reveal');
+        var revealElements = document.querySelectorAll('.reveal, .product-card, .feature-card, .step-card, .category-tile, .testimonial-card, .lookbook-item, .stat-item, .insta-item, .section-header, .hero-content, .hero-image, .manifesto-inner, .video-wrapper, .faq-list, .cta-banner-inner');
         if (!revealElements.length) return;
 
         var observer = new IntersectionObserver(
@@ -101,7 +101,7 @@
             },
             {
                 threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px',
+                rootMargin: '0px 0px -40px 0px',
             }
         );
 
