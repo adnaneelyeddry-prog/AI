@@ -435,3 +435,46 @@
             }
         });
     }
+
+
+
+    // --- 3D Tilt Effect on Product Cards ---
+    var tiltCards = document.querySelectorAll('.product-card, .testimonial-card, .feature-card, .step-card');
+
+    tiltCards.forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            var rect = card.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+
+            card.style.transform = 'perspective(1000px) rotateY(' + (x * 10) + 'deg) rotateX(' + (y * -8) + 'deg) translateZ(10px)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0)';
+        });
+    });
+
+    // --- 3D Parallax on Hero Image (mouse follow) ---
+    var heroImage = document.querySelector('.hero-image');
+    var heroSection = document.querySelector('.hero');
+
+    if (heroImage && heroSection) {
+        heroSection.addEventListener('mousemove', function(e) {
+            var rect = heroSection.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+
+            var img = heroImage.querySelector('img');
+            if (img) {
+                img.style.transform = 'rotateY(' + (x * -8) + 'deg) rotateX(' + (y * 5) + 'deg) scale(1.02)';
+            }
+        });
+
+        heroSection.addEventListener('mouseleave', function() {
+            var img = heroImage.querySelector('img');
+            if (img) {
+                img.style.transform = 'rotateY(-3deg) rotateX(2deg)';
+            }
+        });
+    }

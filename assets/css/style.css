@@ -2132,3 +2132,158 @@ button {
     color: rgba(255,255,255,.4);
     margin-top: .75rem;
 }
+
+
+
+/* =========================================
+   3D EFFECTS
+   ========================================= */
+
+/* --- 3D Product Cards (tilt on hover via JS) --- */
+.product-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    will-change: transform;
+}
+
+.product-card .product-image img {
+    transform: translateZ(0);
+    transition: transform .6s cubic-bezier(.4,0,.2,1);
+}
+
+.product-card:hover .product-image img {
+    transform: translateZ(20px) scale(1.03);
+}
+
+.product-info {
+    transform: translateZ(30px);
+}
+
+/* --- 3D Hero Image --- */
+.hero-image {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+.hero-image img {
+    transform: rotateY(-3deg) rotateX(2deg);
+    transition: transform .6s cubic-bezier(.4,0,.2,1);
+    transform-style: preserve-3d;
+}
+
+.hero-image:hover img {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+/* --- 3D Category Tiles --- */
+.category-tile {
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+.category-tile .category-image img {
+    transition: transform .8s cubic-bezier(.4,0,.2,1);
+}
+
+.category-tile:hover .category-image img {
+    transform: scale(1.08) translateZ(10px);
+}
+
+.category-label {
+    transform: translateZ(40px);
+    transition: transform .4s;
+}
+
+.category-tile:hover .category-label {
+    transform: translateZ(60px);
+}
+
+/* --- 3D Lookbook Items --- */
+.lookbook-item {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.lookbook-item img {
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+
+.lookbook-item:hover img {
+    transform: rotateY(-3deg) scale(1.02);
+    box-shadow: 20px 20px 60px rgba(0,0,0,.5);
+}
+
+/* --- 3D Testimonial Cards --- */
+.testimonial-card {
+    transform-style: preserve-3d;
+    perspective: 800px;
+    will-change: transform;
+}
+
+/* --- 3D Feature Cards --- */
+.feature-card {
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+.feature-icon {
+    transform: translateZ(30px);
+    transition: transform .4s;
+}
+
+.feature-card:hover .feature-icon {
+    transform: translateZ(50px) scale(1.1);
+}
+
+/* --- 3D Step Cards --- */
+.step-card {
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+.step-number {
+    transform: translateZ(20px);
+    transition: transform .4s;
+}
+
+.step-card:hover .step-number {
+    transform: translateZ(40px) scale(1.05);
+}
+
+/* --- 3D Stats Items --- */
+.stat-item {
+    transition: transform .4s cubic-bezier(.4,0,.2,1);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.stat-icon {
+    transition: transform .4s;
+}
+
+.stat-item:hover .stat-icon {
+    transform: scale(1.2) translateY(-3px);
+}
+
+/* --- 3D Video Section --- */
+.video-bg {
+    transition: transform .8s cubic-bezier(.4,0,.2,1);
+}
+
+.video-wrapper:hover .video-bg {
+    transform: scale(1.02);
+}
+
+/* --- 3D Amazon Card --- */
+.amazon-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+
+.amazon-card:hover {
+    transform: rotateX(2deg) rotateY(-2deg) translateZ(10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,.4);
+}
