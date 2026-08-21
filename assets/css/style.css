@@ -12,13 +12,15 @@
 :root {
     --color-black: #0a0a0a;
     --color-white: #ffffff;
-    --color-light: #f8f8f8;
-    --color-cream: #faf9f6;
-    --color-green: #00ff88;
-    --color-purple: #6c2bd9;
-    --color-navy: #0d1b2a;
-    --color-orange: #ff6b35;
-    --color-orange-light: #ff9f1c;
+    --color-light: #f0f0f0;
+    --color-cream: #fff8f0;
+    --color-green: #00e87b;
+    --color-purple: #7c3aed;
+    --color-navy: #0f172a;
+    --color-orange: #ff5722;
+    --color-orange-light: #ff9100;
+    --color-pink: #f43f8e;
+    --color-cyan: #00d4ff;
     --color-grey: #888;
     --color-border: rgba(255,255,255,.1);
     --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -28,8 +30,8 @@
     --radius-pill: 100px;
     --transition: .4s cubic-bezier(.4,0,.2,1);
     --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
-    --shadow-md: 0 8px 30px rgba(0,0,0,.1);
-    --shadow-lg: 0 20px 60px rgba(0,0,0,.15);
+    --shadow-md: 0 8px 30px rgba(0,0,0,.12);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,.18);
 }
 
 html {
@@ -54,7 +56,7 @@ body {
     background: var(--color-black);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--color-green);
+    background: linear-gradient(180deg, var(--color-green), var(--color-cyan));
     border-radius: 4px;
 }
 
@@ -136,8 +138,8 @@ button {
 
 /* ---------- ANNOUNCEMENT BAR ---------- */
 .announcement-bar {
-    background: var(--color-green);
-    color: var(--color-black);
+    background: linear-gradient(90deg, var(--color-pink), var(--color-purple), var(--color-cyan));
+    color: var(--color-white);
     padding: 10px 0;
     overflow: hidden;
     font-size: .75rem;
@@ -268,8 +270,9 @@ button {
 .hero-bg-animated {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(0,255,136,.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 80%, rgba(108,43,217,.06) 0%, transparent 50%);
+    background: radial-gradient(ellipse at 30% 50%, rgba(0,232,123,.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(124,58,237,.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 20%, rgba(0,212,255,.06) 0%, transparent 40%);
 }
 .hero-bg-video {
     position: absolute;
@@ -428,13 +431,12 @@ button {
     letter-spacing: .5px;
 }
 .btn-primary {
-    background: var(--color-green);
+    background: linear-gradient(135deg, var(--color-green), #00d4aa);
     color: var(--color-black);
 }
 .btn-primary:hover {
-    background: #00e67a;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0,255,136,.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,232,123,.35);
 }
 .btn-outline {
     border: 2px solid rgba(255,255,255,.3);
@@ -503,7 +505,7 @@ button {
 
 /* ---------- MARQUEE ---------- */
 .marquee {
-    background: var(--color-green);
+    background: linear-gradient(90deg, var(--color-orange), var(--color-pink));
     padding: 1.2rem 0;
     overflow: hidden;
 }
@@ -515,13 +517,13 @@ button {
 .marquee-item {
     font-size: 1rem;
     font-weight: 800;
-    color: var(--color-black);
+    color: var(--color-white);
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 0 1rem;
 }
 .marquee-separator {
-    color: rgba(0,0,0,.3);
+    color: rgba(255,255,255,.5);
     padding: 0 1rem;
     font-size: 1.2rem;
 }
@@ -676,7 +678,7 @@ button {
 .product-price {
     font-size: .95rem;
     font-weight: 800;
-    color: var(--color-purple);
+    color: var(--color-pink);
 }
 
 /* ---------- FEATURES (WHY VARAILLY) ---------- */
@@ -763,7 +765,7 @@ button {
 
 /* ---------- HOW IT WORKS ---------- */
 .how-it-works {
-    background: var(--color-purple);
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
     min-height: 100vh;
     padding: 8rem 0;
     display: flex;
@@ -873,7 +875,7 @@ button {
 
 /* ---------- CATEGORIES ---------- */
 .categories {
-    background: var(--color-purple);
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
     min-height: 100vh;
     padding: 8rem 0;
     display: flex;
@@ -973,7 +975,7 @@ button {
 
 /* ---------- TESTIMONIALS ---------- */
 .testimonials {
-    background: var(--color-navy);
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     min-height: 100vh;
     padding: 8rem 0;
     display: flex;
@@ -1030,7 +1032,7 @@ button {
 
 /* ---------- AMAZON SECTION ---------- */
 .amazon-section {
-    background: linear-gradient(135deg, var(--color-orange), var(--color-orange-light));
+    background: linear-gradient(135deg, #ff5722, #ff9100, #ffab00);
     min-height: 80vh;
     padding: 8rem 0;
     display: flex;
@@ -1249,7 +1251,7 @@ button {
 
 /* ---------- NEWSLETTER ---------- */
 .newsletter {
-    background: var(--color-green);
+    background: linear-gradient(135deg, #00e87b, #00d4ff);
     padding: 8rem 0;
     min-height: 60vh;
     display: flex;
