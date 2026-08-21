@@ -478,3 +478,49 @@
             }
         });
     }
+
+
+
+    // --- MANA-style scroll-driven 3D rotation on products ---
+    var productCards = document.querySelectorAll('.product-card');
+
+    function updateScrollEffects() {
+        var scrollY = window.scrollY;
+        var windowH = window.innerHeight;
+
+        productCards.forEach(function(card, index) {
+            var rect = card.getBoundingClientRect();
+            var centerY = rect.top + rect.height / 2;
+            var progress = (centerY - windowH / 2) / windowH; // -0.5 to 0.5
+
+            // Subtle rotation based on scroll position
+            var rotateY = progress * 4 * (index % 2 === 0 ? 1 : -1);
+            var rotateX = progress * -2;
+
+            if (rect.top < windowH && rect.bottom > 0) {
+                card.style.setProperty('--scroll-rotate', rotateY + 'deg');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateScrollEffects);
+    }, { passive: true });
+
+    // --- Parallax speed on sections ---
+    var parallaxSections = document.querySelectorAll('.section-header, .hero-content, .hero-image');
+
+    function updateParallax() {
+        var scrollY = window.scrollY;
+
+        parallaxSections.forEach(function(el) {
+            var rect = el.getBoundingClientRect();
+            var speed = 0.03;
+            var offset = (rect.top - window.innerHeight / 2) * speed;
+            el.style.transform = 'translateY(' + offset + 'px)';
+        });
+    }
+
+    window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateParallax);
+    }, { passive: true });

@@ -2407,3 +2407,153 @@ button {
     .hero-glow-ring { display: none; }
     .hero-main-img { transform: none; }
 }
+
+
+
+/* =========================================
+   MANA-STYLE 3D SCROLL EFFECTS
+   Inspired by manayerbamate.com
+   ========================================= */
+
+/* --- Products that rotate/float on scroll --- */
+.product-card {
+    --scroll-rotate: 0deg;
+    --scroll-scale: 1;
+    transform: perspective(1000px) rotateY(var(--scroll-rotate)) scale(var(--scroll-scale));
+    transition: transform .1s linear;
+}
+
+/* --- Scroll-driven parallax sections --- */
+.section-parallax {
+    transform: translateY(var(--parallax-y, 0px));
+    will-change: transform;
+}
+
+/* --- 3D Product Floating Animation (always-on subtle) --- */
+.product-card:nth-child(1) { animation: product-float-1 6s ease-in-out infinite; }
+.product-card:nth-child(2) { animation: product-float-2 7s ease-in-out infinite; animation-delay: -.5s; }
+.product-card:nth-child(3) { animation: product-float-3 5.5s ease-in-out infinite; animation-delay: -1s; }
+.product-card:nth-child(4) { animation: product-float-1 6.5s ease-in-out infinite; animation-delay: -1.5s; }
+.product-card:nth-child(5) { animation: product-float-2 5s ease-in-out infinite; animation-delay: -2s; }
+.product-card:nth-child(6) { animation: product-float-3 7.5s ease-in-out infinite; animation-delay: -2.5s; }
+
+@keyframes product-float-1 {
+    0%, 100% { transform: perspective(1000px) translateY(0) rotateX(0deg) rotateY(0deg); }
+    50% { transform: perspective(1000px) translateY(-8px) rotateX(1deg) rotateY(-1deg); }
+}
+@keyframes product-float-2 {
+    0%, 100% { transform: perspective(1000px) translateY(0) rotateX(0deg) rotateY(0deg); }
+    50% { transform: perspective(1000px) translateY(-10px) rotateX(-1deg) rotateY(1.5deg); }
+}
+@keyframes product-float-3 {
+    0%, 100% { transform: perspective(1000px) translateY(0) rotateX(0deg) rotateY(0deg); }
+    50% { transform: perspective(1000px) translateY(-6px) rotateX(1.5deg) rotateY(-0.5deg); }
+}
+
+/* Override hover to be more dramatic */
+.product-card:hover {
+    animation-play-state: paused;
+    transform: perspective(1000px) translateY(-15px) rotateX(5deg) rotateY(-5deg) scale(1.04) !important;
+    box-shadow: 0 40px 80px rgba(0,0,0,.5), 0 0 30px rgba(0,255,136,.08);
+    z-index: 10;
+}
+
+/* --- Hero Title 3D text effect --- */
+.hero-title {
+    transform-style: preserve-3d;
+    text-shadow:
+        0 1px 0 rgba(255,255,255,.1),
+        0 2px 0 rgba(255,255,255,.05),
+        0 3px 0 rgba(0,0,0,.1),
+        0 4px 0 rgba(0,0,0,.1),
+        0 5px 0 rgba(0,0,0,.1),
+        0 6px 0 rgba(0,0,0,.1),
+        0 10px 30px rgba(0,0,0,.4);
+}
+
+/* --- Scroll-triggered reveal with 3D rotation --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) perspective(800px) rotateX(5deg);
+    transition: opacity .8s cubic-bezier(.4,0,.2,1), transform .8s cubic-bezier(.4,0,.2,1);
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0) perspective(800px) rotateX(0deg);
+}
+
+/* --- Lookbook items 3D on scroll --- */
+.lookbook-item {
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+
+.lookbook-item:hover {
+    transform: perspective(800px) rotateY(-8deg) scale(1.03);
+    box-shadow: 30px 30px 80px rgba(0,0,0,.5);
+    z-index: 2;
+}
+
+/* --- Category tiles 3D pop --- */
+.category-tile {
+    transition: transform .5s cubic-bezier(.4,0,.2,1), box-shadow .5s;
+}
+
+.category-tile:hover {
+    transform: perspective(800px) rotateY(-3deg) rotateX(2deg) translateZ(20px) scale(1.02);
+    box-shadow: 20px 30px 60px rgba(0,0,0,.5);
+}
+
+/* --- Marquee 3D depth --- */
+.marquee-item {
+    transition: transform .3s, color .3s;
+}
+
+.marquee-item:hover {
+    color: rgba(0,255,136,.4) !important;
+    transform: scale(1.1) translateZ(10px);
+}
+
+/* --- Video section 3D tilt --- */
+.video-wrapper {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+.video-bg {
+    transition: transform .8s cubic-bezier(.4,0,.2,1);
+}
+
+.video-wrapper:hover .video-bg {
+    transform: rotateX(1deg) rotateY(-1deg) scale(1.01);
+}
+
+/* --- Feature cards 3D pop --- */
+.feature-card:hover {
+    transform: perspective(800px) rotateX(-3deg) rotateY(3deg) translateY(-10px) translateZ(15px);
+    box-shadow: 0 30px 60px rgba(0,0,0,.4);
+}
+
+/* --- Stats counter 3D pop on count --- */
+.stat-number {
+    transition: transform .4s cubic-bezier(.4,0,.2,1), text-shadow .4s;
+}
+
+.stat-item:hover .stat-number {
+    transform: scale(1.15) translateZ(20px);
+    text-shadow: 0 5px 20px rgba(255,255,255,.2);
+}
+
+/* --- Smooth section entrance stagger --- */
+.products-grid .product-card:nth-child(1) .reveal { transition-delay: 0s; }
+.products-grid .product-card:nth-child(2) .reveal { transition-delay: .1s; }
+.products-grid .product-card:nth-child(3) .reveal { transition-delay: .2s; }
+.products-grid .product-card:nth-child(4) .reveal { transition-delay: .3s; }
+.products-grid .product-card:nth-child(5) .reveal { transition-delay: .4s; }
+.products-grid .product-card:nth-child(6) .reveal { transition-delay: .5s; }
+
+/* --- Instagram grid 3D hover --- */
+.insta-item:hover {
+    transform: perspective(600px) rotateY(-3deg) scale(1.05);
+    z-index: 2;
+}
