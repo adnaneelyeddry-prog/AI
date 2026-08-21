@@ -1036,15 +1036,21 @@ button {
 
 /* ---------- AMAZON SECTION ---------- */
 .amazon-section {
-    background: linear-gradient(135deg, #f97316, #fb923c, #fbbf24);
-    min-height: 80vh;
-    padding: 8rem 0;
+    background: var(--color-black);
+    min-height: 60vh;
+    padding: 6rem 0;
     display: flex;
     align-items: center;
 }
 .amazon-card {
     text-align: center;
     color: var(--color-white);
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--radius-lg);
+    padding: 4rem 3rem;
+    max-width: 700px;
+    margin: 0 auto;
 }
 .amazon-badge {
     margin-bottom: 2rem;
@@ -1053,37 +1059,41 @@ button {
     display: inline-block;
 }
 .amazon-title {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 900;
     margin-bottom: 1rem;
 }
 .amazon-text {
-    font-size: 1.1rem;
-    opacity: .9;
-    max-width: 600px;
+    font-size: 1rem;
+    opacity: .7;
+    max-width: 500px;
     margin: 0 auto 2rem;
     line-height: 1.7;
 }
 .amazon-trust {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 2rem;
 }
 .trust-badge {
-    font-size: .85rem;
+    font-size: .8rem;
     font-weight: 700;
-    background: rgba(255,255,255,.2);
+    background: rgba(249,115,22,.15);
+    border: 1px solid rgba(249,115,22,.3);
+    color: #fb923c;
     padding: 8px 16px;
     border-radius: var(--radius-pill);
 }
 .amazon-content .btn-amazon {
-    background: var(--color-black);
+    background: #f97316;
     color: var(--color-white);
 }
 .amazon-content .btn-amazon:hover {
-    background: #1a1a1a;
+    background: #ea580c;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(249,115,22,.3);
 }
 
 /* ---------- STATS ---------- */
