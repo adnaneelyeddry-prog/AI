@@ -43,15 +43,10 @@
     function updateHeader() {
         var currentScrollY = window.scrollY;
         if (header) {
-            if (currentScrollY > 100) {
+            if (currentScrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
-            }
-            if (currentScrollY > lastScrollY && currentScrollY > 300) {
-                header.classList.add('hidden');
-            } else {
-                header.classList.remove('hidden');
             }
         }
         lastScrollY = currentScrollY;

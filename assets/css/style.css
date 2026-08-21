@@ -140,8 +140,6 @@ button {
 
 /* ---------- ANNOUNCEMENT BAR ---------- */
 .announcement-bar {
-    position: relative;
-    z-index: 9001;
     background: linear-gradient(90deg, #1e1b4b, #4f46e5, #8b5cf6);
     color: var(--color-white);
     padding: 9px 0;
@@ -171,20 +169,20 @@ button {
 
 /* ---------- HEADER ---------- */
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
     z-index: 9000;
     padding: 1rem 0;
-    background: rgba(13,13,13,.95);
+    background: rgba(13,13,13,.98);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,.06);
-    transition: transform .4s ease;
+    transition: box-shadow .3s ease;
 }
-.header.hidden {
-    transform: translateY(-100%);
+.header.scrolled {
+    box-shadow: 0 4px 20px rgba(0,0,0,.3);
 }
 .header-inner {
     display: flex;
@@ -271,7 +269,7 @@ button {
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding: 120px 0 80px;
+    padding: 80px 0;
 }
 .hero-bg-animated {
     position: absolute;
