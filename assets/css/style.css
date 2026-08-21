@@ -140,14 +140,22 @@ button {
 
 /* ---------- ANNOUNCEMENT BAR ---------- */
 .announcement-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9001;
     background: linear-gradient(90deg, #1e1b4b, #4f46e5, #8b5cf6);
     color: var(--color-white);
-    padding: 10px 0;
+    padding: 9px 0;
     overflow: hidden;
-    font-size: .75rem;
+    font-size: .72rem;
     font-weight: 700;
     letter-spacing: .5px;
     text-transform: uppercase;
+    height: 36px;
+    display: flex;
+    align-items: center;
 }
 .announcement-track {
     display: flex;
@@ -167,17 +175,19 @@ button {
 /* ---------- HEADER ---------- */
 .header {
     position: fixed;
-    top: 0;
+    top: 36px;
     left: 0;
     right: 0;
     z-index: 9000;
     padding: 1rem 0;
-    transition: transform .4s ease, background .3s ease;
-}
-.header.scrolled {
-    background: rgba(10,10,10,.95);
+    background: rgba(13,13,13,.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    transition: transform .4s ease, top .3s ease;
+}
+.header.scrolled {
+    top: 0;
 }
 .header.hidden {
     transform: translateY(-100%);
@@ -267,7 +277,7 @@ button {
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding: 120px 0 80px;
+    padding: 140px 0 80px;
 }
 .hero-bg-animated {
     position: absolute;
