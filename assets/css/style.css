@@ -2287,3 +2287,123 @@ button {
     transform: rotateX(2deg) rotateY(-2deg) translateZ(10px);
     box-shadow: 0 30px 60px rgba(0,0,0,.4);
 }
+
+
+
+/* =========================================
+   3D HERO SCENE
+   ========================================= */
+.hero-3d-scene {
+    position: relative;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+.hero-main-img {
+    width: 100%;
+    height: clamp(400px, 50vw, 650px);
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 40px 80px rgba(0,0,0,.5);
+    transform: rotateY(-4deg) rotateX(2deg);
+    transition: transform .6s cubic-bezier(.4,0,.2,1);
+    position: relative;
+    z-index: 2;
+}
+
+.hero-3d-scene:hover .hero-main-img {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+/* Glowing ring behind */
+.hero-glow-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%) rotateX(60deg);
+    border-radius: 50%;
+    border: 2px solid rgba(0,255,136,.15);
+    box-shadow: 0 0 40px rgba(0,255,136,.08), inset 0 0 40px rgba(0,255,136,.05);
+    z-index: 0;
+    animation: ring-pulse 4s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+    0%, 100% { opacity: .5; transform: translate(-50%, -50%) rotateX(60deg) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) rotateX(60deg) scale(1.05); }
+}
+
+/* Floating images at different depths */
+.hero-float {
+    position: absolute;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.5);
+    z-index: 3;
+    object-fit: cover;
+}
+
+.hero-float-1 {
+    width: 120px;
+    height: 150px;
+    top: -20px;
+    right: -30px;
+    transform: translateZ(60px) rotate(6deg);
+    animation: float-1 6s ease-in-out infinite;
+}
+
+.hero-float-2 {
+    width: 100px;
+    height: 130px;
+    bottom: 30px;
+    left: -25px;
+    transform: translateZ(40px) rotate(-4deg);
+    animation: float-2 7s ease-in-out infinite;
+}
+
+@keyframes float-1 {
+    0%, 100% { transform: translateZ(60px) rotate(6deg) translateY(0); }
+    50% { transform: translateZ(60px) rotate(6deg) translateY(-15px); }
+}
+
+@keyframes float-2 {
+    0%, 100% { transform: translateZ(40px) rotate(-4deg) translateY(0); }
+    50% { transform: translateZ(40px) rotate(-4deg) translateY(-12px); }
+}
+
+/* 3D Badge floating */
+.hero-3d-badge {
+    position: absolute;
+    top: 20px;
+    left: -15px;
+    background: #00ff88;
+    color: #000;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    padding: .5rem 1rem;
+    border-radius: 6px;
+    z-index: 4;
+    transform: translateZ(80px) rotate(-3deg);
+    box-shadow: 0 10px 30px rgba(0,255,136,.3);
+    animation: badge-float 5s ease-in-out infinite;
+}
+
+@keyframes badge-float {
+    0%, 100% { transform: translateZ(80px) rotate(-3deg) translateY(0); }
+    50% { transform: translateZ(80px) rotate(-3deg) translateY(-8px); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-float-1 { width: 90px; height: 110px; right: -15px; }
+    .hero-float-2 { width: 80px; height: 100px; left: -15px; }
+}
+
+@media (max-width: 768px) {
+    .hero-float { display: none; }
+    .hero-3d-badge { display: none; }
+    .hero-glow-ring { display: none; }
+    .hero-main-img { transform: none; }
+}
