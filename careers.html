@@ -18,44 +18,30 @@
 </head>
 <body>
 
-<!-- ============ NOISE OVERLAY ============ -->
-<div class="noise" aria-hidden="true"></div>
 
-<!-- ============ AMBIENT GLOW ORBS ============ -->
-<div class="glow-orbs" aria-hidden="true">
-  <span class="glow-orb glow-orb--1"></span>
-  <span class="glow-orb glow-orb--2"></span>
-  <span class="glow-orb glow-orb--3"></span>
 </div>
 
-<!-- ============ CUSTOM CURSOR ============ -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor cursor--dot" id="cursorDot"></div>
 
-<!-- ============ HEADER ============ -->
-<header class="site-header" id="siteHeader">
-  <div class="site-header__inner">
-    <a href="index.html" class="logo" data-hover>
-      <span class="logo__text">VARAILLY</span><span class="logo__dot">.</span>
-    </a>
-
-    <nav class="main-nav" aria-label="Primary">
-      <ul>
-        <li><a href="index.html#drops" data-hover>New Drops</a></li>
-        <li><a href="index.html#categories" data-hover>Shop</a></li>
-        <li><a href="index.html#lookbook" data-hover>Lookbook</a></li>
-        <li><a href="index.html#testimonials" data-hover>Reviews</a></li>
-        <li><a href="index.html#newsletter" data-hover>Join</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <a href="index.html" class="icon-btn" aria-label="Home" data-hover>
-        <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4h4v4a1 1 0 001 1h3a1 1 0 001-1V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </div>
-</header>
+<!-- Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" data-hover="logo">VARAILLY.</a>
+            <nav class="header-nav" id="headerNav">
+                <a href="index.html#products" class="nav-link" data-hover="link">Shop</a>
+                <a href="index.html#categories" class="nav-link" data-hover="link">Categories</a>
+                <a href="index.html#lookbook" class="nav-link" data-hover="link">Lookbook</a>
+                <a href="about.html" class="nav-link" data-hover="link">About</a>
+                <a href="contact.html" class="nav-link" data-hover="link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
 
 <main>
   <section class="page-hero">
@@ -195,61 +181,49 @@
   </div>
 </main>
 
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <div class="site-footer__top">
-      <div class="site-footer__brand">
-        <a href="index.html" class="logo" data-hover><span class="logo__text">VARAILLY</span><span class="logo__dot">.</span></a>
-        <p>Streetwear for a generation with more than one side. Designed, printed, and shipped in limited variants.</p>
-        <div class="social-row">
-          <a href="#" aria-label="Instagram" data-hover>IG</a>
-          <a href="#" aria-label="TikTok" data-hover>TT</a>
-          <a href="#" aria-label="X" data-hover>X</a>
-          <a href="#" aria-label="YouTube" data-hover>YT</a>
-        </div>
-      </div>
-      <div class="site-footer__col">
-        <h5>Shop</h5>
-        <ul>
-          <li><a href="index.html#drops" data-hover>New Drops</a></li>
-          <li><a href="index.html#categories" data-hover>Categories</a></li>
-          <li><a href="index.html#lookbook" data-hover>Lookbook</a></li>
-          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
-        </ul>
-      </div>
-      <div class="site-footer__col">
-        <h5>Help</h5>
-        <ul>
-          <li><a href="shipping-returns.html" data-hover>Shipping & Returns</a></li>
-          <li><a href="track-order.html" data-hover>Track Order</a></li>
-          <li><a href="contact.html" data-hover>Contact Us</a></li>
-          <li><a href="size-guide.html" data-hover>Size Guide</a></li>
-        </ul>
-      </div>
-      <div class="site-footer__col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="about.html" data-hover>About VARAILLY</a></li>
-          <li><a href="sustainability.html" data-hover>Sustainability</a></li>
-          <li><a href="careers.html" data-hover>Careers</a></li>
-          <li><a href="index.html#testimonials" data-hover>Community</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="site-footer__bottom">
-      <p>&copy; 2026 VARAILLY. All rights reserved. Built for the culture.</p>
-<div class="footer-payments">
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">VARAILLY.</a>
+                    <p class="footer-desc">Premium youth streetwear for the bold and expressive. Wear your variant.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Shop</h4>
+                    <a href="index.html#products" class="footer-link">All Products</a>
+                    <a href="index.html#categories" class="footer-link">Categories</a>
+                    <a href="index.html#lookbook" class="footer-link">Lookbook</a>
+                    <a href="size-guide.html" class="footer-link">Size Guide</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Help</h4>
+                    <a href="shipping-returns.html" class="footer-link">Shipping & Returns</a>
+                    <a href="track-order.html" class="footer-link">Track Order</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                    <a href="size-guide.html" class="footer-link">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="sustainability.html" class="footer-link">Sustainability</a>
+                    <a href="careers.html" class="footer-link">Careers</a>
+                    <a href="contact.html" class="footer-link">Press</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2026 VARAILLY. All rights reserved.</p>
+                <div class="footer-payments">
                     <span class="payment-icon" title="Visa"><svg viewBox="0 0 48 32" width="38" height="24"><rect width="48" height="32" rx="4" fill="#1a1f71"/><text x="24" y="20" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff" font-family="sans-serif">VISA</text></svg></span>
                     <span class="payment-icon" title="Mastercard"><svg viewBox="0 0 48 32" width="38" height="24"><rect width="48" height="32" rx="4" fill="#252525"/><circle cx="19" cy="16" r="7" fill="#eb001b"/><circle cx="29" cy="16" r="7" fill="#f79e1b"/><path d="M24 10.5a7 7 0 010 11 7 7 0 010-11z" fill="#ff5f00"/></svg></span>
                     <span class="payment-icon" title="Amex"><svg viewBox="0 0 48 32" width="38" height="24"><rect width="48" height="32" rx="4" fill="#006fcf"/><text x="24" y="20" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff" font-family="sans-serif">AMEX</text></svg></span>
                     <span class="payment-icon" title="Apple Pay"><svg viewBox="0 0 48 32" width="38" height="24"><rect width="48" height="32" rx="4" fill="#000"/><text x="24" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#fff" font-family="sans-serif">Pay</text></svg></span>
                     <span class="payment-icon" title="Amazon"><svg viewBox="0 0 48 32" width="38" height="24"><rect width="48" height="32" rx="4" fill="#232f3e"/><text x="24" y="19" text-anchor="middle" font-size="8" font-weight="700" fill="#ff9900" font-family="sans-serif">amazon</text></svg></span>
                 </div>
-    </div>
-  </div>
-</footer>
+            </div>
+        </div>
+    </footer>
 
-<script src="assets/js/main.js?v=12"></script>
+    <script src="assets/js/main.js?v=12"></script>
 </body>
 </html>
