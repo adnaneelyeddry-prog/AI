@@ -279,17 +279,137 @@ button {
                 radial-gradient(ellipse at 90% 20%, rgba(0,212,255,.06) 0%, transparent 40%);
 }
 .hero-bg-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: .4;
-    filter: grayscale(.4) brightness(.7);
+    display: none;
 }
 
 .hero-bg-image {
     display: none;
+}
+
+/* --- Space / Universe Background --- */
+.hero-space {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 50px 100px, #fff, transparent),
+        radial-gradient(1px 1px at 150px 50px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 250px 200px, #fff, transparent),
+        radial-gradient(1px 1px at 350px 80px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 450px 250px, #fff, transparent),
+        radial-gradient(1px 1px at 100px 300px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 200px 400px, #fff, transparent),
+        radial-gradient(1px 1px at 300px 350px, #fff, transparent),
+        radial-gradient(1px 1px at 500px 150px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 600px 300px, #fff, transparent),
+        radial-gradient(1px 1px at 700px 100px, #fff, transparent),
+        radial-gradient(1px 1px at 800px 250px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 900px 350px, #fff, transparent),
+        radial-gradient(1px 1px at 1000px 200px, #fff, transparent),
+        radial-gradient(1px 1px at 1100px 50px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 1200px 300px, #fff, transparent);
+    background-size: 1300px 500px;
+    animation: starsMove 80s linear infinite;
+    opacity: .7;
+}
+
+.stars--2 {
+    background-image:
+        radial-gradient(1px 1px at 80px 180px, rgba(255,255,255,.8), transparent),
+        radial-gradient(1.5px 1.5px at 220px 90px, rgba(255,255,255,.6), transparent),
+        radial-gradient(1px 1px at 420px 320px, rgba(255,255,255,.8), transparent),
+        radial-gradient(2px 2px at 620px 180px, rgba(200,200,255,.9), transparent),
+        radial-gradient(1px 1px at 820px 280px, rgba(255,255,255,.7), transparent),
+        radial-gradient(1.5px 1.5px at 1020px 120px, rgba(255,255,255,.6), transparent),
+        radial-gradient(1px 1px at 180px 420px, rgba(255,255,255,.8), transparent),
+        radial-gradient(1.5px 1.5px at 580px 50px, rgba(200,220,255,.7), transparent),
+        radial-gradient(1px 1px at 780px 380px, rgba(255,255,255,.6), transparent),
+        radial-gradient(2px 2px at 380px 150px, rgba(180,200,255,.8), transparent);
+    background-size: 1100px 480px;
+    animation: starsMove 120s linear infinite;
+    opacity: .5;
+}
+
+.stars--3 {
+    background-image:
+        radial-gradient(2px 2px at 120px 250px, rgba(150,180,255,.9), transparent),
+        radial-gradient(2.5px 2.5px at 450px 100px, rgba(200,150,255,.7), transparent),
+        radial-gradient(2px 2px at 750px 350px, rgba(150,200,255,.8), transparent),
+        radial-gradient(1.5px 1.5px at 950px 200px, rgba(255,200,150,.6), transparent),
+        radial-gradient(2px 2px at 300px 400px, rgba(150,255,200,.5), transparent),
+        radial-gradient(3px 3px at 600px 250px, rgba(200,180,255,.4), transparent);
+    background-size: 1200px 500px;
+    animation: starsTwinkle 4s ease-in-out infinite alternate, starsMove 150s linear infinite;
+    opacity: .6;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-500px); }
+}
+
+@keyframes starsTwinkle {
+    0% { opacity: .4; }
+    100% { opacity: .8; }
+}
+
+/* Moon */
+.moon {
+    position: absolute;
+    top: 10%;
+    right: 8%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #f5f5f0, #e8e4d4, #c9c4b0);
+    box-shadow:
+        0 0 20px rgba(255,255,240,.15),
+        0 0 60px rgba(255,255,240,.08),
+        inset -8px -4px 12px rgba(0,0,0,.15);
+    animation: moonGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+    0% { box-shadow: 0 0 20px rgba(255,255,240,.15), 0 0 60px rgba(255,255,240,.08), inset -8px -4px 12px rgba(0,0,0,.15); }
+    100% { box-shadow: 0 0 30px rgba(255,255,240,.25), 0 0 80px rgba(255,255,240,.12), inset -8px -4px 12px rgba(0,0,0,.15); }
+}
+
+/* Shooting stars */
+.shooting-star {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,.8), transparent);
+    border-radius: 2px;
+    transform: rotate(-35deg);
+    opacity: 0;
+    animation: shoot 6s ease-out infinite;
+    animation-delay: 2s;
+}
+
+.shooting-star--2 {
+    top: 30%;
+    left: 60%;
+    width: 80px;
+    transform: rotate(-40deg);
+    animation-delay: 5s;
+    animation-duration: 7s;
+}
+
+@keyframes shoot {
+    0% { opacity: 0; transform: rotate(-35deg) translateX(0); }
+    5% { opacity: 1; }
+    15% { opacity: 1; transform: rotate(-35deg) translateX(200px); }
+    20% { opacity: 0; transform: rotate(-35deg) translateX(300px); }
+    100% { opacity: 0; }
 }
 .hero-bg-overlay {
     position: absolute;
