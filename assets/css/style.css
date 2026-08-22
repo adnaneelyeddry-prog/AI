@@ -316,7 +316,7 @@ button {
         radial-gradient(1.5px 1.5px at 1200px 300px, #fff, transparent);
     background-size: 1300px 500px;
     animation: starsMove 80s linear infinite;
-    opacity: .7;
+    opacity: 1;
 }
 
 .stars--2 {
@@ -333,7 +333,7 @@ button {
         radial-gradient(2px 2px at 380px 150px, rgba(180,200,255,.8), transparent);
     background-size: 1100px 480px;
     animation: starsMove 120s linear infinite;
-    opacity: .5;
+    opacity: .8;
 }
 
 .stars--3 {
@@ -346,7 +346,7 @@ button {
         radial-gradient(3px 3px at 600px 250px, rgba(200,180,255,.4), transparent);
     background-size: 1200px 500px;
     animation: starsTwinkle 4s ease-in-out infinite alternate, starsMove 150s linear infinite;
-    opacity: .6;
+    opacity: .9;
 }
 
 @keyframes starsMove {
