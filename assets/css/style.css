@@ -2089,3 +2089,29 @@ button {
 .testimonials-grid {
     perspective: 1200px;
 }
+
+
+
+/* --- Category Video on Hover --- */
+.category-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity .5s ease;
+    z-index: 1;
+}
+
+.category-tile:hover .category-video {
+    opacity: 1;
+}
+
+.category-tile:hover .category-image img {
+    opacity: 0;
+}
+
+.category-image img {
+    transition: opacity .5s ease, transform var(--transition);
+}

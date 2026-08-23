@@ -450,3 +450,21 @@
         });
     }
 })();
+
+
+
+    // --- Category Video Play on Hover ---
+    var categoryTiles = document.querySelectorAll('.category-tile');
+    categoryTiles.forEach(function(tile) {
+        var video = tile.querySelector('.category-video');
+        if (!video) return;
+
+        tile.addEventListener('mouseenter', function() {
+            video.play().catch(function() {});
+        });
+
+        tile.addEventListener('mouseleave', function() {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
