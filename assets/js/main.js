@@ -524,3 +524,47 @@
             video.currentTime = 0;
         });
     });
+
+
+
+    // --- Product Category Filter ---
+    var filterTabs = document.querySelectorAll('.filter-tab');
+    var productCardsAll = document.querySelectorAll('.product-card[data-category]');
+
+    function filterProducts(category) {
+        productCardsAll.forEach(function(card) {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.classList.remove('hidden-filter');
+            } else {
+                card.classList.add('hidden-filter');
+            }
+        });
+    }
+
+    filterTabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            filterTabs.forEach(function(t) { t.classList.remove('active'); });
+            tab.classList.add('active');
+            filterProducts(tab.getAttribute('data-filter'));
+        });
+    });
+
+    // Category tiles click → scroll to products + filter
+    var categoryTilesNav = document.querySelectorAll('.category-tile[data-filter]');
+    categoryTilesNav.forEach(function(tile) {
+        tile.addEventListener('click', function(e) {
+            e.preventDefault();
+            var filter = tile.getAttribute('data-filter');
+            // Activate the matching filter tab
+            filterTabs.forEach(function(t) { t.classList.remove('active'); });
+            var matchingTab = document.querySelector('.filter-tab[data-filter="' + filter + '"]');
+            if (matchingTab) matchingTab.classList.add('active');
+            // Filter products
+            filterProducts(filter);
+            // Scroll to products section
+            var productsSection = document.getElementById('products');
+            if (productsSection) {
+                productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });

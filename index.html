@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Cpath d='M7 8L16 24L25 8' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="assets/css/style.css?v=23">
+    <link rel="stylesheet" href="assets/css/style.css?v=24">
 </head>
 <body>
 
@@ -175,6 +175,14 @@
                 <p class="section-subtitle">Curated pieces designed for those who refuse to blend in.</p>
             </div>
 
+            <!-- Filter Tabs -->
+            <div class="filter-tabs reveal" id="filterTabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="men">Men</button>
+                <button class="filter-tab" data-filter="women">Women</button>
+                <button class="filter-tab" data-filter="kids">Kids</button>
+            </div>
+
             <!-- Drop Countdown -->
             <div class="drop-countdown reveal">
                 <div class="countdown-label">Next drop in</div>
@@ -190,7 +198,7 @@
             </div>
 
             <div class="products-grid">
-                <div class="product-card reveal">
+                <div class="product-card reveal" data-category="men">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Minimal Logo Tee" data-price="34.99">Quick Add</button>
@@ -200,7 +208,7 @@
                         <span class="product-price">$34.99</span>
                     </div>
                 </div>
-                <div class="product-card reveal">
+                <div class="product-card reveal" data-category="women">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Graphic Oversized" data-price="44.99">Quick Add</button>
@@ -210,7 +218,7 @@
                         <span class="product-price">$44.99</span>
                     </div>
                 </div>
-                <div class="product-card reveal">
+                <div class="product-card reveal" data-category="men">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Vintage Wash Crew" data-price="39.99">Quick Add</button>
@@ -220,7 +228,7 @@
                         <span class="product-price">$39.99</span>
                     </div>
                 </div>
-                <div class="product-card reveal">
+                <div class="product-card reveal" data-category="kids">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Color Block Essential" data-price="37.99">Quick Add</button>
@@ -230,7 +238,7 @@
                         <span class="product-price">$37.99</span>
                     </div>
                 </div>
-                <div class="product-card reveal">
+                <div class="product-card reveal" data-category="women">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1622445275576-721325763afe?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Statement Print" data-price="42.99">Quick Add</button>
@@ -240,7 +248,7 @@
                         <span class="product-price">$42.99</span>
                     </div>
                 </div>
-                <div class="product-card reveal">
+                <div class="product-card reveal" data-category="men">
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Earth Tone Classic" data-price="36.99">Quick Add</button>
@@ -362,7 +370,7 @@
                 <h2 class="section-title">Shop by Category</h2>
             </div>
             <div class="categories-grid">
-                <a href="#" class="category-tile reveal" data-hover="link">
+                <a href="#products" class="category-tile reveal" data-hover="link" data-filter="men">
                     <div class="category-image">
                         <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&q=80&auto=format&fit=crop" alt="">
                         <video class="category-video" muted loop playsinline preload="none">
@@ -371,7 +379,7 @@
                     </div>
                     <div class="category-label">Men</div>
                 </a>
-                <a href="#" class="category-tile reveal" data-hover="link">
+                <a href="#products" class="category-tile reveal" data-hover="link" data-filter="women">
                     <div class="category-image">
                         <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80&auto=format&fit=crop" alt="">
                         <video class="category-video" muted loop playsinline preload="none">
@@ -380,7 +388,7 @@
                     </div>
                     <div class="category-label">Women</div>
                 </a>
-                <a href="#" class="category-tile reveal" data-hover="link">
+                <a href="#products" class="category-tile reveal" data-hover="link" data-filter="kids">
                     <div class="category-image">
                         <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&q=80&auto=format&fit=crop" alt="">
                         <video class="category-video" muted loop playsinline preload="none">
@@ -389,7 +397,7 @@
                     </div>
                     <div class="category-label">Kids</div>
                 </a>
-                <a href="#" class="category-tile reveal" data-hover="link">
+                <a href="#products" class="category-tile reveal" data-hover="link" data-filter="all">
                     <div class="category-image">
                         <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80&auto=format&fit=crop" alt="">
                         <video class="category-video" muted loop playsinline preload="none">
@@ -740,6 +748,6 @@
         </div>
     </aside>
 
-    <script src="assets/js/main.js?v=23"></script>
+    <script src="assets/js/main.js?v=24"></script>
 </body>
 </html>

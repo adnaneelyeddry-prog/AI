@@ -2277,3 +2277,42 @@ button {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+
+
+/* --- Filter Tabs --- */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    margin-bottom: 3rem;
+}
+
+.filter-tab {
+    padding: .7rem 1.5rem;
+    border-radius: var(--radius-pill);
+    font-size: .85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border: 2px solid #ddd;
+    color: #666;
+    background: transparent;
+    transition: all .3s ease;
+}
+
+.filter-tab:hover {
+    border-color: #bbb;
+    color: #333;
+}
+
+.filter-tab.active {
+    background: var(--color-black);
+    color: var(--color-white);
+    border-color: var(--color-black);
+}
+
+/* Product card filter animation */
+.product-card.hidden-filter {
+    display: none;
+}
