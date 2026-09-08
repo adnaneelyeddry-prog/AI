@@ -531,7 +531,9 @@
     var filterTabs = document.querySelectorAll('.filter-tab');
     var productCardsAll = document.querySelectorAll('.product-card[data-category]');
 
+    var productsGridEl = document.querySelector('.products-grid');
     function filterProducts(category) {
+        if (productsGridEl) productsGridEl.classList.add('filtering');
         productCardsAll.forEach(function(card) {
             if (category === 'all' || card.getAttribute('data-category') === category) {
                 card.classList.remove('hidden-filter');
@@ -539,6 +541,9 @@
                 card.classList.add('hidden-filter');
             }
         });
+        setTimeout(function() {
+            if (productsGridEl) productsGridEl.classList.remove('filtering');
+        }, 500);
     }
 
     filterTabs.forEach(function(tab) {
