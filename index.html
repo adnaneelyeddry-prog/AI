@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Cpath d='M7 8L16 24L25 8' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="assets/css/style.css?v=25">
+    <link rel="stylesheet" href="assets/css/style.css?v=26">
 </head>
 <body>
 
@@ -43,6 +43,18 @@
                 <a href="contact.html" class="nav-link" data-hover="link">Contact</a>
             </nav>
             <div class="header-actions">
+                <button class="icon-action" id="searchBtn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <button class="icon-action" id="wishlistBtn" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                    </svg>
+                    <span class="badge-count" id="wishlistCount">0</span>
+                </button>
                 <button class="cart-btn" data-hover="button" id="cartBtn">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
@@ -200,6 +212,7 @@
             <div class="products-grid">
                 <div class="product-card reveal" data-category="men">
                     <div class="product-image">
+                        <button class="product-wish" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></button>
                         <span class="product-badge badge-new">New</span>
                         <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Minimal Logo Tee" data-price="34.99">Quick Add</button>
@@ -219,6 +232,7 @@
                 </div>
                 <div class="product-card reveal" data-category="women">
                     <div class="product-image">
+                        <button class="product-wish" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></button>
                         <span class="product-badge badge-hot">Hot</span>
                         <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Graphic Oversized" data-price="44.99">Quick Add</button>
@@ -237,6 +251,7 @@
                 </div>
                 <div class="product-card reveal" data-category="men">
                     <div class="product-image">
+                        <button class="product-wish" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></button>
                         <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Vintage Wash Crew" data-price="39.99">Quick Add</button>
                     </div>
@@ -254,6 +269,7 @@
                 </div>
                 <div class="product-card reveal" data-category="kids">
                     <div class="product-image">
+                        <button class="product-wish" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></button>
                         <span class="product-badge badge-new">New</span>
                         <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Color Block Kids Tee" data-price="29.99">Quick Add</button>
@@ -273,6 +289,7 @@
                 </div>
                 <div class="product-card reveal" data-category="women">
                     <div class="product-image">
+                        <button class="product-wish" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></button>
                         <img src="https://images.unsplash.com/photo-1622445275576-721325763afe?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Statement Print" data-price="42.99">Quick Add</button>
                     </div>
@@ -290,6 +307,7 @@
                 </div>
                 <div class="product-card reveal" data-category="men">
                     <div class="product-image">
+                        <button class="product-wish" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></button>
                         <span class="product-badge badge-sale">-20%</span>
                         <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Earth Tone Classic" data-price="36.99">Quick Add</button>
@@ -308,6 +326,7 @@
                 </div>
                 <div class="product-card reveal" data-category="women">
                     <div class="product-image">
+                        <button class="product-wish" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></button>
                         <span class="product-badge badge-hot">Hot</span>
                         <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Cropped Essential" data-price="32.99">Quick Add</button>
@@ -327,6 +346,7 @@
                 </div>
                 <div class="product-card reveal" data-category="kids">
                     <div class="product-image">
+                        <button class="product-wish" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></button>
                         <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Playful Graphic" data-price="27.99">Quick Add</button>
                     </div>
@@ -344,6 +364,7 @@
                 </div>
                 <div class="product-card reveal" data-category="men">
                     <div class="product-image">
+                        <button class="product-wish" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></button>
                         <img src="https://images.unsplash.com/photo-1503341504253-dff4f94032fc?w=600&q=80&auto=format&fit=crop" alt="">
                         <button class="product-quick-add" data-product="Street Layer Tee" data-price="49.99">Quick Add</button>
                     </div>
@@ -786,6 +807,99 @@
         <span class="toast-text" id="toastText">Added to cart!</span>
     </div>
 
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-panel">
+            <button class="search-close" id="searchClose" aria-label="Close search">✕</button>
+            <div class="search-input-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+            </div>
+            <div class="search-results" id="searchResults">
+                <p class="search-hint">Start typing to search our collection</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal-overlay quickview-overlay" id="quickViewModal">
+        <div class="quickview-box">
+            <button class="modal-close" id="quickViewClose">✕</button>
+            <div class="quickview-grid">
+                <div class="quickview-image">
+                    <img id="qvImage" src="" alt="">
+                    <span class="product-badge badge-new" id="qvBadge" style="display:none;">New</span>
+                </div>
+                <div class="quickview-details">
+                    <div class="qv-rating" id="qvRating">★★★★★ <span>(0)</span></div>
+                    <h3 class="qv-title" id="qvTitle">Product</h3>
+                    <div class="qv-price" id="qvPrice">$0.00</div>
+                    <p class="qv-desc">Premium 220 GSM ring-spun cotton. Pre-shrunk, double-stitched hems, and screen-printed with water-based inks. Built to last years, not seasons.</p>
+
+                    <div class="qv-section">
+                        <span class="qv-label">Category</span>
+                        <div class="qv-options" id="qvCategories">
+                            <button class="qv-chip" data-category="Men">Men</button>
+                            <button class="qv-chip" data-category="Women">Women</button>
+                            <button class="qv-chip" data-category="Kids">Kids</button>
+                            <button class="qv-chip" data-category="Unisex">Unisex</button>
+                        </div>
+                    </div>
+
+                    <div class="qv-section">
+                        <span class="qv-label">Size</span>
+                        <div class="qv-options" id="qvSizes">
+                            <button class="qv-chip" data-size="S">S</button>
+                            <button class="qv-chip" data-size="M">M</button>
+                            <button class="qv-chip active" data-size="L">L</button>
+                            <button class="qv-chip" data-size="XL">XL</button>
+                            <button class="qv-chip" data-size="XXL">XXL</button>
+                        </div>
+                    </div>
+
+                    <div class="qv-section">
+                        <span class="qv-label">Quantity</span>
+                        <div class="qv-qty">
+                            <button class="qty-btn" id="qtyMinus">−</button>
+                            <span id="qtyValue">1</span>
+                            <button class="qty-btn" id="qtyPlus">+</button>
+                        </div>
+                    </div>
+
+                    <div class="qv-actions">
+                        <button class="btn btn-primary qv-add" id="qvAddBtn">Add to Cart</button>
+                        <button class="qv-wish" id="qvWishBtn" aria-label="Add to wishlist">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="qv-perks">
+                        <span>🚚 Free shipping over $50</span>
+                        <span>↩️ 30-day returns</span>
+                        <span>⚡ Prime 2-day delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Drawer -->
+    <div class="cart-overlay" id="wishOverlay"></div>
+    <aside class="cart-drawer" id="wishDrawer">
+        <div class="cart-drawer-header">
+            <h3>Wishlist</h3>
+            <button class="cart-close" id="wishClose" aria-label="Close wishlist">✕</button>
+        </div>
+        <div class="cart-drawer-body" id="wishBody">
+            <p class="cart-empty" id="wishEmpty">Your wishlist is empty.<br>Tap the heart on any product.</p>
+        </div>
+    </aside>
+
     <!-- Category Selector Modal -->
     <div class="modal-overlay" id="categoryModal">
         <div class="modal-box">
@@ -836,6 +950,10 @@
             <h3>Your Cart</h3>
             <button class="cart-close" id="cartClose" aria-label="Close cart">✕</button>
         </div>
+        <div class="ship-progress" id="shipProgress">
+            <p class="ship-progress-text" id="shipProgressText">Add <strong>$50.00</strong> more for free shipping</p>
+            <div class="ship-progress-bar"><div class="ship-progress-fill" id="shipProgressFill"></div></div>
+        </div>
         <div class="cart-drawer-body" id="cartBody">
             <p class="cart-empty" id="cartEmpty">Your cart is empty.<br>Start adding some heat.</p>
         </div>
@@ -849,6 +967,6 @@
         </div>
     </aside>
 
-    <script src="assets/js/main.js?v=25"></script>
+    <script src="assets/js/main.js?v=26"></script>
 </body>
 </html>
