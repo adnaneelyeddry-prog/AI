@@ -237,7 +237,7 @@ function createShirtMesh() {
   ];
   if (polygonArea(points) < 0) points = points.reverse();
 
-  const depth = 0.18;
+  const depth = 0.29;
   const minX = -1.55;
   const maxX = 1.55;
   const minY = -1.64;
@@ -339,7 +339,7 @@ function createScene({ canvas, stage, color, graphic = 0, hero = false }) {
   let lastPointerX = 0;
   let dragRotation = 0;
   let currentX = -0.035;
-  let currentY = hero ? -0.24 : 0.12;
+  let currentY = hero ? -0.38 : 0.24;
   let targetX = currentX;
   let targetY = currentY;
   let scrollRotation = 0;
@@ -393,7 +393,7 @@ function createScene({ canvas, stage, color, graphic = 0, hero = false }) {
       lastPointerX = event.clientX;
       lastInteraction = performance.now();
     }
-    targetY = (hero ? -0.18 : 0.08) + pointerX * 0.16 + dragRotation;
+    targetY = (hero ? -0.34 : 0.18) + pointerX * 0.20 + dragRotation;
     targetX = -0.035 + pointerY * 0.085;
     requestRender();
   };
@@ -461,15 +461,15 @@ function createScene({ canvas, stage, color, graphic = 0, hero = false }) {
   document.addEventListener('visibilitychange', requestRender);
 
   stage.classList.add('webgl-ready');
-  stage.querySelector('.hero-3d-badge')?.replaceChildren(Object.assign(document.createElement('span'), { className: 'live-dot' }), document.createTextNode(' LIVE 3D'));
+  stage.querySelector('.hero-3d-badge')?.replaceChildren(Object.assign(document.createElement('span'), { className: 'live-dot' }), document.createTextNode(' 3D PREVIEW'));
   const status = stage.querySelector('.viewer-status');
-  if (status) status.innerHTML = '<span class="live-dot"></span> WebGL active';
+  if (status) status.innerHTML = '<span class="live-dot"></span> 3D preview';
 
   return {
     reset() {
       dragRotation = 0;
       targetX = -0.035;
-      targetY = hero ? -0.18 : 0.08;
+      targetY = hero ? -0.34 : 0.18;
       lastInteraction = performance.now();
       requestRender();
     },

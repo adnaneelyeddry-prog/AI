@@ -807,3 +807,335 @@ button { border: 0; cursor: pointer; }
 .webgl-failed .variant-viewer-fallback { opacity: 1; }
 #fallbackShirtPath { transition: fill .35s var(--ease); }
 #fallbackGraphicLabel { transition: fill .35s var(--ease); }
+
+
+
+/* =========================================================
+   Site-wide spatial commerce layer
+   ========================================================= */
+.spatial-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 15%,#111426,#06070a 50%);
+}
+.spatial-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 18%,rgba(130,87,255,.10),transparent 25%),
+    radial-gradient(circle at 82% 68%,rgba(63,228,255,.07),transparent 25%),
+    linear-gradient(180deg,rgba(6,7,10,.1),rgba(6,7,10,.55));
+}
+.spatial-atmosphere::after {
+  content: "";
+  position: absolute;
+  left: -15vw;
+  right: -15vw;
+  bottom: -40vh;
+  height: 75vh;
+  opacity: .22;
+  transform: perspective(700px) rotateX(67deg);
+  transform-origin: center bottom;
+  background-image:
+    linear-gradient(rgba(63,228,255,.20) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(63,228,255,.20) 1px,transparent 1px);
+  background-size: 70px 70px;
+  mask-image: linear-gradient(to top,#000,transparent 78%);
+}
+.spatial-pointer-light {
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 36vw;
+  height: 36vw;
+  min-width: 380px;
+  min-height: 380px;
+  margin: -18vw 0 0 -18vw;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: .28;
+  filter: blur(45px);
+  background: radial-gradient(circle,rgba(130,87,255,.18),rgba(63,228,255,.07) 35%,transparent 68%);
+  will-change: transform;
+}
+
+.announcement-bar,
+.header,
+.hero,
+.trust-bar,
+.seen-on,
+.marquee,
+.products,
+.variant-lab,
+.features,
+.manifesto,
+.how-it-works,
+.video-section,
+.categories,
+.lookbook,
+.testimonials,
+.amazon-section,
+.stats,
+.instagram,
+.faq,
+.cta-banner,
+.newsletter,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* One continuous futuristic world rather than disconnected flat blocks. */
+.products,
+.features,
+.manifesto,
+.how-it-works,
+.categories,
+.lookbook,
+.testimonials,
+.amazon-section,
+.instagram,
+.faq,
+.cta-banner {
+  color: var(--white);
+  border-top: 1px solid rgba(255,255,255,.07);
+  background: linear-gradient(180deg,rgba(8,10,15,.91),rgba(8,10,15,.77));
+  backdrop-filter: blur(3px);
+}
+.products { background: linear-gradient(160deg,rgba(14,16,24,.94),rgba(8,10,15,.82)); }
+.variant-lab { border-top: 1px solid rgba(63,228,255,.14); }
+.features { background: linear-gradient(145deg,rgba(8,10,15,.92),rgba(18,13,38,.83)); }
+.manifesto { color: var(--white); background: linear-gradient(130deg,rgba(35,22,82,.90),rgba(8,10,15,.82)); }
+.how-it-works { background: linear-gradient(145deg,rgba(12,16,30,.88),rgba(29,17,71,.84)); }
+.categories { background: linear-gradient(155deg,rgba(9,14,27,.91),rgba(8,10,15,.78)); }
+.lookbook { color: var(--white); background: linear-gradient(145deg,rgba(9,10,16,.91),rgba(17,13,35,.80)); }
+.testimonials { background: linear-gradient(145deg,rgba(12,15,34,.92),rgba(8,10,15,.80)); }
+.amazon-section { background: linear-gradient(145deg,rgba(24,16,14,.88),rgba(8,10,15,.82)); }
+.instagram { color: var(--white); background: linear-gradient(145deg,rgba(13,14,22,.92),rgba(8,10,15,.80)); }
+.faq { color: var(--white); background: linear-gradient(145deg,rgba(9,12,19,.92),rgba(17,13,35,.80)); }
+.cta-banner { background: linear-gradient(135deg,rgba(34,20,84,.88),rgba(8,10,15,.82)); }
+
+.products::after,
+.features::after,
+.manifesto::after,
+.how-it-works::after,
+.categories::after,
+.lookbook::after,
+.testimonials::after,
+.amazon-section::after,
+.instagram::after,
+.faq::after,
+.cta-banner::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 7% max(12px,calc((100vw - var(--container))/2 - 30px));
+  border: 1px solid rgba(255,255,255,.045);
+  border-radius: 42px;
+  pointer-events: none;
+  box-shadow: inset 0 1px rgba(255,255,255,.025),0 0 100px rgba(0,0,0,.18);
+}
+
+.section-coordinate {
+  position: absolute;
+  z-index: 3;
+  top: 24px;
+  right: max(18px,calc((100vw - var(--container))/2));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,.29);
+  font-size: .56rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.section-coordinate::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+
+/* Retune formerly light-section typography for the spatial world. */
+.products .section-title,
+.manifesto .manifesto-title,
+.lookbook .section-title,
+.instagram .section-title,
+.faq .section-title { color: var(--white); }
+.products .section-subtitle,
+.lookbook .section-subtitle,
+.instagram .section-subtitle { color: #9ea4b1; opacity: 1; }
+.products .section-label,
+.manifesto .section-label,
+.lookbook .section-label,
+.instagram .section-label,
+.faq .section-label { color: var(--cyan); }
+.manifesto-desc { color: #aab0bd; }
+.manifesto .btn-outline { color: var(--white); border-color: rgba(255,255,255,.22); }
+.filter-tabs { border-color: var(--line); background: rgba(255,255,255,.045); }
+.filter-tab { color: #8a919f; }
+.filter-tab.active { color: var(--void); background: var(--lime); }
+.drop-countdown .countdown-label { color: #7f8694; }
+.faq-list, .faq-item { border-color: var(--line); }
+.faq-question { color: var(--white); }
+.faq-answer > p { color: #9ca3b0; }
+.newsletter {
+  background:
+    linear-gradient(110deg,rgba(200,255,61,.96),rgba(63,228,255,.88)),
+    var(--lime);
+}
+
+/* Product cards become floating material capsules. */
+.product-card {
+  color: var(--white);
+  border-color: rgba(255,255,255,.09);
+  background: linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+  box-shadow: 0 24px 70px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.06);
+}
+.product-card:hover { box-shadow: 0 34px 90px rgba(0,0,0,.42),0 0 50px rgba(63,228,255,.06); }
+.product-info { background: linear-gradient(180deg,rgba(15,18,25,.72),rgba(10,12,17,.92)); }
+.product-rating span, .price-old { color: #7c8390; }
+.product-price { color: var(--lime); }
+.product-colors .color-dot { box-shadow: 0 0 0 1px rgba(255,255,255,.24); }
+
+/* Shared restrained 3D surface treatment. */
+.depth-surface {
+  --depth-rx: 0deg;
+  --depth-ry: 0deg;
+  --depth-lift: 0px;
+  --depth-x: 50%;
+  --depth-y: 50%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1200px) rotateX(var(--depth-rx)) rotateY(var(--depth-ry)) translate3d(0,var(--depth-lift),0);
+  will-change: transform;
+  transition: transform .25s var(--ease),box-shadow var(--transition),border-color var(--transition);
+}
+.js .reveal.depth-surface.revealed {
+  transform: perspective(1200px) rotateX(var(--depth-rx)) rotateY(var(--depth-ry)) translate3d(0,var(--depth-lift),0);
+}
+.depth-surface:hover { --depth-lift: -5px; }
+.depth-surface-light {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at var(--depth-x) var(--depth-y),rgba(255,255,255,.17),transparent 30%);
+  mix-blend-mode: screen;
+  transition: opacity .35s;
+}
+.depth-surface:hover > .depth-surface-light { opacity: .45; }
+.depth-surface > :not(.depth-surface-light) { position: relative; }
+.product-card .product-image { transform: translateZ(18px); }
+.product-card .product-info { transform: translateZ(28px); }
+.feature-card .feature-icon,
+.step-card .step-number { transform: translateZ(22px); }
+.category-tile .category-label { transform: translateZ(26px); }
+.testimonial-card .testimonial-stars { transform: translateZ(18px); }
+
+/* Categories and editorial media get illuminated spatial frames. */
+.category-tile,
+.lookbook-item,
+.manifesto-image img,
+.amazon-card,
+.testimonial-card,
+.feature-card,
+.step-card {
+  box-shadow: 0 28px 75px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.05);
+}
+.lookbook-item { border: 1px solid var(--line); }
+.lookbook-item img { filter: saturate(.82) contrast(1.03); }
+.manifesto-image { position: relative; }
+.manifesto-image::before {
+  content: "";
+  position: absolute;
+  inset: -12px 10% 12px -12px;
+  z-index: -1;
+  border: 1px solid rgba(63,228,255,.22);
+  border-radius: var(--radius-l);
+  transform: translate3d(0,0,-20px);
+}
+
+/* Fixed spatial navigation rail. */
+.spatial-rail {
+  position: fixed;
+  z-index: 850;
+  right: 17px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  transform: translateY(-50%);
+}
+.spatial-rail::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -14px -9px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-pill);
+  background: rgba(6,7,10,.50);
+  backdrop-filter: blur(10px);
+}
+.spatial-rail-label {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  min-width: max-content;
+  color: #868d99;
+  font-size: .54rem;
+  font-weight: 850;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  transform: translateY(-50%) rotate(-90deg) translateY(-24px);
+  transform-origin: right center;
+}
+.spatial-rail-dot {
+  width: 5px;
+  height: 5px;
+  padding: 0;
+  border-radius: 50%;
+  background: #4d5360;
+  transition: transform .25s,background .25s,box-shadow .25s;
+}
+.spatial-rail-dot.active { background: var(--lime); box-shadow: 0 0 12px var(--lime); transform: scale(1.55); }
+
+@media (max-width: 820px) {
+  .spatial-pointer-light, .spatial-rail { display: none; }
+  .products::after,.features::after,.manifesto::after,.how-it-works::after,.categories::after,.lookbook::after,.testimonials::after,.amazon-section::after,.instagram::after,.faq::after,.cta-banner::after { inset: 8px; border-radius: 26px; }
+  .section-coordinate { right: 16px; }
+  .depth-surface { transform: none !important; }
+  .depth-surface-light { display: none; }
+  .product-card .product-image,.product-card .product-info,.feature-card .feature-icon,.step-card .step-number,.category-tile .category-label,.testimonial-card .testimonial-stars { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spatial-canvas { opacity: .55; }
+  .spatial-pointer-light { display: none; }
+  .depth-surface { transform: none !important; }
+}
+
+
+.generated-fallback {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: saturate(.9) contrast(1.02);
+}
+.product-image .generated-fallback { object-fit: cover; }
+.category-image .generated-fallback,
+.lookbook-item .generated-fallback,
+.insta-item .generated-fallback { object-fit: cover; }
+
+
+@media (max-width: 820px) {
+  .products,.features,.manifesto,.how-it-works,.categories,.lookbook,.testimonials,.amazon-section,.instagram,.faq,.cta-banner { backdrop-filter: none; }
+  .depth-surface { will-change: auto; }
+  .spatial-atmosphere::after { opacity: .12; }
+}

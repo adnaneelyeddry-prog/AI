@@ -111,7 +111,7 @@
 
   /* Product catalog derived from cards */
   const productCards = $$('.product-card');
-  const catalog = productCards.map(card => {
+  const catalog = productCards.map((card, renderIndex) => {
     const action = $('.product-quick-add', card);
     const image = $('.product-image img', card);
     return {
@@ -120,6 +120,8 @@
       price: Number(action?.dataset.price || 0),
       category: card.dataset.category || 'all',
       image: image?.src || '',
+      displayImage: '',
+      renderIndex,
       ratingHTML: $('.product-rating', card)?.innerHTML || '★★★★★ <span>(New)</span>',
       badge: $('.product-badge', card)
     };
@@ -130,7 +132,14 @@
   });
 
   /* Cart */
-  let cart = safeArray(STORAGE.cart).filter(item => item && typeof item.name === 'string' && Number.isFinite(Number(item.price)));
+  let cart = safeArray(STORAGE.cart)
+    .filter(item => item && typeof item.name === 'string' && Number.isFinite(Number(item.price)))
+    .map((item, index) => ({
+      ...item,
+      img: typeof item.img === 'string' && !item.img.startsWith('data:') ? item.img : '',
+      renderIndex: Number.isFinite(Number(item.renderIndex)) ? Number(item.renderIndex) : index % 9
+    }));
+  save(STORAGE.cart, cart);
   const cartBtn = $('#cartBtn');
   const cartCount = $('#cartCount');
   const cartOverlay = $('#cartOverlay');
@@ -169,13 +178,14 @@
     cart.forEach((item, index) => {
       const row = document.createElement('div');
       row.className = 'cart-item';
-      if (item.img) {
+      if (item.img || Number.isFinite(Number(item.renderIndex))) {
         const image = document.createElement('img');
         image.src = item.img;
         image.alt = '';
         image.width = 52;
         image.height = 64;
         image.style.cssText = 'width:52px;height:64px;object-fit:cover;border-radius:8px;flex-shrink:0';
+        image.addEventListener('error', () => { image.src = generatedMedia(item.name, index); }, { once: true });
         row.appendChild(image);
       }
       const info = document.createElement('div');
@@ -226,7 +236,14 @@
   renderCart();
 
   /* Wishlist */
-  let wishlist = safeArray(STORAGE.wishlist).filter(item => item && typeof item.name === 'string');
+  let wishlist = safeArray(STORAGE.wishlist)
+    .filter(item => item && typeof item.name === 'string')
+    .map((item, index) => ({
+      ...item,
+      img: typeof item.img === 'string' && !item.img.startsWith('data:') ? item.img : '',
+      renderIndex: Number.isFinite(Number(item.renderIndex)) ? Number(item.renderIndex) : index % 9
+    }));
+  save(STORAGE.wishlist, wishlist);
   const wishlistBtn = $('#wishlistBtn');
   const wishlistCount = $('#wishlistCount');
   const wishDrawer = $('#wishDrawer');
@@ -253,10 +270,11 @@
     wishlist.forEach((item, index) => {
       const row = document.createElement('div');
       row.className = 'wish-item';
-      if (item.img) {
+      if (item.img || Number.isFinite(Number(item.renderIndex))) {
         const image = document.createElement('img');
-        image.src = item.img;
+        image.src = Number.isFinite(Number(item.renderIndex)) ? generatedMedia(item.name, Number(item.renderIndex)) : item.img;
         image.alt = '';
+        image.addEventListener('error', () => { image.src = generatedMedia(item.name, Number(item.renderIndex) || index); }, { once: true });
         row.appendChild(image);
       }
       const info = document.createElement('div');
@@ -287,7 +305,7 @@
       wishlist.splice(index, 1);
       showToast('Removed from wishlist');
     } else {
-      wishlist.push({ name: product.name, price: product.price, img: product.image });
+      wishlist.push({ name: product.name, price: product.price, img: product.image, renderIndex: product.renderIndex });
       showToast('Saved to wishlist');
     }
     save(STORAGE.wishlist, wishlist);
@@ -342,7 +360,7 @@
     selectedCategory = ({ men: 'Men', women: 'Women', kids: 'Kids' })[product.category] || '';
     selectedSize = 'L';
     selectedQuantity = 1;
-    if (qvImage) { qvImage.src = product.image; qvImage.alt = product.name; }
+    if (qvImage) { qvImage.src = product.displayImage || product.image; qvImage.alt = product.name; }
     if (qvTitle) qvTitle.textContent = product.name;
     if (qvPrice) qvPrice.textContent = money(product.price);
     if (qvRating) qvRating.innerHTML = product.ratingHTML;
@@ -356,7 +374,7 @@
     $$('#qvCategories .qv-chip').forEach(chip => chip.classList.toggle('active', chip.dataset.category === selectedCategory));
     $$('#qvSizes .qv-chip').forEach(chip => chip.classList.toggle('active', chip.dataset.size === selectedSize));
     if (qtyValue) qtyValue.textContent = '1';
-    qvWish?.classList.toggle('active', isWished(product.name));
+    if (qvWish) qvWish.classList.toggle('active', isWished(product.name));
     setDialogState(quickView, true);
     quickViewClose?.focus();
   }
@@ -392,7 +410,7 @@
     if (!selectedProduct) return;
     if (!selectedCategory) { showToast('Choose a category first'); return; }
     const label = `${selectedProduct.name} (${selectedCategory}, ${selectedSize})`;
-    for (let i = 0; i < selectedQuantity; i++) cart.push({ name: label, price: selectedProduct.price, img: selectedProduct.image });
+    for (let i = 0; i < selectedQuantity; i++) cart.push({ name: label, price: selectedProduct.price, img: selectedProduct.image, renderIndex: selectedProduct.renderIndex });
     save(STORAGE.cart, cart);
     renderCart();
     showToast(`${selectedQuantity} × ${selectedProduct.name} added`);
@@ -447,8 +465,9 @@
       row.className = 'search-result';
       row.tabIndex = 0;
       const image = document.createElement('img');
-      image.src = product.image;
+      image.src = product.displayImage || product.image;
       image.alt = '';
+      image.addEventListener('error', () => { image.src = generatedMedia(product.name, catalog.indexOf(product)); }, { once: true });
       const info = document.createElement('div');
       info.className = 'search-result-info';
       const name = document.createElement('div');
@@ -639,11 +658,75 @@
   syncFloatingActions();
   backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  /* Image and video failure resilience */
-  $$('img').forEach(image => {
-    const markFailed = () => image.classList.add('media-failed');
-    image.addEventListener('error', markFailed);
-    if (image.complete && image.naturalWidth === 0 && image.src) markFailed();
+  /* Built-in media resilience: external failures become polished local renders. */
+  function imageLabel(image, index) {
+    const card = image.closest('.product-card');
+    if (card) return $('.product-name', card)?.textContent.trim() || `VARIANT ${index + 1}`;
+    const category = image.closest('.category-tile');
+    if (category) return `${$('.category-label', category)?.textContent.trim() || 'CATEGORY'} / VARAILLY`;
+    if (image.closest('.lookbook-item')) return `FIELD NOTE / ${String(index + 1).padStart(2, '0')}`;
+    if (image.closest('.insta-item')) return '@VARAILLY / COMMUNITY';
+    if (image.closest('.manifesto-image')) return 'VARAILLY / DESIGN STUDIO';
+    if (image.closest('.hero-webgl-fallback')) return 'DROP 004 / VARAILLY';
+    return 'VARAILLY / FUTURE UNIFORM';
+  }
+
+  function generatedMedia(label, index) {
+    const palettes = [
+      ['#10131c', '#8257ff', '#c8ff3d', '#3fe4ff'],
+      ['#11151d', '#ff4f91', '#3fe4ff', '#f4f2ed'],
+      ['#14131b', '#ff8a3d', '#c8ff3d', '#8257ff'],
+      ['#0d1620', '#3fe4ff', '#8257ff', '#c8ff3d']
+    ];
+    const palette = palettes[index % palettes.length];
+    const design = index % 3;
+    const graphic = design === 0
+      ? `<ellipse cx="400" cy="500" rx="122" ry="72" fill="none" stroke="${palette[2]}" stroke-width="18"/><ellipse cx="400" cy="500" rx="72" ry="152" fill="none" stroke="${palette[3]}" stroke-width="12"/><rect x="312" y="480" width="176" height="38" rx="19" fill="${palette[2]}"/>`
+      : design === 1
+        ? `<g transform="translate(280 380) rotate(-12 120 120)">${Array.from({ length: 7 }, (_, stripe) => `<rect x="${stripe * 38}" width="17" height="260" rx="8" fill="${stripe % 2 ? palette[2] : palette[3]}"/>`).join('')}</g>`
+        : `<path d="M300 372 400 620 500 372" fill="none" stroke="${palette[2]}" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/><path d="M328 650h144" stroke="${palette[3]}" stroke-width="14" stroke-linecap="round"/>`;
+    const safeLabel = label.replace(/[&<>]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[character]));
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${palette[0]}"/><stop offset=".52" stop-color="${palette[1]}" stop-opacity=".34"/><stop offset="1" stop-color="#05070b"/></linearGradient>
+        <linearGradient id="cloth" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#343b4c"/><stop offset=".45" stop-color="#202633"/><stop offset="1" stop-color="#11151d"/></linearGradient>
+        <filter id="shadow"><feDropShadow dx="0" dy="38" stdDeviation="32" flood-color="#000" flood-opacity=".65"/></filter>
+        <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse"><path d="M52 0H0v52" fill="none" stroke="#fff" stroke-opacity=".055"/></pattern>
+        <pattern id="weave" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 0h8M0 4h8" stroke="#fff" stroke-opacity=".028"/></pattern>
+      </defs>
+      <rect width="800" height="1000" fill="url(#bg)"/>
+      <rect width="800" height="1000" fill="url(#grid)"/>
+      <circle cx="640" cy="210" r="230" fill="${palette[3]}" opacity=".07"/>
+      <circle cx="120" cy="820" r="260" fill="${palette[2]}" opacity=".055"/>
+      <g filter="url(#shadow)">
+        <path d="M152 262 300 144l48 68h104l48-68 148 118-68 140-54-35v414q-126 30-252 0V377l-54 35z" fill="url(#cloth)" stroke="#fff" stroke-opacity=".22" stroke-width="3"/>
+        <path d="M348 212q52 58 104 0" fill="none" stroke="#090c12" stroke-width="28" stroke-linecap="round"/>
+        <path d="M349 216q51 45 102 0" fill="none" stroke="#596174" stroke-opacity=".55" stroke-width="6"/>
+        <path d="M152 262 300 144l48 68h104l48-68 148 118-68 140-54-35v414q-126 30-252 0V377l-54 35z" fill="url(#weave)"/>
+        ${graphic}
+      </g>
+      <text x="400" y="545" text-anchor="middle" fill="#fff" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="30" letter-spacing="3">VARAILLY.</text>
+      <text x="54" y="76" fill="#fff" fill-opacity=".68" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="15" letter-spacing="3">DROP 004 / GENERATED PRODUCT RENDER</text>
+      <text x="54" y="930" fill="#fff" font-family="Inter,Arial,sans-serif" font-weight="850" font-size="22" letter-spacing="1">${safeLabel.toUpperCase()}</text>
+      <text x="54" y="962" fill="${palette[2]}" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="13" letter-spacing="3">220 GSM / LIMITED SYSTEM</text>
+    </svg>`;
+    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+  }
+
+  $$('img').forEach((image, index) => {
+    const applyFallback = () => {
+      if (image.dataset.fallbackApplied === 'true') return;
+      image.dataset.fallbackApplied = 'true';
+      image.classList.remove('media-failed');
+      image.classList.add('generated-fallback');
+      const fallbackSource = generatedMedia(imageLabel(image, index), index);
+      image.src = fallbackSource;
+      const product = catalog.find(item => item.card.contains(image));
+      if (product) product.displayImage = fallbackSource;
+    };
+    image.addEventListener('error', applyFallback, { once: true });
+    if (image.closest('.product-card')) applyFallback();
+    else if (image.complete && image.naturalWidth === 0 && image.src) applyFallback();
   });
 
   /* Escape closes every layer */
