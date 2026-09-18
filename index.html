@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Cpath d='M7 8L16 24L25 8' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="assets/css/style.css?v=29">
+    <link rel="stylesheet" href="assets/css/style.css?v=30">
 </head>
 <body>
 
@@ -114,16 +114,16 @@
                 </div>
             </div>
             <div class="hero-image reveal">
-                <div class="hero-3d-scene">
-                    <!-- Glowing ring behind image -->
-                    <div class="hero-glow-ring"></div>
-                    <!-- Main image -->
-                    <img class="hero-main-img" src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=900&q=80&auto=format&fit=crop" alt="" loading="eager">
-                    <!-- Floating 3D elements -->
-                    <img class="hero-float hero-float-1" src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=300&q=80&auto=format&fit=crop" alt="">
-                    <img class="hero-float hero-float-2" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&q=80&auto=format&fit=crop" alt="">
-                    <!-- 3D Badge -->
-                    <div class="hero-3d-badge">NEW DROP</div>
+                <div class="hero-webgl-stage" id="hero3dStage" aria-label="Interactive 3D VARAILLY t-shirt. Drag to rotate.">
+                    <canvas class="product-webgl" id="hero3dCanvas" aria-hidden="true"></canvas>
+                    <div class="hero-3d-scene hero-webgl-fallback">
+                        <div class="hero-glow-ring"></div>
+                        <img class="hero-main-img" src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=900&q=80&auto=format&fit=crop" alt="VARAILLY editorial streetwear look" loading="eager">
+                        <img class="hero-float hero-float-1" src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=300&q=80&auto=format&fit=crop" alt="" aria-hidden="true">
+                        <img class="hero-float hero-float-2" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&q=80&auto=format&fit=crop" alt="" aria-hidden="true">
+                    </div>
+                    <div class="hero-3d-badge"><span class="live-dot"></span> 3D PREVIEW</div>
+                    <div class="webgl-hint"><span>Drag to rotate</span><button type="button" id="hero3dReset">Reset view</button></div>
                 </div>
             </div>
         </div>
@@ -383,6 +383,58 @@
                         <span class="product-price">$49.99</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive 3D Variant Lab -->
+    <section class="variant-lab" id="variant-lab">
+        <div class="variant-lab-grid"></div>
+        <div class="container variant-lab-inner">
+            <div class="variant-lab-copy reveal">
+                <span class="section-label">INTERACTIVE PRODUCT SYSTEM / 01</span>
+                <h2 class="variant-lab-title">Build the next<br><em>version</em> of you.</h2>
+                <p class="variant-lab-text">Rotate the garment in real time, switch the base color, and preview the graphic language before you shop. This is not a flat product card—it is a live WebGL garment.</p>
+                <div class="variant-specs" aria-label="Product specifications">
+                    <span><strong>220</strong> GSM</span>
+                    <span><strong>100%</strong> organic cotton</span>
+                    <span><strong>04</strong> limited graphics</span>
+                </div>
+                <div class="variant-controls">
+                    <div class="variant-control-group">
+                        <span class="variant-control-label">Base color</span>
+                        <div class="variant-swatches" id="variantColors" role="group" aria-label="Choose shirt color">
+                            <button class="variant-swatch active" style="--swatch:#202530" data-color="#202530" aria-label="Void black"></button>
+                            <button class="variant-swatch" style="--swatch:#eee9dc" data-color="#eee9dc" aria-label="Bone"></button>
+                            <button class="variant-swatch" style="--swatch:#6d4aff" data-color="#6d4aff" aria-label="Signal violet"></button>
+                            <button class="variant-swatch" style="--swatch:#a7ff3f" data-color="#a7ff3f" aria-label="Acid lime"></button>
+                        </div>
+                    </div>
+                    <div class="variant-control-group">
+                        <span class="variant-control-label">Graphic</span>
+                        <div class="graphic-tabs" id="variantGraphics" role="group" aria-label="Choose graphic">
+                            <button class="graphic-tab active" data-graphic="orbit">Orbit</button>
+                            <button class="graphic-tab" data-graphic="signal">Signal</button>
+                            <button class="graphic-tab" data-graphic="core">Core</button>
+                        </div>
+                    </div>
+                </div>
+                <a href="#products" class="btn btn-primary">Shop the drop <span aria-hidden="true">↗</span></a>
+            </div>
+
+            <div class="variant-viewer reveal" id="lab3dStage" aria-label="Interactive 3D t-shirt configurator. Drag to rotate.">
+                <canvas class="product-webgl" id="lab3dCanvas" aria-hidden="true"></canvas>
+                <div class="variant-viewer-fallback">
+                    <svg viewBox="0 0 320 360" aria-hidden="true">
+                        <path id="fallbackShirtPath" d="M45 92 113 40l22 30h50l22-30 68 52-31 63-24-15v174H100V140l-24 15z" fill="#202530" stroke="#3fe4ff" stroke-width="2"/>
+                        <path d="M135 70q25 28 50 0" fill="none" stroke="#c8ff3d" stroke-width="4"/>
+                        <text id="fallbackGraphicLabel" x="160" y="205" text-anchor="middle" fill="#c8ff3d" font-size="20" font-weight="900" font-family="Inter,sans-serif">ORBIT / VARAILLY.</text>
+                    </svg>
+                </div>
+                <div class="viewer-orbit viewer-orbit-a"></div>
+                <div class="viewer-orbit viewer-orbit-b"></div>
+                <div class="viewer-status"><span class="live-dot"></span> 3D preview</div>
+                <div class="viewer-hint">Drag / swipe to rotate</div>
             </div>
         </div>
     </section>
@@ -932,6 +984,7 @@
         </div>
     </aside>
 
-    <script src="assets/js/main.js?v=29"></script>
+    <script src="assets/js/main.js?v=30"></script>
+    <script src="assets/js/webgl-scenes.js?v=5"></script>
 </body>
 </html>
