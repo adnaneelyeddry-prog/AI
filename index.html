@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VARAILLY. — Wear Your Variant</title>
-    <meta name="description" content="VARAILLY. is a premium youth streetwear brand. Bold designs, sustainable materials, available on Amazon.">
+    <meta name="description" content="VARAILLY. is a future-facing streetwear label creating limited graphic tees for men, women, and kids, available through Amazon.">
+    <meta name="theme-color" content="#07070a">
+    <meta name="color-scheme" content="dark light">
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Cpath d='M7 8L16 24L25 8' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="assets/css/style.css?v=26">
+    <link rel="stylesheet" href="assets/css/style.css?v=29">
 </head>
 <body>
 
@@ -34,7 +37,7 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-inner">
-            <a href="/" class="header-logo" data-hover="logo">VARAILLY.</a>
+            <a href="index.html" class="header-logo" aria-label="VARAILLY home">VARAILLY<span>.</span></a>
             <nav class="header-nav" id="headerNav">
                 <a href="#products" class="nav-link" data-hover="link">Shop</a>
                 <a href="#categories" class="nav-link" data-hover="link">Categories</a>
@@ -43,19 +46,19 @@
                 <a href="contact.html" class="nav-link" data-hover="link">Contact</a>
             </nav>
             <div class="header-actions">
-                <button class="icon-action" id="searchBtn" aria-label="Search">
+                <button class="icon-action" id="searchBtn" aria-label="Search products" aria-haspopup="dialog">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
                 </button>
-                <button class="icon-action" id="wishlistBtn" aria-label="Wishlist">
+                <button class="icon-action" id="wishlistBtn" aria-label="Open wishlist" aria-haspopup="dialog" aria-controls="wishDrawer">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
                     </svg>
                     <span class="badge-count" id="wishlistCount">0</span>
                 </button>
-                <button class="cart-btn" data-hover="button" id="cartBtn">
+                <button class="cart-btn" id="cartBtn" aria-label="Open shopping cart" aria-haspopup="dialog" aria-controls="cartDrawer">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
                         <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -63,7 +66,7 @@
                     </svg>
                     <span class="cart-count" id="cartCount">0</span>
                 </button>
-                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="headerNav">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -101,7 +104,7 @@
                         <span class="hero-stat-label">Happy Customers</span>
                     </div>
                     <div class="hero-stat">
-                        <span class="hero-stat-number">4.9★</span>
+                        <span class="hero-stat-number">4.9 / 5</span>
                         <span class="hero-stat-label">Amazon Rating</span>
                     </div>
                     <div class="hero-stat">
@@ -130,24 +133,24 @@
     <div class="trust-bar">
         <div class="container">
             <div class="trust-bar-inner">
-                <span class="trust-item">🚚 Free Shipping Over $50</span>
-                <span class="trust-item">⚡ Prime 2-Day Delivery</span>
-                <span class="trust-item">↩️ 30-Day Easy Returns</span>
-                <span class="trust-item">🔒 Secure Checkout</span>
+                <span class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7zM7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>Free Shipping Over $50</span>
+                <span class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 14h6l-1 8 9-13h-6z"/></svg>Prime 2-Day Delivery</span>
+                <span class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9a8 8 0 1 1 2 8M4 9V4m0 5h5"/></svg>30-Day Easy Returns</span>
+                <span class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10V7a6 6 0 0 1 12 0v3M5 10h14v11H5z"/></svg>Secure Checkout</span>
             </div>
         </div>
     </div>
 
-    <!-- As Seen On -->
-    <div class="seen-on">
+    <!-- Material proof -->
+    <div class="seen-on" aria-label="Product standards">
         <div class="container">
-            <p class="seen-on-label">TRUSTED BY</p>
+            <p class="seen-on-label">BUILT TO OUTLAST THE DROP</p>
             <div class="seen-on-logos">
-                <span class="seen-on-logo">HYPEBEAST</span>
-                <span class="seen-on-logo">COMPLEX</span>
-                <span class="seen-on-logo">HIGHSNOBIETY</span>
-                <span class="seen-on-logo">GQ</span>
-                <span class="seen-on-logo">VOGUE</span>
+                <span class="seen-on-logo">220 GSM</span>
+                <span class="seen-on-logo">RING-SPUN</span>
+                <span class="seen-on-logo">WATER-BASED INK</span>
+                <span class="seen-on-logo">LIMITED RUN</span>
+                <span class="seen-on-logo">ORGANIC COTTON</span>
             </div>
         </div>
     </div>
@@ -537,7 +540,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">LOOKBOOK</span>
-                <h2 class="section-title">SS24 Collection</h2>
+                <h2 class="section-title">SS26 Field Notes</h2>
             </div>
         </div>
         <div class="lookbook-scroll" id="lookbookScroll">
@@ -615,7 +618,7 @@
                         <span class="trust-badge">✓ Free Returns</span>
                         <span class="trust-badge">✓ Authentic Guarantee</span>
                     </div>
-                    <a href="#" class="btn btn-amazon" data-hover="button">Shop on Amazon</a>
+                    <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-amazon">Shop on Amazon</a>
                 </div>
             </div>
         </div>
@@ -708,7 +711,7 @@
                 <p class="cta-banner-text">Join 25,000+ people wearing their variant. New designs drop every Friday.</p>
                 <div class="cta-banner-buttons">
                     <a href="#products" class="btn btn-primary" data-hover="button">Shop Now</a>
-                    <a href="#" class="btn btn-amazon" data-hover="button">Buy on Amazon</a>
+                    <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-amazon">Buy on Amazon</a>
                 </div>
             </div>
         </div>
@@ -736,7 +739,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="/" class="footer-logo">VARAILLY.</a>
+                    <a href="index.html" class="footer-logo">VARAILLY.</a>
                     <p class="footer-desc">Premium youth streetwear for the bold and expressive. Wear your variant.</p>
                     <div class="footer-socials">
                         <a href="#" class="social-link" data-hover="link" aria-label="Instagram">
@@ -808,7 +811,7 @@
     </div>
 
     <!-- Search Overlay -->
-    <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Product search" aria-hidden="true">
         <div class="search-panel">
             <button class="search-close" id="searchClose" aria-label="Close search">✕</button>
             <div class="search-input-wrap">
@@ -825,7 +828,7 @@
     </div>
 
     <!-- Product Quick View Modal -->
-    <div class="modal-overlay quickview-overlay" id="quickViewModal">
+    <div class="modal-overlay quickview-overlay" id="quickViewModal" role="dialog" aria-modal="true" aria-labelledby="qvTitle" aria-hidden="true">
         <div class="quickview-box">
             <button class="modal-close" id="quickViewClose">✕</button>
             <div class="quickview-grid">
@@ -890,9 +893,9 @@
 
     <!-- Wishlist Drawer -->
     <div class="cart-overlay" id="wishOverlay"></div>
-    <aside class="cart-drawer" id="wishDrawer">
+    <aside class="cart-drawer" id="wishDrawer" role="dialog" aria-modal="true" aria-labelledby="wishTitle" aria-hidden="true">
         <div class="cart-drawer-header">
-            <h3>Wishlist</h3>
+            <h3 id="wishTitle">Wishlist</h3>
             <button class="cart-close" id="wishClose" aria-label="Close wishlist">✕</button>
         </div>
         <div class="cart-drawer-body" id="wishBody">
@@ -900,54 +903,16 @@
         </div>
     </aside>
 
-    <!-- Category Selector Modal -->
-    <div class="modal-overlay" id="categoryModal">
-        <div class="modal-box">
-            <button class="modal-close" id="categoryModalClose">✕</button>
-            <h3 class="modal-title">Choose Category</h3>
-            <p class="modal-subtitle" id="modalProductName">Select who this is for</p>
-            <div class="modal-options">
-                <button class="modal-option" data-category="Men">
-                    <span class="modal-option-icon">👔</span>
-                    <span class="modal-option-label">Men</span>
-                </button>
-                <button class="modal-option" data-category="Women">
-                    <span class="modal-option-icon">👗</span>
-                    <span class="modal-option-label">Women</span>
-                </button>
-                <button class="modal-option" data-category="Kids">
-                    <span class="modal-option-icon">🧒</span>
-                    <span class="modal-option-label">Kids</span>
-                </button>
-                <button class="modal-option" data-category="Unisex">
-                    <span class="modal-option-icon">✨</span>
-                    <span class="modal-option-label">Unisex</span>
-                </button>
-            </div>
-            <div class="modal-sizes">
-                <p class="modal-sizes-label">Size</p>
-                <div class="modal-size-options">
-                    <button class="modal-size" data-size="S">S</button>
-                    <button class="modal-size" data-size="M">M</button>
-                    <button class="modal-size active" data-size="L">L</button>
-                    <button class="modal-size" data-size="XL">XL</button>
-                    <button class="modal-size" data-size="XXL">XXL</button>
-                </div>
-            </div>
-            <button class="btn btn-primary modal-add-btn" id="modalAddBtn">Add to Cart</button>
-        </div>
-    </div>
-
     <!-- Floating Amazon Button -->
-    <a href="https://www.amazon.com" target="_blank" rel="noopener" class="floating-amazon" id="floatingAmazon">
+    <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="floating-amazon" id="floatingAmazon">
         <span>🛒</span> Shop on Amazon
     </a>
 
     <!-- Cart Drawer -->
     <div class="cart-overlay" id="cartOverlay"></div>
-    <aside class="cart-drawer" id="cartDrawer">
+    <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
         <div class="cart-drawer-header">
-            <h3>Your Cart</h3>
+            <h3 id="cartTitle">Your Cart</h3>
             <button class="cart-close" id="cartClose" aria-label="Close cart">✕</button>
         </div>
         <div class="ship-progress" id="shipProgress">
@@ -962,11 +927,11 @@
                 <span>Subtotal</span>
                 <strong id="cartSubtotal">$0</strong>
             </div>
-            <a href="https://www.amazon.com" target="_blank" rel="noopener" class="btn btn-primary cart-checkout-btn">Checkout on Amazon</a>
+            <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary cart-checkout-btn">Checkout on Amazon</a>
             <p class="cart-note">Free shipping on orders over $50 with Prime</p>
         </div>
     </aside>
 
-    <script src="assets/js/main.js?v=26"></script>
+    <script src="assets/js/main.js?v=29"></script>
 </body>
 </html>
